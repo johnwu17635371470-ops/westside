@@ -1,0 +1,45 @@
+# Dependencies and caches
+node_modules/
+.npm/
+.pnpm-store/
+.cache/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+
+# Local tools and temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+tmp/
+temp/
+playwright-report/
+test-results/
+
+# Deployment archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Keep the Sites hosting manifest, ignore local runtime state
+.openai/*
+!.openai/hosting.json
+
+# dist/ contains the authored website and original assets; track it.
