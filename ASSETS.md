@@ -1,0 +1,14 @@
+# WESTSIDE generated assets
+
+Generated with the built-in imagegen tool. Original images are bundled in dist/assets. Product and lookbook images are rendered as CSS sprite sheets, without external image dependencies.
+
+## Prompts
+
+### Hero
+Use case: ads-marketing. Original luxury West Coast hip-hop jewelry campaign photograph for WESTSIDE website hero, landscape 1536x1024. Tight editorial crop of an adult male model neck and torso wearing a white tank top, black open shirt, substantial polished silver Cuban chain and small silver pendant; head cropped above lips. Model on right two thirds, left third dark atmospheric negative space. Sunset Los Angeles palm trees and vintage black car blurred in background, warm orange rim lighting and hard flash glint on realistic silver metal, charcoal blacks, subtle 35mm film grain, premium independent fashion editorial, candid low angle. No words, no logos, no watermark.
+
+### Products
+Use case: product-mockup. Make a single perfectly aligned product photography sprite sheet for a luxury West Coast silver jewelry concept shop. Landscape 1536x1024 image divided into exactly FOUR equal columns and TWO equal rows, eight equally sized cells with no lines and no gaps. Every cell has identical flat very dark charcoal #191919 background. Each item centered in its cell with generous 18% margins, fully visible without crossing cells. Top row left to right: (1) chunky polished silver Cuban link necklace arranged oval, (2) thinner silver rope necklace arranged oval, (3) silver cross pendant alone upright, (4) silver rectangular engraved sun pendant alone upright. Bottom row left to right: (5) thick silver signet ring with black square face three quarter angle, (6) silver sculptural flame ring three quarter angle, (7) chunky silver Cuban link bracelet arranged circle, (8) narrow silver open cuff bracelet. Realistic polished silver with subtle reflections, hard directional studio lighting, premium jewelry catalog photo, consistent camera scale. No text, no labels, no numbers, no watermark.
+
+### Lookbook
+Use case: photorealistic-natural. One editorial triptych campaign image for West Coast hip-hop jewelry concept label. 1536x1024 landscape divided into exactly three equal vertical photographic panels, no gutters no text. Left panel: adult male in black tee, cropped from chin to waist wearing layered polished silver chains, leaning on vintage dark car in Los Angeles golden hour. Middle panel: closeup adult hand with silver signet and flame rings resting on vintage car steering wheel, hard flash, moody black and white photography. Right panel: stylish adult woman in white tank and dark baggy jeans, silver chain and bracelet, waist-up from side on palm-lined street with warm orange sunset. Authentic analog film grain, premium fashion editorial, deep charcoal tones and warm sunlight, cohesive streetwear attitude, no brand logos, no words, no watermark.
