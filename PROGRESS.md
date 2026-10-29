@@ -1,5 +1,9 @@
 # FUBAO JEWELRY progress
 
+## Necklace comparison guide — 2026-10-30
+
+Added four-selection necklace-guide.html, homepage entry and sitemap URL. data/necklace-evidence.json preserves listing-derived lengths, extensions, widths and variant limits. User clarified that B0D9GWX6L6 is fabric; this is explicitly attributed to the owner, with the conflicting listing field retained as a note. Unknown package counts and lariat drop length are not inferred. The main catalog build regenerates both guides. Catalog/link/JSON checks passed; layouts at 390, 768 and 1440 showed no document overflow, fabric FAQ expansion passed and console errors were empty. Owner-private access and unresolved domain connection are unchanged.
+
 ## Ring comparison guide — 2026-10-30
 
 Added a seven-selection ring guide at dist/ring-guide.html, linked from the homepage Q&A and sitemap. data/ring-evidence.json records seller-stated specification fields for four listings and limited title evidence for three. Retrieved Amazon extracts can be cached; review date is not a live inventory check. Unresolved sizes, variants and conflicting stone/material claims remain explicitly qualified. No price, image or sales guarantee was changed.
