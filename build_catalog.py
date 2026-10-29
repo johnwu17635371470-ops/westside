@@ -1,5 +1,5 @@
 """Build crawlable catalog pages from public, non-confidential product data."""
-import json,html,re
+import json,html,re,subprocess
 from pathlib import Path
 ROOT=Path(__file__).parent
 D=ROOT/'dist'
@@ -67,4 +67,5 @@ source_page=D/'sources.html'
 source_text=source_page.read_text(encoding='utf-8').replace('This collection contains 21 distinct product references extracted','The source dataset contains 21 distinct product references extracted').replace('Two records have no price.','18 selections with matched source images are displayed; 3 without verified source photos are skipped. One displayed selection has no price.').replace('Unverified photos are explicitly marked pending.','Selections without verified photos are omitted from the displayed collection.')
 source_text=source_text.replace('class="wordmark" href="index.html">FUBAO JEWELRY','class="wordmark" aria-label="FUBAO JEWELRY home" href="index.html">Fubao<span class="wordmark-sub">JEWELRY</span>')
 source_page.write_text(source_text.replace('</head>',f'<link rel="stylesheet" href="luxury.css"><link rel="canonical" href="{origin}/sources.html"></head>'),encoding='utf-8')
+subprocess.run(['node', str(ROOT/'build_ring_guide.cjs')], check=True)
 print(f'Built {len(items)} product pages. Images: {sum(bool(p.get("image")) for p in items)}. Domain fubaojewelry.com remains pending hosting connection.')

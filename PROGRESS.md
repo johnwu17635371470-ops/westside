@@ -1,5 +1,11 @@
 # FUBAO JEWELRY progress
 
+## Ring comparison guide — 2026-10-30
+
+Added a seven-selection ring guide at dist/ring-guide.html, linked from the homepage Q&A and sitemap. data/ring-evidence.json records seller-stated specification fields for four listings and limited title evidence for three. Retrieved Amazon extracts can be cached; review date is not a live inventory check. Unresolved sizes, variants and conflicting stone/material claims remain explicitly qualified. No price, image or sales guarantee was changed.
+
+build_ring_guide.cjs generates the guide; build_catalog.py calls it after rebuilding the catalog so the sitemap entry and homepage link survive regeneration. Full regeneration and check_catalog.py passed. Mobile 390 and desktop 1440 showed no document overflow; the comparison table scrolls within its region. FAQ expansion passed and browser errors were empty. Domain and public-access blockers are unchanged; this update preserves owner-private access.
+
 ## Noir Edition update — 2026-10-30
 
 User selected the separate luxury hip-hop preview and requested continued work. Adopted its black/ivory/silver palette, gothic Fubao wordmark, serif editorial typography, split hero and spacious collection. All person photographs are in color; center lookbook hand photo colorized using built-in imagegen. Product photos and 18 source-linked entries remain unchanged. The prior version remains recoverable through Git.
