@@ -1,5 +1,9 @@
 # FUBAO JEWELRY progress
 
+## Noir Edition update — 2026-10-30
+
+User selected the separate luxury hip-hop preview and requested continued work. Adopted its black/ivory/silver palette, gothic Fubao wordmark, serif editorial typography, split hero and spacious collection. All person photographs are in color; center lookbook hand photo colorized using built-in imagegen. Product photos and 18 source-linked entries remain unchanged. The prior version remains recoverable through Git. Source integration and release checks are in progress; deployment completion must be established from the native publishing result.
+
 ## Current update — 2026-10-30
 
 - Brand changed to FUBAO JEWELRY, preserving the charcoal / silver / sunset-orange style.

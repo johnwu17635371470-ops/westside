@@ -1,6 +1,6 @@
 # FUBAO JEWELRY
 
-Static jewelry research storefront, retaining the original WESTSIDE visual direction. Run `node server.cjs` and open http://127.0.0.1:4173. Deployable authored pages and images live in dist/; no npm dependencies.
+Static jewelry research storefront with the selected Noir Edition luxury hip-hop visual direction: black/ivory/silver, gothic brand typography, serif headings and full-color editorial photography. Run `node server.cjs` and open http://127.0.0.1:4173. Deployable authored pages and images live in dist/; no npm dependencies. The visual layer is dist/luxury.css over the original component styles.
 
 Maintain public product data in `data/catalog.json`, then run `python build_catalog.py` (Python standard library only). The generator includes only records with matched generated images: currently 18 homepage cards and static detail pages, source notes, catalog.js, sitemap and robots. Homepage non-catalog design is maintained in dist/index.html; styles are in dist/styles.css. `site.config.json` separates the current hosted origin from planned fubaojewelry.com. Change origin only after the domain works, then rebuild.
 
