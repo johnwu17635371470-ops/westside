@@ -70,4 +70,5 @@ source_page.write_text(source_text.replace('</head>',f'<link rel="stylesheet" hr
 subprocess.run(['node', str(ROOT/'build_ring_guide.cjs')], check=True)
 subprocess.run(['node', str(ROOT/'build_necklace_guide.cjs')], check=True)
 subprocess.run(['node', str(ROOT/'build_bracelet_guide.cjs')], check=True)
+subprocess.run(['node', str(ROOT/'build_guide_hub.cjs')], check=True)
 print(f'Built {len(items)} product pages. Images: {sum(bool(p.get("image")) for p in items)}. Domain fubaojewelry.com remains pending hosting connection.')

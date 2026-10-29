@@ -25,3 +25,20 @@ for p in products:
  if p['image']:assert (d/p['image']).is_file()
 assert 'assets/products.png' not in (d/'app.js').read_text(encoding='utf-8')
 print('PASS: 21 source records; 18 displayed products and generated assets; 3 skipped; local links and structured JSON valid.')
+import xml.etree.ElementTree as ET
+origin=json.loads((r/'site.config.json').read_text(encoding='utf-8'))['origin'].rstrip('/')
+urls={node.text for node in ET.parse(d/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
+titles=[]
+for f in d.rglob('*.html'):
+ s=f.read_text(encoding='utf-8');rel=f.relative_to(d).as_posix()
+ canonical=origin+'/' + ('' if rel=='index.html' else rel)
+ assert f'<link rel="canonical" href="{canonical}">' in s,rel
+ assert canonical in urls,rel
+ title=re.search(r'<title>(.*?)</title>',s);assert title,rel
+ titles.append(title.group(1))
+ assert re.search(r'<meta name="description" content="[^"]+">',s),rel
+assert len(titles)==len(set(titles))==len(urls)==25
+for p in products:
+ if p['image']:assert 'class="related-guide"' in (d/'products'/f'{p["id"]}.html').read_text(encoding='utf-8')
+assert (d/'guides.html').read_text(encoding='utf-8').count('class="guide-card"')==4
+print('PASS: 25 unique titled, described, canonical pages in sitemap; 18 product-guide links and four guide cards.')
