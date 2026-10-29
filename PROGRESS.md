@@ -2,7 +2,9 @@
 
 ## Noir Edition update — 2026-10-30
 
-User selected the separate luxury hip-hop preview and requested continued work. Adopted its black/ivory/silver palette, gothic Fubao wordmark, serif editorial typography, split hero and spacious collection. All person photographs are in color; center lookbook hand photo colorized using built-in imagegen. Product photos and 18 source-linked entries remain unchanged. The prior version remains recoverable through Git. Source integration and release checks are in progress; deployment completion must be established from the native publishing result.
+User selected the separate luxury hip-hop preview and requested continued work. Adopted its black/ivory/silver palette, gothic Fubao wordmark, serif editorial typography, split hero and spacious collection. All person photographs are in color; center lookbook hand photo colorized using built-in imagegen. Product photos and 18 source-linked entries remain unchanged. The prior version remains recoverable through Git.
+
+Published successfully: source cacd013135b10af5e92a6fdac75102be743f4c25; deployment appgdep_6ae38a66a4f48191b682719a0085f53d; native status succeeded at 2026-10-29T18:03:43Z. URL: https://westside-shine-jw.astutejay15.chatgpt.site . The same source was pushed to GitHub main. Homepage checked at 1440, 768, 390 with no horizontal overflow; mobile navigation, filtering and product page verified; preview dialogs and saved list passed; browser error logs empty. Local links, JSON and JavaScript checks passed. Access stays owner-private. This is a later documentation-only release note.
 
 ## Current update — 2026-10-30
 
