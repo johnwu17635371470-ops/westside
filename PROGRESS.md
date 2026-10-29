@@ -10,7 +10,7 @@
 - Reference prices retain the workbook snapshot date and conversion rate; one displayed item is unpriced. Saved-list totals flag unknown prices.
 - 1440 / 768 / 390 checks found no document horizontal overflow. Verified filtering, modal Escape and focus return, saved-list add/increment/remove/empty state, reference totals, unpriced total warning, refresh persistence and mobile navigation. Browser error log empty. Source integrity, links, JSON and JavaScript syntax checks passed.
 - fubaojewelry.com is recorded as the planned domain; no DNS binding or public-access change has been made. Current private hosting cannot serve as public GEO acquisition yet.
-- Publication is being prepared from this source state. Record the returned deployment result in the delivery message; do not infer publication from this file.
+- Published successfully to the existing owner-private Site. Source commit: e70b76453bd223fe85d621f3c2329f22f47eed23. Deployment: appgdep_6ae37c09c7408191b2d7f59df9e55ece. Native deployment tool returned succeeded at 2026-10-29T17:02:29Z. URL: https://westside-shine-jw.astutejay15.chatgpt.site . The same source commit was pushed to GitHub main. This release note is a later documentation-only change.
 
 Next: confirm actual product specifications/supplier information; connect the domain and choose public launch when requested; expand useful selection guides and measure AI citations/recommendation traffic after public launch. The three skipped references remain in data/catalog.json for later completion.
 
