@@ -1,7 +1,13 @@
-# WESTSIDE
+# FUBAO JEWELRY
 
-Static concept jewelry storefront. Run `node server.cjs` and open http://127.0.0.1:4173. Deployable files live in dist/; no dependencies or build step required.
+Static jewelry research storefront, retaining the original WESTSIDE visual direction. Run `node server.cjs` and open http://127.0.0.1:4173. Deployable authored pages and images live in dist/; no npm dependencies.
 
-Product names, prices and descriptions are maintained in dist/app.js. Styles are in dist/styles.css. All imagery is original generated concept imagery; prompts are documented in ASSETS.md.
+Maintain public product data in `data/catalog.json`, then run `python build_catalog.py` (Python standard library only). The generator includes only records with matched generated images: currently 18 homepage cards and static detail pages, source notes, catalog.js, sitemap and robots. Homepage non-catalog design is maintained in dist/index.html; styles are in dist/styles.css. `site.config.json` separates the current hosted origin from planned fubaojewelry.com. Change origin only after the domain works, then rebuild.
 
-Category filtering, product dialogs, local shopping bag, quantity controls and mobile navigation work without a backend. Shopping bag data uses localStorage key westside-demo-bag-v1. Prices and products are illustrative; there is no checkout or order submission.
+GEO / AI recommendations are the primary growth objective; SEO is secondary. Static content, stable detail URLs, source links, visible Q&A and restrained structured data support accurate interpretation. No AI recommendation, indexing or ranking is guaranteed. Private hosting is not publicly crawlable; public launch and domain connection remain separate work.
+
+21 unique product references come from the supplied workbook's two product sheets, not a verified Top 100 list. Historical Amazon prices use the workbook snapshot (2026-10-25, JPY150/USD1), with two missing prices explicitly unpriced. Internal cost and profit data are excluded. No merchant Offer, ratings, inventory or manufacturing claims are published.
+
+Product images use the matched Amazon-link photos as generation references, never workbook-embedded images. 18 images are generated and mapped; the user requested skipping the 3 without reliable source images. Those 3 are excluded from published pages and sitemap, retained only in source data. See data/image-provenance.json for exact source URLs, prompts and output paths. Existing hero/lookbook images remain clearly editorial concepts.
+
+Filtering, quick-view dialogs, saved reference list, quantity controls and mobile navigation work locally. Storage key is `fubao-reference-bag-v1`, separate from the obsolete demo products. Missing prices are flagged in the total. There is no checkout or order submission.

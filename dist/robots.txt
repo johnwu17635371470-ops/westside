@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://westside-shine-jw.astutejay15.chatgpt.site/sitemap.xml

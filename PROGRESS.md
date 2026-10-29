@@ -1,4 +1,20 @@
-# WESTSIDE progress
+# FUBAO JEWELRY progress
+
+## Current update — 2026-10-30
+
+- Brand changed to FUBAO JEWELRY, preserving the charcoal / silver / sunset-orange style.
+- GEO / AI recommendations are the primary future objective; SEO is secondary. This preference is recorded in AGENTS.md.
+- Sanitized 21 distinct workbook references; 18 are displayed with matching link-based generated photos. User explicitly requested skipping B0BRPZ5529, B0CR45V6ZM and B0FNCSPDLQ for now because their source photos could not be reliably obtained.
+- Product images are generated from matched Amazon-link photos, never workbook images. All 18 files and prompt/source mapping are saved in the project.
+- Added 18 static detail pages, visible source/pricing explanations, practical Q&A, CollectionPage/ItemList/Product/WebSite/Organization structured data, sitemap and robots. No seller offers, ratings or invented material guarantees.
+- Reference prices retain the workbook snapshot date and conversion rate; one displayed item is unpriced. Saved-list totals flag unknown prices.
+- 1440 / 768 / 390 checks found no document horizontal overflow. Verified filtering, modal Escape and focus return, saved-list add/increment/remove/empty state, reference totals, unpriced total warning, refresh persistence and mobile navigation. Browser error log empty. Source integrity, links, JSON and JavaScript syntax checks passed.
+- fubaojewelry.com is recorded as the planned domain; no DNS binding or public-access change has been made. Current private hosting cannot serve as public GEO acquisition yet.
+- Publication is being prepared from this source state. Record the returned deployment result in the delivery message; do not infer publication from this file.
+
+Next: confirm actual product specifications/supplier information; connect the domain and choose public launch when requested; expand useful selection guides and measure AI citations/recommendation traffic after public launch. The three skipped references remain in data/catalog.json for later completion.
+
+## Historical WESTSIDE release (superseded)
 
 Saved: 2026-10-29 (Asia/Shanghai).
 
@@ -34,7 +50,7 @@ Deployment status: succeeded.
 
 ## Resume
 
-The implementation is complete; no requested edits are pending. Await user feedback before making additional changes.
+This historical section describes the prior eight-product concept release, not the current FUBAO update.
 
 Local preview server was stopped after delivery. Restart with `node server.cjs` from this directory, then open http://127.0.0.1:4173.
 

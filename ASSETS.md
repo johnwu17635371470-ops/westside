@@ -12,3 +12,12 @@ Use case: product-mockup. Make a single perfectly aligned product photography sp
 
 ### Lookbook
 Use case: photorealistic-natural. One editorial triptych campaign image for West Coast hip-hop jewelry concept label. 1536x1024 landscape divided into exactly three equal vertical photographic panels, no gutters no text. Left panel: adult male in black tee, cropped from chin to waist wearing layered polished silver chains, leaning on vintage dark car in Los Angeles golden hour. Middle panel: closeup adult hand with silver signet and flame rings resting on vintage car steering wheel, hard flash, moody black and white photography. Right panel: stylish adult woman in white tank and dark baggy jeans, silver chain and bracelet, waist-up from side on palm-lined street with warm orange sunset. Authentic analog film grain, premium fashion editorial, deep charcoal tones and warm sunlight, cohesive streetwear attitude, no brand logos, no words, no watermark.
+# FUBAO catalog update — 2026-10-30
+
+18 individual product images were generated with the built-in imagegen tool using photographs retrieved from their Amazon product links. Spreadsheet-embedded images were excluded. Exact prompts, ASINs, source page/image URLs, and saved paths are recorded in `data/image-provenance.json`. Final files are in `dist/assets/catalog/`.
+
+Edits preserve the pictured product designs and primarily change backgrounds or lighting. AI outputs are labelled as styled references, not exact product specifications. Visual comparison was performed against each downloaded reference. Complex details may vary; source listings remain linked for comparison.
+
+Missing source photos: B0BRPZ5529, B0CR45V6ZM, B0FNCSPDLQ. Per the user's instruction, these are skipped from published cards/pages until completed. Do not fill them with unrelated images.
+
+The original images documented below remain editorial visuals only; the old product sprite is not used for the new catalog.
