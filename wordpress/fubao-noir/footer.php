@@ -1,6 +1,10 @@
-<?php if (!defined('ABSPATH')) { exit; } ?>
+<?php
+if (!defined('ABSPATH')) { exit; }
+$fubao_policy_url = function_exists('fubao_catalog_policy_url') ? fubao_catalog_policy_url() : '';
+$fubao_policy_url = is_string($fubao_policy_url) ? trim($fubao_policy_url) : '';
+?>
 <footer>
-    <div class="footer-top"><a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark">Fubao<span class="wordmark-sub">JEWELRY</span></a><p>West Coast spirit.<br>Everyday statements.</p><nav aria-label="Footer navigation"><a href="<?php echo esc_url(home_url('/#collection')); ?>">Collection ↗</a><a href="<?php echo esc_url(fubao_noir_page_url('guides')); ?>">Selection guides ↗</a><a href="<?php echo esc_url(fubao_noir_page_url('sources')); ?>">Sources & image notes ↗</a></nav></div>
+    <div class="footer-top"><a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark">Fubao<span class="wordmark-sub">JEWELRY</span></a><p>West Coast spirit.<br>Everyday statements.</p><nav aria-label="Footer navigation"><a href="<?php echo esc_url(home_url('/#collection')); ?>">Collection ↗</a><a href="<?php echo esc_url(fubao_noir_page_url('guides')); ?>">Selection guides ↗</a><a href="<?php echo esc_url(fubao_noir_page_url('sources')); ?>">Sources & image notes ↗</a><?php if ($fubao_policy_url !== '') : ?><a href="<?php echo esc_url($fubao_policy_url); ?>">Shipping &amp; Returns ↗</a><?php endif; ?></nav></div>
     <div class="footer-bottom"><span>© <?php echo esc_html(wp_date('Y')); ?> FUBAO JEWELRY — THE NOIR EDITION</span><span>USD prices. Source-linked product details and AI-styled imagery.</span><a href="#">BACK TO TOP ↑</a></div>
 </footer>
 <dialog id="product-dialog" aria-labelledby="detail-title"><button class="close" data-close aria-label="Close product details">×</button><div id="detail-content"></div></dialog>

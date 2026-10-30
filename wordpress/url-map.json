@@ -123,5 +123,11 @@
     "type": "product",
     "slug": "b0bvzk4z1x",
     "path": "/products/b0bvzk4z1x.html"
+  },
+  {
+    "type": "page",
+    "slug": "shipping-returns",
+    "path": "/shipping-returns.html",
+    "requires": "commerce-policy"
   }
 ]

@@ -2,6 +2,10 @@
 if (!defined('ABSPATH')) { exit; }
 get_header();
 global $product;
+$fubao_policy_url = function_exists('fubao_catalog_policy_url') ? fubao_catalog_policy_url() : '';
+$fubao_delivery_summary = function_exists('fubao_catalog_delivery_summary') ? fubao_catalog_delivery_summary() : '';
+$fubao_policy_url = is_string($fubao_policy_url) ? trim($fubao_policy_url) : '';
+$fubao_delivery_summary = is_string($fubao_delivery_summary) ? trim($fubao_delivery_summary) : '';
 while (have_posts()) {
     the_post();
     $product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : false;
@@ -25,6 +29,8 @@ while (have_posts()) {
                 <?php if ($data['isPurchasable']) : ?>
                     <div class="fubao-purchase woocommerce"><?php woocommerce_template_single_add_to_cart(); ?></div>
                     <p class="shipping-note">Delivery to the United States and Canada. Shipping is $12 for the first purchased unit and $1 for each additional unit; one set counts as one unit. Calculated in your cart.</p>
+                    <?php if ($fubao_delivery_summary !== '') : ?><p class="policy-note"><?php echo esc_html($fubao_delivery_summary); ?></p><?php endif; ?>
+                    <?php if ($fubao_policy_url !== '') : ?><p class="policy-note">We do not offer voluntary change-of-mind returns. Your statutory rights are unaffected. <a href="<?php echo esc_url($fubao_policy_url); ?>">Shipping &amp; Returns ↗</a></p><?php endif; ?>
                 <?php else : ?><p>This piece is not available for purchase.</p><?php endif; ?>
                 <p class="source-note">Historical Amazon source<?php echo $data['sourceDate'] ? ' recorded ' . esc_html($data['sourceDate']) : ''; ?><?php echo $data['referencePrice'] !== null ? ' at $' . esc_html(number_format_i18n($data['referencePrice'], 2)) . ' USD reference, converted from JPY at ¥150 = US$1' : ''; ?>. <?php echo $data['research'] ? 'No FUBAO selling price has been set.' : 'The price above is the current FUBAO selling price; the source reference is retained for context.'; ?> <?php if ($data['sourceUrl']) : ?><a href="<?php echo esc_url($data['sourceUrl']); ?>" target="_blank" rel="noopener noreferrer">View original source ↗</a><?php endif; ?></p>
                 <p>Appearance and source details are listed below. Confirm the sizing and included pieces before ordering; source claims are not independent material guarantees.</p>

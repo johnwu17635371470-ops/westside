@@ -1,7 +1,7 @@
 /*
 Theme Name: FUBAO Noir
 Description: FUBAO JEWELRY's Noir Edition, with source-linked products, WooCommerce checkout and editable WordPress pages.
-Version: 1.1.1
+Version: 1.1.2
 Requires at least: 6.6
 Requires PHP: 7.4
 Text Domain: fubao-noir
@@ -41,6 +41,9 @@ Text Domain: fubao-noir
 .fubao-purchase .single_add_to_cart_button.button { margin: 0; width: auto; min-height: 48px; border: 1px solid #b8ad99; background: #e8e4da; color: #171715; border-radius: 0; }
 .fubao-purchase .single_add_to_cart_button.button:hover { background: #fffdf8; }
 .fubao-product .shipping-note { font-size: 11px; color: #c2baae; }
+.fubao-product .policy-note { margin: 12px 0; font-size: 12px; line-height: 1.7; color: #c2baae; }
+.fubao-product .policy-note a { text-decoration: underline; text-underline-offset: 3px; }
+.footer-top nav { flex-wrap: wrap; min-width: 0; }
 .fubao-commerce { background: #e8e4da; color: #1b1915; min-height: 65vh; padding-top: 60px; padding-bottom: 70px; }
 .fubao-commerce > .entry-title { margin-bottom: 35px; }
 .fubao-commerce :is(h2,h3,h4) { color: #1b1915; font-family: Georgia, serif; letter-spacing: -.5px; line-height: 1.25; }

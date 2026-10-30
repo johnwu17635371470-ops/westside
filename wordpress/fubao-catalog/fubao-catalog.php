@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FUBAO Catalog
  * Description: Source-linked FUBAO research catalog import, editable evidence fields and GEO/SEO metadata.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Requires PHP: 7.4
  * Requires at least: 6.6
  */
@@ -47,6 +47,32 @@ function fubao_catalog_url($post_id) {
     $path = get_post_meta($post_id, '_fubao_path', true);
     return $path ? home_url('/' . ltrim($path, '/')) : '';
 }
+function fubao_catalog_policy_url() {
+    $policy = get_option('fubao_commerce_policy', array());
+    $id = (int) get_option('fubao_commerce_policy_page_id', 0);
+    if (!is_array($policy) || ($policy['approval'] ?? '') !== 'owner-approved-v1' || !$id || get_post_type($id) !== 'page' || get_post_status($id) !== 'publish' || get_post_field('post_name', $id) !== 'shipping-returns' || !fubao_catalog_managed($id) || get_post_meta($id, '_fubao_key', true) !== 'page:shipping-returns' || get_post_meta($id, '_fubao_path', true) !== '/shipping-returns.html') { return ''; }
+    return fubao_catalog_url($id);
+}
+function fubao_catalog_delivery_summary() {
+    if (!fubao_catalog_policy_url()) { return ''; }
+    $policy = get_option('fubao_commerce_policy', array());
+    $delivery = $policy['delivery'] ?? null;
+    if (!is_array($delivery) || ($delivery['countries'] ?? null) !== array('US', 'CA') || !in_array($delivery['day_basis'] ?? '', array('business', 'calendar'), true) || !isset($delivery['handling_days'], $delivery['transit_days']) || !is_int($delivery['handling_days']) || !is_int($delivery['transit_days']) || $delivery['handling_days'] < 0 || $delivery['transit_days'] < 0) { return ''; }
+    $unit = $delivery['day_basis'] === 'business' ? 'business days' : 'calendar days';
+    return sprintf('Estimated delivery to the United States and Canada: about %d %s (%d %s handling and %d %s transit).', $delivery['handling_days'] + $delivery['transit_days'], $unit, $delivery['handling_days'], $unit, $delivery['transit_days'], $unit);
+}
+function fubao_catalog_return_policy() {
+    $url = fubao_catalog_policy_url();
+    $policy = get_option('fubao_commerce_policy', array());
+    if (!$url || ($policy['returns'] ?? '') !== 'no-change-of-mind') { return array(); }
+    return array('@type' => 'MerchantReturnPolicy', '@id' => $url . '#returns-policy', 'applicableCountry' => array('US', 'CA'), 'returnPolicyCategory' => 'https://schema.org/MerchantReturnNotPermitted', 'merchantReturnLink' => $url);
+}
+function fubao_catalog_organization() {
+    $organization = array('@type' => 'Organization', '@id' => home_url('/#organization'), 'name' => 'FUBAO JEWELRY', 'url' => home_url('/'));
+    $policy = fubao_catalog_return_policy();
+    if ($policy) { $organization['hasMerchantReturnPolicy'] = $policy; }
+    return $organization;
+}
 /** Only the explicitly bundled research pages are acquisition/indexing targets. */
 function fubao_catalog_index_targets() {
     static $targets = null;
@@ -63,6 +89,7 @@ function fubao_catalog_index_targets() {
             $targets['/products/' . $asin . '.html'] = array('type' => 'product', 'key' => 'product:' . $asin);
         }
     }
+    if (fubao_catalog_policy_url()) { $targets['/shipping-returns.html'] = array('type' => 'page', 'key' => 'page:shipping-returns'); }
     return $targets;
 }
 function fubao_catalog_indexable_post($post_id) {
@@ -108,7 +135,7 @@ add_filter('post_type_link', 'fubao_catalog_product_link', 10, 2);
 
 function fubao_catalog_rewrites() {
     add_rewrite_rule('^sitemap\.xml$', 'index.php?fubao_sitemap=1', 'top');
-    add_rewrite_rule('^(sources|guides|ring-guide|necklace-guide|bracelet-guide|earring-guide)\.html/?$', 'index.php?pagename=$matches[1]', 'top');
+    add_rewrite_rule('^(sources|guides|ring-guide|necklace-guide|bracelet-guide|earring-guide|shipping-returns)\.html/?$', 'index.php?pagename=$matches[1]', 'top');
     add_rewrite_rule('^products/([a-z0-9-]+)\.html/?$', 'index.php?post_type=product&name=$matches[1]', 'top');
 }
 add_action('init', 'fubao_catalog_rewrites');
@@ -203,8 +230,14 @@ add_action('wp_head', function () {
         if ($product->get_meta('_fubao_source_url')) { $schema['subjectOf'] = array('@type' => 'WebPage', 'url' => $product->get_meta('_fubao_source_url')); }
         if (fubao_catalog_sale_approved($product) && !fubao_catalog_research($product) && $product->get_price() !== '' && is_numeric($product->get_price())) {
             $schema['offers'] = array('@type' => 'Offer', 'url' => fubao_catalog_url($id), 'priceCurrency' => get_woocommerce_currency(), 'price' => wc_format_decimal($product->get_price(), wc_get_price_decimals()), 'seller' => array('@type' => 'Organization', 'name' => 'FUBAO JEWELRY', 'url' => home_url('/')));
-            // Inventory quantities and physical availability have not been verified;
-            // no availability claim is inferred from WooCommerce's default state.
+            $approved_policy = get_option('fubao_commerce_policy', array());
+            $confirmed_ids = $approved_policy['inventory_confirmed_product_ids'] ?? array();
+            if (($approved_policy['approval'] ?? '') === 'owner-approved-v1' && is_array($confirmed_ids) && in_array($product->get_id(), $confirmed_ids, true) && $product->get_meta('_fubao_inventory_confirmed') === 'owner-policy-v1') {
+                $availability = array('instock' => 'InStock', 'outofstock' => 'OutOfStock', 'onbackorder' => 'BackOrder');
+                if (isset($availability[$product->get_stock_status()])) { $schema['offers']['availability'] = 'https://schema.org/' . $availability[$product->get_stock_status()]; }
+            }
+            $return_policy = fubao_catalog_return_policy();
+            if ($return_policy) { $schema['offers']['hasMerchantReturnPolicy'] = $return_policy; }
         }
     } else {
         $schema = get_post_meta($id, '_fubao_schema', true);
@@ -217,13 +250,18 @@ add_action('wp_head', function () {
             }
             $schema = array('@context' => 'https://schema.org', '@graph' => array(
                 array('@type' => 'WebSite', '@id' => home_url('/#website'), 'url' => home_url('/'), 'name' => 'FUBAO JEWELRY', 'publisher' => array('@id' => home_url('/#organization'))),
-                array('@type' => 'Organization', '@id' => home_url('/#organization'), 'name' => 'FUBAO JEWELRY', 'url' => home_url('/')),
+                fubao_catalog_organization(),
                 array('@type' => 'CollectionPage', 'name' => 'FUBAO JEWELRY source-linked collection', 'url' => home_url('/'), 'description' => $description, 'mainEntity' => array('@type' => 'ItemList', 'numberOfItems' => count($items), 'itemListElement' => $items))
             ));
         }
     }
     if (is_array($schema) && $schema) { echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) . '</script>' . "\n"; }
 }, 5);
+add_action('wp_head', function () {
+    if (is_front_page() || !fubao_catalog_return_policy()) { return; }
+    $schema = array_merge(array('@context' => 'https://schema.org'), fubao_catalog_organization());
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+}, 6);
 add_filter('woocommerce_structured_data_product', function ($schema, $product) { return fubao_catalog_research($product) || fubao_catalog_sale_approved($product) ? array() : $schema; }, 20, 2);
 add_filter('woocommerce_is_purchasable', function ($purchasable, $product) {
     if (fubao_catalog_research($product) || ($product && fubao_catalog_managed($product->get_id()) && !fubao_catalog_sale_approved($product))) { return false; }

@@ -102,9 +102,13 @@ def build():
     (PLUGIN/'data/image-derivatives.json').write_text(json.dumps(derivatives,indent=2),encoding='utf-8')
     if (BASE/'woo-defaults.json').is_file():
         shutil.copy2(BASE/'woo-defaults.json',PLUGIN/'data/woo-defaults.json')
-    (BASE/'url-map.json').write_text(json.dumps([{'type':'page','slug':p['slug'],'path':p['path']} for p in pages]+[{'type':'product','slug':p['id'],'path':p['path']} for p in products],indent=2),encoding='utf-8')
+    routes=[{'type':'page','slug':p['slug'],'path':p['path']} for p in pages]+[{'type':'product','slug':p['id'],'path':p['path']} for p in products]
+    if (BASE/'commerce-policy.json').is_file():
+        shutil.copy2(BASE/'commerce-policy.json',PLUGIN/'data/commerce-policy.json')
+        routes.append({'type':'page','slug':'shipping-returns','path':'/shipping-returns.html','requires':'commerce-policy'})
+    (BASE/'url-map.json').write_text(json.dumps(routes,indent=2),encoding='utf-8')
     assert len(pages)==7 and len(products)==18
-    print('Prepared 7 editable pages, 18 WooCommerce research products, 21 original-size WebP derivatives and 25 preserved paths.')
+    print('Prepared 7 editable catalog pages, 18 WooCommerce products, 21 original-size WebP derivatives and 25 preserved catalog paths; shipping/returns publication uses its separate approval-gated helper.')
 
 def package():
     out=ROOT.parent/'fubao-wordpress-packages'

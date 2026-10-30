@@ -80,6 +80,43 @@ if (!defined('WP_CLI') || !WP_CLI || !defined('ABSPATH')) { exit(1); }
         }
         $require($priced === 17 && $unpriced === 1 && count($paths) === 25 && $sample !== null, 'Expected seventeen sale products, one unpriced reference and twenty-five unique paths.');
 
+        // A policy is optional for the original commerce baseline. Treat it as
+        // published only through the plugin's approval + owned-page contract.
+        $policy = get_option('fubao_commerce_policy', array());
+        $policy_url = function_exists('fubao_catalog_policy_url') ? fubao_catalog_policy_url() : '';
+        $policy_active = is_array($policy) && ($policy['approval'] ?? '') === 'owner-approved-v1' && is_string($policy_url) && $policy_url !== '';
+        $check_policy_copy = static function ($html) use ($require) {
+            $text = strtolower(preg_replace('/\s+/u', ' ', html_entity_decode(wp_strip_all_tags($html), ENT_QUOTES, 'UTF-8')));
+            $require(strpos($text, '18 business days') !== false && strpos($text, '3 business days handling') !== false && strpos($text, '15 business days transit') !== false, 'The approved 18-business-day delivery estimate is not visible.');
+            $require(strpos($text, 'we do not accept returns for change of mind') !== false || strpos($text, 'we do not offer voluntary change-of-mind returns') !== false, 'The approved voluntary change-of-mind returns statement is missing.');
+            $require(strpos($text, 'statutory rights') !== false || (strpos($text, 'rights or remedies') !== false && strpos($text, 'applicable law') !== false), 'The policy omits the preservation of applicable statutory rights.');
+        };
+        $policy_report = array('configured' => false, 'expected_acquisition_pages' => 25);
+        if ($policy_active) {
+            $policy_id = (int) get_option('fubao_commerce_policy_page_id', 0);
+            $require($policy_url === $origin . '/shipping-returns.html' && $policy_id > 0 && get_post_type($policy_id) === 'page' && get_post_status($policy_id) === 'publish' && fubao_catalog_managed($policy_id) && get_post_meta($policy_id, '_fubao_key', true) === 'page:shipping-returns' && get_post_meta($policy_id, '_fubao_path', true) === '/shipping-returns.html' && get_permalink($policy_id) === $policy_url, 'The approved policy page lost its owned identity or canonical URL.');
+            $require(function_exists('fubao_catalog_indexable_post') && fubao_catalog_indexable_post($policy_id), 'The approved policy page is not an acquisition/indexing target.');
+            $delivery = $policy['delivery'] ?? array();
+            $require(is_array($delivery) && ($delivery['day_basis'] ?? '') === 'business' && ($delivery['handling_days'] ?? null) === 3 && ($delivery['transit_days'] ?? null) === 15 && ($delivery['countries'] ?? null) === array('US', 'CA') && ($policy['returns'] ?? '') === 'no-change-of-mind', 'The stored approved delivery/returns policy differs from the confirmed terms.');
+            $delivery_summary = function_exists('fubao_catalog_delivery_summary') ? fubao_catalog_delivery_summary() : '';
+            $require(is_string($delivery_summary) && strpos($delivery_summary, '18 business days') !== false, 'The approved delivery-summary interface is missing.');
+            $check_policy_copy(get_post_field('post_content', $policy_id));
+            $confirmed_ids = $policy['inventory_confirmed_product_ids'] ?? array();
+            $require(is_array($confirmed_ids) && count($confirmed_ids) === 17 && count(array_unique($confirmed_ids)) === 17, 'Expected seventeen specifically inventory-confirmed products.');
+            $expected_confirmed = array();
+            foreach ($products as $product) {
+                if (!fubao_catalog_sale_approved($product) || fubao_catalog_research($product)) { continue; }
+                $expected_confirmed[] = $product->get_id();
+                $require(in_array($product->get_id(), $confirmed_ids, true) && $product->get_meta('_fubao_inventory_confirmed') === 'owner-policy-v1', 'An approved sale product lacks the scoped inventory confirmation.');
+            }
+            $actual_confirmed = $confirmed_ids; sort($actual_confirmed); sort($expected_confirmed);
+            $require($actual_confirmed === $expected_confirmed, 'The inventory confirmation includes a product outside the approved seventeen.');
+            $paths[$policy_url] = null;
+            $policy_report = array('configured' => true, 'url' => $policy_url, 'delivery_summary' => $delivery_summary, 'return_policy' => 'no-change-of-mind; statutory rights retained', 'inventory_confirmed_products' => count($expected_confirmed), 'expected_acquisition_pages' => 26);
+        }
+        $expected_page_count = $policy_active ? 26 : 25;
+        $require(count($paths) === $expected_page_count, 'The approved acquisition URL count differs from policy state.');
+
         $package = static function ($country, $qty) use ($sample) {
             $cost = (float) $sample->get_price() * $qty;
             return array('contents' => array('fubao-validation-synthetic' => array('product_id' => $sample->get_id(), 'variation_id' => 0, 'variation' => array(), 'quantity' => $qty, 'data' => $sample, 'line_total' => $cost, 'line_subtotal' => $cost, 'line_tax' => 0, 'line_subtotal_tax' => 0, 'line_tax_data' => array('subtotal' => array(), 'total' => array()))), 'contents_cost' => $cost, 'applied_coupons' => array(), 'user' => array('ID' => 0), 'cart_subtotal' => $cost, 'destination' => array('country' => $country, 'state' => $country === 'US' ? 'CA' : 'ON', 'postcode' => $country === 'US' ? '90210' : 'M5V1A1', 'city' => '', 'address' => '', 'address_1' => '', 'address_2' => ''));
@@ -148,22 +185,32 @@ if (!defined('WP_CLI') || !WP_CLI || !defined('ABSPATH')) { exit(1); }
             foreach ($value as $child) { if (is_array($child)) { $found = array_merge($found, $product_nodes($child)); } }
             return $found;
         };
-        $check_product_schema = static function ($html, $product) use ($parse_html, $product_nodes, $require, $origin) {
+        $check_product_schema = static function ($html, $product) use ($parse_html, $product_nodes, $require, $origin, $policy_active, $policy_url, $sort_codes) {
             $xpath = $parse_html($html); $nodes = array();
             foreach ($xpath->query('//script[@type="application/ld+json"]') as $script) { $nodes = array_merge($nodes, $product_nodes(json_decode($script->textContent, true, 512, JSON_THROW_ON_ERROR))); }
             $require(count($nodes) === 1, 'Expected exactly one Product schema for a catalog product.');
             $schema = $nodes[0];
             $require(isset($schema['url']) && $schema['url'] === get_permalink($product->get_id()), 'Product schema URL differs from the preserved permalink.');
+            $require(!array_key_exists('aggregateRating', $schema) && !array_key_exists('review', $schema), 'Product schema has acquired an unverified review or rating.');
+            $require(isset($schema['subjectOf']['url'], $schema['identifier']['value']) && $schema['subjectOf']['url'] === $product->get_meta('_fubao_source_url') && $schema['identifier']['value'] === $product->get_meta('_fubao_asin'), 'Product schema no longer preserves its source URL/identifier.');
             if (fubao_catalog_sale_approved($product) && !fubao_catalog_research($product)) {
                 $offer = isset($schema['offers']) ? $schema['offers'] : null;
                 $require(is_array($offer) && isset($offer['@type'], $offer['priceCurrency'], $offer['price'], $offer['url']) && $offer['@type'] === 'Offer' && $offer['priceCurrency'] === 'USD' && $offer['url'] === get_permalink($product->get_id()) && is_numeric($offer['price']) && wc_format_decimal($offer['price'], wc_get_price_decimals()) === wc_format_decimal($product->get_price(), wc_get_price_decimals()), 'Product Offer price/currency/URL differs from the current Woo selling price.');
+                if ($policy_active) {
+                    $availability = array('instock' => 'InStock', 'outofstock' => 'OutOfStock', 'onbackorder' => 'BackOrder');
+                    $stock_status = $product->get_stock_status();
+                    $require(isset($availability[$stock_status]) && isset($offer['availability']) && $offer['availability'] === 'https://schema.org/' . $availability[$stock_status], 'Confirmed Product availability does not match its current Woo stock status.');
+                    $returns = $offer['hasMerchantReturnPolicy'] ?? null;
+                    $require(is_array($returns) && ($returns['@type'] ?? '') === 'MerchantReturnPolicy' && ($returns['@id'] ?? '') === $policy_url . '#returns-policy' && ($returns['returnPolicyCategory'] ?? '') === 'https://schema.org/MerchantReturnNotPermitted' && ($returns['merchantReturnLink'] ?? '') === $policy_url && $sort_codes($returns['applicableCountry'] ?? array()) === array('CA', 'US') && !isset($returns['merchantReturnDays']), 'Product Offer return policy differs from the approved US/CA no-change-of-mind policy.');
+                }
             } else { $require(!array_key_exists('offers', $schema), 'The unpriced reference has acquired an Offer.'); }
         };
         // Capture only our known metadata callback; do not run generic wp_head,
         // gateways, cart or other plugins while performing this default check.
         $metadata_callbacks = array();
         if (isset($GLOBALS['wp_filter']['wp_head'])) {
-            foreach ($GLOBALS['wp_filter']['wp_head']->callbacks as $callbacks) {
+            foreach ($GLOBALS['wp_filter']['wp_head']->callbacks as $priority => $callbacks) {
+                if ((int) $priority !== 5) { continue; }
                 foreach ($callbacks as $entry) {
                     if ($entry['function'] instanceof Closure) {
                         $reflection = new ReflectionFunction($entry['function']);
@@ -187,7 +234,7 @@ if (!defined('WP_CLI') || !WP_CLI || !defined('ABSPATH')) { exit(1); }
         } finally {
             foreach ($saved_globals as $name => $saved) { if ($saved[0]) { $GLOBALS[$name] = $saved[1]; } else { unset($GLOBALS[$name]); } }
         }
-        $report = array('database' => 'PASS', 'currency' => 'USD', 'sell_ship' => array('US', 'CA'), 'approved_purchasable_products' => $priced, 'unpriced_unpurchasable_references' => $unpriced, 'source_records_preserved' => count($products), 'shipping_real_method' => $shipping, 'rest_of_world_methods' => 0, 'bank_transfer' => $bank_report, 'paypal' => $paypal, 'product_schema_dry_render' => '17 matching USD Offers; unpriced reference has no Offer', 'http' => $http ? 'running' : 'SKIPPED: set FUBAO_HTTP_VALIDATE=1', 'orders_created' => 0, 'persistent_changes_requested' => 0);
+        $report = array('database' => 'PASS', 'currency' => 'USD', 'sell_ship' => array('US', 'CA'), 'approved_purchasable_products' => $priced, 'unpriced_unpurchasable_references' => $unpriced, 'source_records_preserved' => count($products), 'shipping_real_method' => $shipping, 'rest_of_world_methods' => 0, 'bank_transfer' => $bank_report, 'paypal' => $paypal, 'policy' => $policy_report, 'product_schema_dry_render' => $policy_active ? '17 matching USD Offers with current stock availability and approved return policy; unpriced reference has no Offer' : '17 matching USD Offers; unpriced reference has no Offer', 'http' => $http ? 'running' : 'SKIPPED: set FUBAO_HTTP_VALIDATE=1', 'orders_created' => 0, 'persistent_changes_requested' => 0);
         WP_CLI::line(wp_json_encode($report, JSON_UNESCAPED_SLASHES));
 
         if ($http) {
@@ -216,26 +263,33 @@ if (!defined('WP_CLI') || !WP_CLI || !defined('ABSPATH')) { exit(1); }
                 $require($canonical->length === 1 && $canonical->item(0)->getAttribute('href') === $url, 'Missing, duplicate or incorrect canonical: ' . wp_parse_url($url, PHP_URL_PATH));
                 $require(!$has_noindex($response, $xpath), 'An acquisition page has noindex: ' . wp_parse_url($url, PHP_URL_PATH));
                 $title = $xpath->query('//title'); $require($title->length === 1 && trim($title->item(0)->textContent) !== '', 'An acquisition page lacks its title.'); $titles[] = trim($title->item(0)->textContent);
+                if ($policy_active) {
+                    $linked_policy = false;
+                    foreach ($xpath->query('//a[@href]') as $link) { if ($link->getAttribute('href') === $policy_url) { $linked_policy = true; break; } }
+                    $require($linked_policy, 'A served page lacks its visible policy link: ' . wp_parse_url($url, PHP_URL_PATH));
+                    if ($url === $policy_url || ($product && fubao_catalog_sale_approved($product) && $product->is_purchasable() && $product->is_in_stock())) { $check_policy_copy($response['body']); }
+                }
                 if ($product) {
                     $check_product_schema($response['body'], $product);
                     $forms = $xpath->query('//form[contains(concat(" ",normalize-space(@class)," ")," cart ")]//button[contains(concat(" ",normalize-space(@class)," ")," single_add_to_cart_button ")]');
-                    $require(fubao_catalog_sale_approved($product) ? $forms->length === 1 : $forms->length === 0, 'The served product purchase form disagrees with its sale status.');
+                    $has_purchase_form = fubao_catalog_sale_approved($product) && $product->is_purchasable() && $product->is_in_stock();
+                    $require($has_purchase_form ? $forms->length === 1 : $forms->length === 0, 'The served product purchase form disagrees with its current purchase/stock status.');
                 }
                 foreach ($xpath->query('//script[@type="application/ld+json"]') as $script) { json_decode($script->textContent, true, 512, JSON_THROW_ON_ERROR); }
                 $checked++;
             }
-            $require(count(array_unique($titles)) === 25, 'Acquisition titles are not unique.');
+            $require(count(array_unique($titles)) === $expected_page_count && $checked === $expected_page_count, 'Acquisition page/title counts are incorrect or titles are not unique.');
             $sitemap = $fetch($origin . '/sitemap.xml');
             $xml = new DOMDocument(); $require($xml->loadXML($sitemap['body'], LIBXML_NONET), 'The sitemap is not valid XML.');
             $actual = array(); foreach ($xml->getElementsByTagNameNS('http://www.sitemaps.org/schemas/sitemap/0.9', 'loc') as $node) { $actual[] = trim($node->textContent); }
             $expected = array_keys($paths); sort($actual); sort($expected);
-            $require(count($actual) === 25 && count(array_unique($actual)) === 25 && $actual === $expected, 'The sitemap is not exactly the twenty-five approved HTTPS acquisition URLs.');
+            $require(count($actual) === $expected_page_count && count(array_unique($actual)) === $expected_page_count && $actual === $expected, 'The sitemap differs from the approved ' . $expected_page_count . ' HTTPS acquisition URLs.');
             foreach (array('/cart/', '/checkout/') as $path) {
                 $auxiliary = $fetch($origin . $path, array(200, 301, 302, 303, 307, 308));
                 $require($has_noindex($auxiliary, $parse_html($auxiliary['body'] ?: '<html></html>')), 'A cart/checkout response lacks noindex: ' . $path);
                 if (isset($auxiliary['headers']['location'])) { $location = $auxiliary['headers']['location']; $require(strpos($location, $origin . '/') === 0 || (strpos($location, '/') === 0 && strpos($location, '//') !== 0), 'An auxiliary route redirects away from FUBAO.'); }
             }
-            WP_CLI::line('PASS HTTP: 25 same-host HTTPS 200 pages, exact canonicals, indexable metadata, 17 current-price Product Offers, one Product without Offer, exact 25-URL sitemap, cart and checkout noindex.');
+            WP_CLI::line('PASS HTTP: ' . $expected_page_count . ' same-host HTTPS 200 pages, exact canonicals, indexable metadata, 17 current-price Product Offers, one Product without Offer, exact ' . $expected_page_count . '-URL sitemap, cart and checkout noindex.' . ($policy_active ? ' Approved policy links, delivery/returns copy, live stock availability and return-policy schema verified.' : ''));
         }
         WP_CLI::success('FUBAO commerce checks completed. No cart, order, customer session or settings write was requested. PayPal authorization and real checkout/payment are not tested.');
     } catch (Throwable $error) {

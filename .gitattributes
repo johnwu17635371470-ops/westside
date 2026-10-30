@@ -1,1 +1,3 @@
 *.sh text eol=lf
+wordpress/commerce-policy.php text eol=lf
+wordpress/validate-commerce.php text eol=lf

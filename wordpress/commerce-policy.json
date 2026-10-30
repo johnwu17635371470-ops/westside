@@ -1,0 +1,24 @@
+{
+  "version": "owner-policy-v1",
+  "countries": ["US", "CA"],
+  "currency": "USD",
+  "shipping": {
+    "first_unit": 12,
+    "additional_unit": 1,
+    "quantity_mode": "store-unit"
+  },
+  "delivery": {
+    "handling_days": 3,
+    "transit_days": 15,
+    "day_basis": "business",
+    "countries": ["US", "CA"]
+  },
+  "returns": "no-change-of-mind",
+  "inventory_confirmed_asins": [
+    "B0H694668R", "B0GBW7CBVM", "B0GGLT29NF", "B0GV3RV7TB",
+    "B0GTPYDKRZ", "B0F5H4K46M", "B0CNG13QC3", "B0C23YBCL5",
+    "B0F9YMXL4B", "B0F6BZ9PTZ", "B0D9GWX6L6", "B0BW91BKR4",
+    "B0D172FC5V", "B0FVSF2MKJ", "B0F2M4CNWH", "B0BD5563WD",
+    "B0BVZK4Z1X"
+  ]
+}
