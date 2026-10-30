@@ -2,19 +2,19 @@
 
 ## 用户最新要求（2026-10-31，优先于下方历史说明）
 
-- 用户确认17款售卖商品现货；美国/加拿大预计时效一致，为备货3个工作日加运输15个工作日，合计约18个工作日，不是到货保证。无自愿退货，保留适用法律下的法定权利。Noir/Catalog 1.1.2政策更新已完成针对性本地测试，5个版本化发布文件已在aaPanel Files私有目录保存并重载确认，但尚未部署生产或执行helper。RackNerd控制台登录过期，待恢复服务器终端访问；aaPanel Terminal缺少自动SSH认证，不能说整个面板不可用。当前生产仍为1.1.1及25页，不得把新政策页、26页站点地图或新增availability/returnPolicy说成已上线；完整validator本地受未配置BACS/缺PayPal插件限制，仍需生产验收。
+- 用户确认17款售卖商品现货；美国/加拿大预计时效一致，为备货3个工作日加运输15个工作日，合计约18个工作日，不是到货保证。无自愿退货，保留适用法律下的法定权利。RackNerd终端访问已恢复，Noir/Catalog 1.1.2已通过修正后的r1五文件流程部署，`/shipping-returns.html`政策页与26页站点地图已上线。原脚本在unused manifest包检查时先行停止、未改生产；r1首次HTTP阶段单页curl28超时，随后同一只读validator重试全26页通过，独立postflight确认支付/SMTP/银行/运费指纹未变，`wp-config.php`仍640/www。须保留原失败日志，不能说r1单次运行全部PASS。本轮未重做实际支付、订单或邮件测试，用户购物车仍5件且未改数量。
 
 - 用户已明确批准将现有有金额的17款历史参考金额作为本站正式USD售价，缺价1款暂不售卖。保留原来源与历史参考价字段，不能继续把17款统一说成不销售，也不能给缺价款编售价。银行转账参考现有BetterSport账户（仅只读来源，严禁改BetterSport或复制PayPal密钥）；PayPal授权已由用户本人完成，后续新增授权仍需用户本人处理。配送仅美国/加拿大，按购买单位计数量，套装算1件；首件12USD，每多一件加1USD。
 
-- 正式域名现已指向 RackNerd 独立 WordPress 新站。`blog_public=1` 已开放正式25页抓取；辅助购物车/结账/账号/搜索等保持noindex，唯一站点地图为 `/sitemap.xml`。17款正式售价与银行转账、美加运费已部署；PayPal后台已验证 `Business | Live` 且启用，公开购物车/结账已显示PayPal按钮及选项，但未进行交易或创建订单。自动开启的Apple Pay、Google Pay已关闭并保存；重新加载的购物车/结账仍显示PayPal和正确运费，未出现新的浏览器错误。原 Sites 及其私有访问范围未变。实际验证、待办和回滚记录见 `PROGRESS.md` 最新节；开放抓取不代表已被收录或推荐。
+- 正式域名现已指向 RackNerd 独立 WordPress 新站。`blog_public=1` 已开放正式26页抓取；辅助购物车/结账/账号/搜索等保持noindex，唯一站点地图为 `/sitemap.xml`。17款正式售价、真实Woo库存状态availability与已批准returnPolicy通过验收，缺价1款无Offer且不可购买；美加1/2/3套运费仍12/13/14USD。PayPal后台已验证 `Business | Live`，本轮只读检测仍connected；先前前台控件验收不代表实际交易验证。Apple Pay、Google Pay维持关闭。原 Sites 及其私有访问范围未变。备份与分阶段验收日志见 `PROGRESS.md` 最新节；不自动恢复整库，以免覆盖后来订单。
 
 - WP Mail SMTP Lite 4.10.3已安装激活；Woo新订单、取消、失败通知已启用，From Name为FUBAO JEWELRY。QQ Other SMTP连接（SSL 465、认证开启）已按用户提供的授权完成保存。用户另行明确批准发送1封系统测试邮件，已恰好提交1封，界面显示发送成功；用户随后明确回复“已收到”，确认QQ收件箱收到本次邮件，发信通道已验证。订单通知全链路尚未用实际订单测试，没有创建订单或扣款。仓库禁止记录邮箱地址、SMTP授权码、商户标识、密钥或会话链接。
 
-- 用户已明确授权将FUBAO HTTPS-prefix属性绑定当前Google账户并提交唯一站点地图。GSC所有权验证成功，`/sitemap.xml`已成功处理并发现25页，证明Google实际抓取/解析成功。首页、代表商品`/products/b0h694668r.html`和已更新的`/bracelet-guide.html`实时测试均可编入索引，各提交1次索引请求并成功进入优先队列，未重复请求。代表商品识别出有效Product摘要1项和Merchant Listings1项；本轮已展开缓存Merchant报告的4项非严重缺失：全球标识（GTIN/brand）、shippingDetails、hasMerchantReturnPolicy、availability。1.1.2只有部署后才补后两项，不能声称提示已经消除；不得编造GTIN/brand或用虚假固定12美元运费schema消警告。实际收录、排名和AI引用尚未证实。Bing手动XML所有权验证已成功，唯一站点地图已提交1次，目前Processing、发现0页，不代表已抓取或收录。服务器根目录的Google HTML及Bing XML验证文件必须保留；文件下载与证据均在仓库外，不记录账户标识、验证码或会话链接。
+- GSC索引数据已明确代表商品`/products/b0h694668r.html`“网址已收录到Google”，仅此1个已查代表，不可推断全站收录。1.1.2后对该商品仅做1次live复测，Product摘要与Merchant Listings各1项有效，availability/退货字段已识别，现仅余GTIN/brand全球标识与shippingDetails两项非严重提示；不得编造值或固定12USD运费schema消警告。新政策页live可编入索引且仅请求1次、已进优先队列，尚未确认收录。原首页/商品/手链指南3次请求未重复，站点地图未重提交；Google此前发现25页是既有结果，服务器现为26页。排名与AI引用仍未证实。Bing最后已知仍Processing/发现0页，本轮未重查。Google HTML及Bing XML验证文件须保留，证据在仓库外，不记录账户、验证码或会话链接。
 
 - 独立FUBAO的`wp-config.php`已由666改为640、owner保持www，仅改此文件且未应用到子目录；公开指南刷新正常。手链指南旧“不属于本站零售报价”句已精确改为历史来源与当前售价分开的说明，公开页已核对；无需重跑销售迁移。
 
-- Bing AI Performance已建立基线：3个月视图、Citation sources为Microsoft Copilots and Partners，报告Total Citations 0、Avg Cited Pages 0、No data available、0行。该结果仅限所选报告范围，不能推断所有AI引擎均无引用；证据在仓库外，1.1.2生产部署仍未执行。
+- Bing AI Performance最后基线为3个月视图、Microsoft Copilots and Partners：Total Citations 0、Avg Cited Pages 0、No data available、0行，本轮未重查。仅限该报告范围，不能推断所有AI引擎均无引用；证据在仓库外。
 
 - 用户已选择迁移到独立的 WordPress + WooCommerce，使用现有 RackNerd 美国服务器。`wordpress/` 是主题、导入插件及迁移工具；`wordpress/README.md` 是部署说明。Better Sport 的现有 WordPress 属于另一个站点，不可将 FUBAO 内容导入其中。当前 Sites 仍承载原静态站，PHP/Woo 迁移包不能作为 Sites 静态资源发布。
 - WordPress 构建会从保留的 `dist/` 原图生成原尺寸 WebP 衍生图，并输出主题/插件 ZIP。不要重新生成或改变商品构图；保留 ASIN、来源和历史参考价说明。生成副本、运行环境、数据库、密码及面板会话路径不可纳入 Git。

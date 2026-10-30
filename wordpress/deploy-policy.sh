@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Narrow FUBAO 1.1.2 policy release. Run as root; optional FUBAO_HTTP_VALIDATE=1.
+# Narrow FUBAO 1.1.2 policy release: five runtime files. Run as root; optional FUBAO_HTTP_VALIDATE=1.
 # Never restore the full database automatically: later orders must be preserved.
 set -euo pipefail
 umask 077
@@ -79,23 +79,21 @@ unzip -p "$PKG/fubao-noir-1.1.2.zip" fubao-noir/footer.php > "$STAGE/footer.php"
 unzip -p "$PKG/fubao-noir-1.1.2.zip" fubao-noir/single-product.php > "$STAGE/single-product.php"
 unzip -p "$PKG/fubao-noir-1.1.2.zip" fubao-noir/style.css > "$STAGE/style.css"
 unzip -p "$PKG/fubao-catalog-1.1.2.zip" fubao-catalog/fubao-catalog.php > "$STAGE/fubao-catalog.php"
-unzip -p "$PKG/fubao-catalog-1.1.2.zip" fubao-catalog/data/url-map.json > "$STAGE/url-map.json"
 unzip -p "$PKG/fubao-catalog-1.1.2.zip" fubao-catalog/data/commerce-policy.json > "$STAGE/commerce-policy.json"
-for file in footer.php single-product.php style.css fubao-catalog.php url-map.json commerce-policy.json; do test -s "$STAGE/$file"; done
+for file in footer.php single-product.php style.css fubao-catalog.php commerce-policy.json; do test -s "$STAGE/$file"; done
 for file in "$STAGE/footer.php" "$STAGE/single-product.php" "$STAGE/fubao-catalog.php" "$PKG/commerce-policy-1.1.2.php" "$PKG/validate-commerce-1.1.2.php"; do "$PHP" -l "$file" > /dev/null; done
 grep -Fq 'Version: 1.1.2' "$STAGE/style.css"
 grep -Fq 'Version: 1.1.2' "$STAGE/fubao-catalog.php"
-"$PHP" -r 'foreach(array_slice($argv,1) as $file){json_decode(file_get_contents($file),true,512,JSON_THROW_ON_ERROR);}' "$STAGE/url-map.json" "$STAGE/commerce-policy.json"
+"$PHP" -r 'foreach(array_slice($argv,1) as $file){json_decode(file_get_contents($file),true,512,JSON_THROW_ON_ERROR);}' "$STAGE/commerce-policy.json"
 
 TARGETS=(
     "$SITE/wp-content/themes/fubao-noir/footer.php"
     "$SITE/wp-content/themes/fubao-noir/single-product.php"
     "$SITE/wp-content/themes/fubao-noir/style.css"
     "$SITE/wp-content/plugins/fubao-catalog/fubao-catalog.php"
-    "$SITE/wp-content/plugins/fubao-catalog/data/url-map.json"
     "$SITE/wp-content/plugins/fubao-catalog/data/commerce-policy.json"
 )
-SOURCES=(footer.php single-product.php style.css fubao-catalog.php url-map.json commerce-policy.json)
+SOURCES=(footer.php single-product.php style.css fubao-catalog.php commerce-policy.json)
 for index in "${!TARGETS[@]}"; do
     target=${TARGETS[$index]}
     parent=${target%/*}
@@ -110,7 +108,10 @@ for index in "${!TARGETS[@]}"; do
     fi
 done
 
-# All six ready copies are complete before the first live-file replacement.
+# The generated wordpress/url-map.json is a source manifest, not a bundled
+# runtime dependency. The plugin builds its 26 targets from import.json plus
+# the explicitly approved policy; those live targets are checked below.
+# All five ready copies are complete before the first live-file replacement.
 # A cross-filesystem move is refused so mv below can only perform a rename.
 STEP=atomic-code-staging
 READY="$BACKUP/ready"
@@ -174,7 +175,7 @@ wpguard eval-file "$HELPERS/configuration-fingerprint.php" > "$BACKUP/configurat
 BEFORE_FINGERPRINT=$(< "$BACKUP/configuration.before.sha256")
 [[ "$BEFORE_FINGERPRINT" =~ ^[0-9a-f]{64}$ ]]
 
-STEP=six-controlled-files
+STEP=five-controlled-files
 for index in "${!TARGETS[@]}"; do
     test ! -L "${TARGETS[$index]}"
     test "$(realpath -e "${TARGETS[$index]%/*}")" = "${TARGETS[$index]%/*}"
@@ -202,6 +203,6 @@ STEP=configuration-preservation
 wpguard eval-file "$HELPERS/configuration-fingerprint.php" > "$BACKUP/configuration.after.sha256" 2> "$BACKUP/configuration-after.stderr"
 cmp -s "$BACKUP/configuration.before.sha256" "$BACKUP/configuration.after.sha256"
 test "$(stat -c '%a:%u:%g' "$SITE/wp-config.php")" = "$CONFIG_MODE"
-printf 'PASS: six FUBAO 1.1.2 files installed; approved policy published; read-only acceptance passed (HTTP=%s); existing payment/SMTP/bank/shipping configuration unchanged.\n' "$HTTP_MODE" | tee "$BACKUP/result.log"
+printf 'PASS: five FUBAO 1.1.2 runtime files installed; approved policy published; read-only acceptance passed (HTTP=%s); existing payment/SMTP/bank/shipping configuration unchanged.\n' "$HTTP_MODE" | tee "$BACKUP/result.log"
 printf 'Private code/database backups and diagnostic records: %s\n' "$BACKUP"
 printf 'No order, payment or email was created; no automatic database restoration was performed.\n'
