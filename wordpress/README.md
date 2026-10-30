@@ -4,12 +4,14 @@ This is an independent WordPress implementation for FUBAO JEWELRY. Do not instal
 
 ## Build and files
 
-Run `python wordpress/build_package.py` from the repository root. It copies reviewed public content from `dist/` and `data/catalog.json`, preserves all 25 page paths and creates two uploadable ZIPs in the sibling `fubao-wordpress-packages/` directory:
+Run `python wordpress/build_package.py` from the repository root with Pillow and its WebP encoder available. The build fails explicitly if that encoder is missing. It copies reviewed public content from `dist/` and `data/catalog.json`, preserves all 25 page paths and creates two uploadable ZIPs in the sibling `fubao-wordpress-packages/` directory:
 
 - `fubao-noir.zip`: classic WordPress theme retaining the Noir design, colorful photography, mobile navigation, category filter, accessible quick-view dialog and browser reference list.
 - `fubao-catalog.zip`: companion plugin with the seven-page and eighteen-product import, bundled media, editable source facts, historical reference prices, GEO/SEO metadata and legacy URL routing.
 
 Generated bundle copies are ignored by Git; their reviewed source and generator are tracked. No WordPress core, WooCommerce vendor code, local database, administrator credentials, server session link or runtime cache belongs in this repository.
+
+Packaging encodes original-size WebP derivatives at quality 88 without resizing, cropping or changing the source PNGs in `dist/`. The theme includes only its three editorial images and font; the companion plugin supplies the eighteen product images for Media Library import, avoiding duplicate catalog images and the obsolete eight-product sprite. Imported homepage content uses the dynamic WooCommerce product-grid shortcode. `fubao-catalog/data/image-derivatives.json` records source/derivative hashes and dimensions so the encoding can be reproduced and checked.
 
 ## Install into a new staging site
 

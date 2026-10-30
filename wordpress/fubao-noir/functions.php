@@ -120,7 +120,17 @@ function fubao_noir_resolve_url($url) {
     $path = isset($parsed['path']) ? $parsed['path'] : '';
     $path = preg_replace('~^(?:\./|\.\./)+~', '', ltrim($path, '/'));
     $suffix = (isset($parsed['query']) ? '?' . $parsed['query'] : '') . (isset($parsed['fragment']) ? '#' . $parsed['fragment'] : '');
-    if (strpos($path, 'assets/') === 0) { return fubao_noir_asset($path) . $suffix; }
+    if (preg_match('~^assets/catalog/([a-z0-9]+)\.(?:png|webp)$~i', $path, $match) && function_exists('wc_get_product')) {
+        $post = get_page_by_path(strtolower($match[1]), OBJECT, 'product');
+        $product = $post ? wc_get_product($post->ID) : false;
+        $image = $product ? wp_get_attachment_image_url($product->get_image_id(), 'full') : false;
+        if ($image) { return $image . $suffix; }
+    }
+    if (strpos($path, 'assets/') === 0) {
+        $webp_path = preg_replace('/\.png$/i', '.webp', $path);
+        if (is_file(get_template_directory() . '/assets/site/' . $webp_path)) { $path = $webp_path; }
+        return fubao_noir_asset($path) . $suffix;
+    }
     if ($path === '' || $path === 'index.html') { return home_url('/') . $suffix; }
     if (preg_match('~^products/([a-z0-9-]+)\.html$~i', $path, $match)) {
         $product = get_page_by_path(strtolower($match[1]), OBJECT, 'product');

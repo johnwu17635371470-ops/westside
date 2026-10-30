@@ -2,6 +2,9 @@
 
 ## 用户最新要求（2026-10-30，优先于下方历史说明）
 
+- 用户已选择迁移到独立的 WordPress + WooCommerce，使用现有 RackNerd 美国服务器。`wordpress/` 是主题、导入插件及迁移工具；`wordpress/README.md` 是部署说明。Better Sport 的现有 WordPress 属于另一个站点，不可将 FUBAO 内容导入其中。当前 Sites 仍承载原静态站，PHP/Woo 迁移包不能作为 Sites 静态资源发布。
+- WordPress 构建会从保留的 `dist/` 原图生成原尺寸 WebP 衍生图，并输出主题/插件 ZIP。不要重新生成或改变商品构图；保留 ASIN、来源和历史参考价说明。生成副本、运行环境、数据库、密码及面板会话路径不可纳入 Git。
+
 - 已选择 Noir Edition 奢华嘻哈视觉：墨黑、象牙白、铬银，哥特字标与衬线标题，保留彩色人物摄影。luxury.css 负责该视觉层；原 styles.css 仍提供布局和组件基础。后续修改不要恢复黑白人物或大面积橙色主题。
 
 - 品牌改为 FUBAO JEWELRY，保留炭黑、铬银、日落橙视觉。正式域名为 fubaojewelry.com，接入状态需另行核实。

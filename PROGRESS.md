@@ -1,5 +1,13 @@
 # FUBAO JEWELRY progress
 
+## RackNerd installation prepared — 2026-10-30
+
+The owner logged into aaPanel. WP Toolkit confirms the one existing installation is Better Sport (WordPress 7.1.4, PHP 8.2); FUBAO must be a new installation. A FUBAO install form has been prepared for the formal domain, PHP 8.3, WordPress 7.1.4, English, independent database and administrator. Automatic SSL and cache/static HTML generation are off for preparation; the domain still points to Sites. New privileged-account creation is awaiting action-time confirmation, and no WordPress server installation has yet been submitted. Do not store the supplied administrator email, generated passwords or panel session URL in source.
+
+Optimized the migration packages to 648,283 bytes (theme) and 3,036,459 bytes (plugin), about 95.5% smaller. All 21 WebP derivatives preserve original pixel dimensions, with source hashes unchanged; original PNGs remain in dist. Product images are imported once into Media Library and shared by product and guide views. Actual local PHP WebP media upload, 25 original URLs, canonical/JSON-LD, 34 local image/CSS resources, no merchant offers, import replay and preservation of edits passed. Source/media metadata and source documents remain separate.
+
+Both complete optimized ZIPs were uploaded through aaPanel to `/www/backup/fubao-migration-20261030/`; UI sizes match the local packages. The initial slow 13 MB partial upload remains as a `.upload.tmp` file in that same agent-created directory and can be cleaned up later. No Better Sport files were overwritten. The supplied panel certificate warning was handled directly by the owner; do not bypass browser security warnings automatically.
+
 ## WordPress / WooCommerce migration in progress — 2026-10-30
 
 The user chose WordPress + WooCommerce on the existing RackNerd US server. The supplied WordPress admin is the separate live Better Sport site and must not be used for this import. RackNerd VPS management is accessible, but the supplied website-panel session URL and its base origin both return Nginx 404. Do not store its session path or credentials. No remote installation, server reinstallation, DNS cutover or audience change has been performed.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FUBAO Catalog
  * Description: Source-linked FUBAO research catalog import, editable evidence fields and GEO/SEO metadata.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires PHP: 7.4
  * Requires at least: 6.6
  */
@@ -78,7 +78,18 @@ function fubao_catalog_schema_urls($value) {
     if (is_array($value)) { return array_map('fubao_catalog_schema_urls', $value); }
     if (!is_string($value)) { return $value; }
     $old = 'https://fubaojewelry.com';
-    if (strpos($value, $old . '/assets/') === 0) { return trailingslashit(get_template_directory_uri()) . 'assets/site/' . substr($value, strlen($old) + 1); }
+    if (strpos($value, $old . '/assets/') === 0) {
+        $asset_path = substr($value, strlen($old) + 1);
+        if (preg_match('~^assets/catalog/([a-z0-9]+)\.(?:png|webp)$~i', $asset_path, $match) && function_exists('wc_get_product')) {
+            $post = get_page_by_path(strtolower($match[1]), OBJECT, 'product');
+            $product = $post ? wc_get_product($post->ID) : false;
+            $image = $product ? wp_get_attachment_image_url($product->get_image_id(), 'full') : false;
+            if ($image) { return $image; }
+        }
+        $webp_path = preg_replace('/\.png$/i', '.webp', $asset_path);
+        if (is_file(get_template_directory() . '/assets/site/' . $webp_path)) { $asset_path = $webp_path; }
+        return trailingslashit(get_template_directory_uri()) . 'assets/site/' . $asset_path;
+    }
     return strpos($value, $old) === 0 ? untrailingslashit(home_url()) . substr($value, strlen($old)) : $value;
 }
 add_action('wp', function () { if (is_singular() && fubao_catalog_managed(get_queried_object_id())) { remove_action('wp_head', 'rel_canonical'); } });
@@ -198,14 +209,15 @@ function fubao_catalog_import_guard() {
 function fubao_catalog_import_image($asin, $post_id, $name) {
     $existing = get_posts(array('post_type' => 'attachment', 'post_status' => 'inherit', 'numberposts' => 1, 'meta_key' => '_fubao_image_key', 'meta_value' => $asin));
     if ($existing) { return $existing[0]->ID; }
-    $source = __DIR__ . '/images/' . strtolower($asin) . '.png';
+    $extension = is_file(__DIR__ . '/images/' . strtolower($asin) . '.webp') ? 'webp' : 'png';
+    $source = __DIR__ . '/images/' . strtolower($asin) . '.' . $extension;
     if (!is_file($source)) { return new WP_Error('fubao_image_missing', 'Missing bundled source image: ' . $asin); }
     require_once ABSPATH . 'wp-admin/includes/file.php';
     require_once ABSPATH . 'wp-admin/includes/media.php';
     require_once ABSPATH . 'wp-admin/includes/image.php';
-    $temporary = wp_tempnam($asin . '.png');
+    $temporary = wp_tempnam($asin . '.' . $extension);
     if (!$temporary || !copy($source, $temporary)) { return new WP_Error('fubao_image_copy', 'The bundled image could not be copied to a temporary upload.'); }
-    $id = media_handle_sideload(array('name' => strtolower($asin) . '.png', 'tmp_name' => $temporary), $post_id, $name);
+    $id = media_handle_sideload(array('name' => strtolower($asin) . '.' . $extension, 'tmp_name' => $temporary), $post_id, $name);
     if (is_wp_error($id)) { if (is_file($temporary)) { wp_delete_file($temporary); } return $id; }
     update_post_meta($id, '_fubao_image_key', $asin);
     update_post_meta($id, '_fubao_source_url', get_post_meta($post_id, '_fubao_source_url', true));
