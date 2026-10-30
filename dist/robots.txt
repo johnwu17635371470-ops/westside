@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://westside-shine-jw.astutejay15.chatgpt.site/sitemap.xml
+Sitemap: https://fubaojewelry.com/sitemap.xml

@@ -1,5 +1,9 @@
 # FUBAO JEWELRY progress
 
+## Formal domain connected — 2026-10-30
+
+Aliyun now contains the two Sites apex A records and two validation TXT records. Sites confirmed domain, provider and SSL statuses active. Canonical origin is now https://fubaojewelry.com; regenerated all 25 pages, structured data, sitemap and robots. Hosting remains owner-private, so public crawlability and public launch are still separate pending decisions. Previous pending-domain notes below are historical.
+
 ## Guide hub and earring review — 2026-10-30
 
 Added earring-guide.html for the single displayed earring selection and guides.html for all four guides. Source evidence distinguishes inner diameters, post/body material claims and unresolved weight figures. All 18 product pages now link to their relevant guide and the hub. Homepage entry, visible breadcrumbs and matching structured breadcrumbs added to the two new pages. build_guide_hub.cjs runs last in the catalog build to preserve links across regeneration.
