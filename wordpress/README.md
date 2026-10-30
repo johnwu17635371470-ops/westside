@@ -2,6 +2,8 @@
 
 This is an independent WordPress implementation for FUBAO JEWELRY. Do not install it into the existing Better Sport WordPress site. The current Sites publication and DNS stay in place until the new server installation passes staging checks.
 
+Deployment update, 2026-10-30: the separate RackNerd installation passed the server checks below, and the apex domain now serves its WordPress preview over HTTPS. Search indexing is still disabled. See `../PROGRESS.md` for actual deployment, rollback and pending launch tasks; the numbered steps below also document the reproducible installation process.
+
 ## Build and files
 
 Run `python wordpress/build_package.py` from the repository root with Pillow and its WebP encoder available. The build fails explicitly if that encoder is missing. It copies reviewed public content from `dist/` and `data/catalog.json`, preserves all 25 page paths and creates two uploadable ZIPs in the sibling `fubao-wordpress-packages/` directory:
@@ -34,6 +36,8 @@ Check dynamic title, description, canonical and JSON-LD. Products in this resear
 On production, route requests for missing physical files to WordPress (`try_files $uri $uri/ /index.php?$args;` in the site-specific Nginx configuration, or normal WordPress Apache rewrites). The plugin preserves `/products/{asin}.html` and the six guide/source paths. Keep `blog_public=0` and staging access protection until the launch decision. Once public, `/sitemap.xml` uses current WordPress page data and `robots.txt` links it. Private staging does not expose this sitemap.
 
 Only after the separate server site, HTTPS and 25 URLs pass should the domain be switched from Sites. Confirm the final production origin in WordPress, then submit the sitemap. Actual sales require separately confirmed own SKUs, selling prices, variants, inventory, shipping/returns, merchant details and payment configuration.
+
+`deploy-server.sh` is restricted to the verified RackNerd directory, database, versions and package hashes; review these values before any future reuse. `validate-server.sh` is a read-only, 55-second server-local HTTPS check for all 25 routes, canonical/description/JSON-LD output, eighteen non-purchasable research products and imported images. It requires PHP 8.3 cURL and DOM, keeps TLS validation enabled, writes temporary files outside the web root and leaves visibility settings unchanged.
 
 ## Local test environment
 

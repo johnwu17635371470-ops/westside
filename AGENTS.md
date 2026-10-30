@@ -2,6 +2,8 @@
 
 ## 用户最新要求（2026-10-30，优先于下方历史说明）
 
+- 正式域名现已指向 RackNerd 上独立的 WordPress 新站，并通过浏览器 HTTPS 访问核实。原 Sites 仍保留且访问范围未变。新站目前是可访问的商品研究预览，`blog_public=0`；不要把可访问等同于搜索收录已开放或真实订单已上线。实际部署状态、待办和回滚记录见 `PROGRESS.md` 最新节。
+
 - 用户已选择迁移到独立的 WordPress + WooCommerce，使用现有 RackNerd 美国服务器。`wordpress/` 是主题、导入插件及迁移工具；`wordpress/README.md` 是部署说明。Better Sport 的现有 WordPress 属于另一个站点，不可将 FUBAO 内容导入其中。当前 Sites 仍承载原静态站，PHP/Woo 迁移包不能作为 Sites 静态资源发布。
 - WordPress 构建会从保留的 `dist/` 原图生成原尺寸 WebP 衍生图，并输出主题/插件 ZIP。不要重新生成或改变商品构图；保留 ASIN、来源和历史参考价说明。生成副本、运行环境、数据库、密码及面板会话路径不可纳入 Git。
 
