@@ -24,6 +24,7 @@ function fubao_noir_enqueue() {
     }
     wp_enqueue_style('fubao-theme', get_stylesheet_uri(), array('fubao-luxury'), $version);
     wp_enqueue_script('fubao-theme', get_template_directory_uri() . '/assets/theme.js', array(), $version, true);
+    if (function_exists('WC')) { wp_enqueue_script('wc-cart-fragments'); }
     wp_add_inline_script('fubao-theme', 'window.catalog = ' . wp_json_encode(fubao_noir_catalog(), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';', 'before');
 }
 add_action('wp_enqueue_scripts', 'fubao_noir_enqueue');
@@ -59,7 +60,11 @@ function fubao_noir_product_data($product) {
         'finish' => (string) $product->get_meta('_fubao_finish'),
         'quantityLabel' => (string) $product->get_meta('_fubao_quantity'),
         'referencePrice' => $reference !== '' && is_numeric($reference) ? (float) $reference : null,
+        'sellingPrice' => !$product->is_type('variable') && $product->get_price() !== '' ? (float) wc_get_price_to_display($product) : null,
+        'isPurchasable' => $product->is_purchasable() && $product->is_in_stock(),
+        'addToCartUrl' => $product->is_purchasable() && $product->is_in_stock() ? $product->add_to_cart_url() : '',
         'image' => $image ? $image : '',
+        'imageAlt' => (string) get_post_meta($product->get_image_id(), '_wp_attachment_image_alt', true),
         'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
         'url' => get_permalink($id),
         'permalink' => get_permalink($id),
@@ -68,6 +73,20 @@ function fubao_noir_product_data($product) {
         'research' => fubao_noir_is_research($product),
     );
 }
+
+/** The WooCommerce cart is separate from the browser's saved inspiration list. */
+function fubao_noir_cart_link() {
+    if (!function_exists('WC') || !function_exists('wc_get_cart_url')) { return ''; }
+    $count = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+    return '<a id="fubao-cart-link" class="cart-link" href="' . esc_url(wc_get_cart_url()) . '" aria-label="' . esc_attr(sprintf('Shopping cart, %d items', $count)) . '">CART <span>' . esc_html($count) . '</span></a>';
+}
+add_filter('woocommerce_add_to_cart_fragments', function ($fragments) {
+    $fragments['#fubao-cart-link'] = fubao_noir_cart_link();
+    return $fragments;
+});
+add_filter('woocommerce_add_to_cart_redirect', function ($url, $product = null) {
+    return $product && $product->get_meta('_fubao_sale_approved') === 'yes' ? wc_get_cart_url() : $url;
+}, 10, 2);
 
 function fubao_noir_catalog() {
     return array_map('fubao_noir_product_data', fubao_noir_products());
@@ -87,19 +106,22 @@ function fubao_noir_product_grid() {
             <div class="product-visual">
                 <a class="product-open" href="<?php echo esc_url($data['url']); ?>" aria-label="<?php echo esc_attr('View ' . $data['name']); ?>">
                     <?php if ($data['image']) : ?>
-                        <img class="catalog-image" src="<?php echo esc_url($data['image']); ?>" alt="<?php echo esc_attr($data['name'] . ($data['research'] ? ' — AI-styled image based on linked product photo' : '')); ?>" loading="lazy" width="1024" height="1024">
+                        <img class="catalog-image" src="<?php echo esc_url($data['image']); ?>" alt="<?php echo esc_attr($data['imageAlt'] ?: $data['name']); ?>" loading="lazy" width="1024" height="1024">
                     <?php else : ?>
                         <div class="catalog-image image-pending"><span>PRODUCT PHOTO<br>AWAITING VERIFICATION</span></div>
                     <?php endif; ?>
                 </a>
-                <button class="product-add" data-add="<?php echo esc_attr($data['id']); ?>" aria-label="<?php echo esc_attr('Save ' . $data['name']); ?>">+</button>
+                <button class="product-add" data-add="<?php echo esc_attr($data['id']); ?>" aria-label="<?php echo esc_attr('Save ' . $data['name'] . ' to wishlist'); ?>">♡</button>
             </div>
             <div class="product-meta"><div>
                 <h3><a href="<?php echo esc_url($data['url']); ?>"><?php echo esc_html($data['name']); ?></a></h3>
                 <p><?php echo esc_html($data['category'] . ($data['finish'] ? ' / ' . $data['finish'] : '')); ?></p>
-                <span class="price"><?php echo $data['research'] ? esc_html(fubao_noir_reference_price($data)) : wp_kses_post($product->get_price_html()); ?></span>
+                <span class="price"><?php echo $data['research'] ? esc_html__('Not currently for sale', 'fubao-noir') : wp_kses_post($product->get_price_html()); ?></span>
             </div></div>
-            <button class="quick-view" data-detail="<?php echo esc_attr($data['id']); ?>">Quick view ↗</button>
+            <div class="product-actions">
+                <?php if ($data['isPurchasable']) : ?><a class="catalog-cart-link" href="<?php echo esc_url($data['addToCartUrl']); ?>" aria-label="<?php echo esc_attr('Add ' . $data['name'] . ' to cart'); ?>">Add to cart +</a><?php else : ?><span class="catalog-unavailable">Unavailable</span><?php endif; ?>
+                <button class="quick-view" data-detail="<?php echo esc_attr($data['id']); ?>">Quick view ↗</button>
+            </div>
         </article>
         <?php
     }
@@ -112,7 +134,7 @@ add_shortcode('fubao_product_grid', 'fubao_noir_product_grid');
 /** Resolve imported relative assets and legacy internal URLs against this installation. */
 function fubao_noir_resolve_url($url) {
     $url = html_entity_decode($url, ENT_QUOTES, 'UTF-8');
-    if ($url === '' || $url[0] === '#' || strpos($url, 'data:') === 0) { return $url; }
+    if ($url === '' || $url[0] === '#' || $url[0] === '?' || strpos($url, 'data:') === 0) { return $url; }
     $parsed = wp_parse_url($url);
     if ($parsed === false) { return $url; }
     if (!empty($parsed['host']) && !in_array(strtolower($parsed['host']), array('fubaojewelry.com', 'www.fubaojewelry.com', 'westside-shine-jw.astutejay15.chatgpt.site'), true)) { return $url; }
@@ -150,7 +172,7 @@ function fubao_noir_content($content) {
     if (is_front_page()) {
         $count = count(fubao_noir_products());
         $content = preg_replace_callback('~<div id="products" class="product-grid">.*?</div>(?=\s*<p class="demo-note">)~s', function () { return fubao_noir_product_grid(); }, $content);
-        $content = preg_replace('~THE CURATED COLLECTION — \d+ REFERENCES~u', 'THE CURATED COLLECTION — ' . $count . ' REFERENCES', $content);
+        $content = preg_replace('~THE CURATED COLLECTION — \d+ (?:REFERENCES|SELECTIONS|PIECES)~u', 'THE CURATED COLLECTION — ' . $count . ' PIECES', $content);
         $content = preg_replace('~(<span id="results-count"[^>]*>).*?(</span>)~s', '${1}' . $count . ' PIECES${2}', $content);
     }
     return $content;

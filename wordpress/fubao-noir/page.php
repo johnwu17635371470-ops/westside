@@ -7,7 +7,8 @@ while (have_posts()) {
     if (preg_match('/<main\b/i', $raw)) {
         the_content();
     } else {
-        echo '<main class="section sources fubao-page">';
+        $commerce_page = function_exists('is_cart') && (is_cart() || is_checkout() || is_account_page());
+        echo '<main class="section fubao-page ' . ($commerce_page ? 'fubao-commerce' : 'sources') . '">';
         if (!preg_match('/<h1\b/i', $raw)) { echo '<h1 class="entry-title">' . esc_html(get_the_title()) . '</h1>'; }
         the_content();
         wp_link_pages();

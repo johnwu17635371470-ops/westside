@@ -1,8 +1,10 @@
 # FUBAO JEWELRY
 
-WordPress + WooCommerce migration source and installation instructions are in `wordpress/README.md`. The independent local version is verified; RackNerd deployment remains pending panel access and an isolated FUBAO site. The existing static Sites publication is still the current hosted site.
+The formal domain now serves the independent RackNerd WordPress + WooCommerce site. Theme/plugin source and deployment instructions are in `wordpress/README.md`. The owner approved seventeen displayed amounts as current USD selling prices; the one unpriced selection stays unavailable. Direct bank transfer and US/Canada shipping are configured. PayPal Payments is installed but awaits merchant-account connection; notification email still needs a working sending service.
 
-Formal domain https://fubaojewelry.com is connected with active HTTPS as of October 30, 2026. `site.config.json` now uses it for canonical URLs, structured data and sitemap generation. Hosting remains owner-private; public crawling requires a separately authorized public launch. This supersedes the pending-domain wording below.
+Formal domain https://fubaojewelry.com uses HTTPS with automatic HTTP-01 certificate renewal configured. The 25 acquisition pages are crawlable, with a single sitemap at `/sitemap.xml`; cart/checkout/account/search and other auxiliary views stay noindex. GEO remains primary and SEO is maintained alongside it. Search Console ownership/submission and actual indexing are not established. The original Sites copy retains its owner-private audience and is separate from this WordPress deployment.
+
+The remaining paragraphs document the retained **static research source** in `dist/`, not the live WooCommerce sales state. Historical source amounts, evidence, original imagery and the three skipped references remain preserved. Do not overwrite current Woo selling prices from a regenerated historical catalog. See `PROGRESS.md` for the latest verified release and pending account/email setup.
 
 `build_guide_hub.cjs` runs last to generate the earring guide and guide hub, then connects all 18 product pages to the relevant guide. `data/earring-evidence.json` records attributed listing facts and unresolved weight. `check_catalog.py` validates all 25 canonical pages and the guide links. GEO is primary and SEO is maintained alongside it.
 

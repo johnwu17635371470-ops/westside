@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FUBAO Catalog
  * Description: Source-linked FUBAO research catalog import, editable evidence fields and GEO/SEO metadata.
- * Version: 1.0.1
+ * Version: 1.1.1
  * Requires PHP: 7.4
  * Requires at least: 6.6
  */
@@ -14,10 +14,89 @@ function fubao_catalog_managed($post_id) {
 function fubao_catalog_research($product) {
     return $product && in_array((string) $product->get_meta('_fubao_research'), array('yes', '1', 'true'), true);
 }
+function fubao_catalog_sale_approved($product) {
+    return $product && $product->get_meta('_fubao_sale_approved') === 'yes';
+}
+/** Read only PayPal's boolean connection facade, never its credential values. */
+function fubao_catalog_paypal_connection_state() {
+    if (!class_exists('WooCommerce\\PayPalCommerce\\PPCP')) { return null; }
+    try {
+        $container = \WooCommerce\PayPalCommerce\PPCP::container();
+        if ($container->has('settings.connection-state')) {
+            $state = $container->get('settings.connection-state');
+            if (is_object($state) && method_exists($state, 'is_connected')) { return (bool) $state->is_connected(); }
+        }
+        if ($container->has('settings.flag.is-connected')) { return (bool) $container->get('settings.flag.is-connected'); }
+    } catch (Throwable $ignored) { /* An unknown plugin API must not disable an existing connection. */ }
+    return null;
+}
+/**
+ * PayPal Payments 4.2.0 registers its SDK v6 Blocks integration even before
+ * onboarding. Use Woo's registration lifecycle, before integrations initialize,
+ * so an unconnected frontend never receives its client-token/SDK dependency.
+ * Keep admin onboarding intact and automatically restore normal registration
+ * once PayPal reports a connected account. No settings or payment grants change.
+ */
+add_action('woocommerce_blocks_payment_method_type_registration', function ($registry) {
+    if (is_admin() || fubao_catalog_paypal_connection_state() !== false) { return; }
+    foreach ($registry->get_all_registered() as $integration) {
+        if (strpos(get_class($integration), 'WooCommerce\\PayPalCommerce\\') === 0) { $registry->unregister($integration); }
+    }
+}, 100);
 function fubao_catalog_url($post_id) {
     $path = get_post_meta($post_id, '_fubao_path', true);
     return $path ? home_url('/' . ltrim($path, '/')) : '';
 }
+/** Only the explicitly bundled research pages are acquisition/indexing targets. */
+function fubao_catalog_index_targets() {
+    static $targets = null;
+    if ($targets === null) {
+        $targets = array();
+        $data = json_decode((string) @file_get_contents(__DIR__ . '/data/import.json'), true);
+        foreach (isset($data['pages']) ? $data['pages'] : array() as $page) {
+            if (!isset($page['path'], $page['slug']) || !preg_match('~^(?:/|/[a-z0-9-]+\.html)$~', $page['path'])) { continue; }
+            $targets[$page['path']] = array('type' => 'page', 'key' => 'page:' . $page['slug']);
+        }
+        foreach (isset($data['products']) ? $data['products'] : array() as $product) {
+            $asin = isset($product['asin']) ? strtolower($product['asin']) : '';
+            if (!preg_match('/^[a-z0-9]{10}$/', $asin)) { continue; }
+            $targets['/products/' . $asin . '.html'] = array('type' => 'product', 'key' => 'product:' . $asin);
+        }
+    }
+    return $targets;
+}
+function fubao_catalog_indexable_post($post_id) {
+    if (!fubao_catalog_managed($post_id) || get_post_status($post_id) !== 'publish') { return false; }
+    $targets = fubao_catalog_index_targets();
+    $path = get_post_meta($post_id, '_fubao_path', true);
+    return isset($targets[$path]) && get_post_type($post_id) === $targets[$path]['type'] && get_post_meta($post_id, '_fubao_key', true) === $targets[$path]['key'];
+}
+function fubao_catalog_indexable_view() {
+    return is_singular(array('page', 'product')) && !is_preview() && !is_feed() && !is_embed() && !is_paged() && fubao_catalog_indexable_post(get_queried_object_id());
+}
+// The custom sitemap is the sole acquisition list; core maps would include users,
+// category archives and WooCommerce utility pages that are not editorial content.
+add_filter('wp_sitemaps_enabled', '__return_false');
+add_filter('wp_robots', function ($robots) {
+    if (!get_option('blog_public') || !fubao_catalog_indexable_view()) {
+        unset($robots['index']);
+        $robots['noindex'] = true;
+        if (get_option('blog_public')) { unset($robots['nofollow']); $robots['follow'] = true; }
+    }
+    return $robots;
+}, 100);
+add_action('template_redirect', function () {
+    $path = fubao_catalog_request_path();
+    $home_path = rtrim((string) wp_parse_url(home_url('/'), PHP_URL_PATH), '/');
+    $relative = $home_path !== '' && strpos($path, $home_path . '/') === 0 ? substr($path, strlen($home_path)) : $path;
+    if (get_option('blog_public') && preg_match('~^/wp-sitemap(?:-[a-z0-9-]+)?\.xml$~', $relative)) {
+        wp_safe_redirect(home_url('/sitemap.xml'), 301, 'FUBAO Catalog');
+        exit;
+    }
+    if (!get_query_var('fubao_sitemap') && (!get_option('blog_public') || !fubao_catalog_indexable_view()) && !headers_sent()) {
+        header('X-Robots-Tag: noindex' . (get_option('blog_public') ? ', follow' : ''));
+    }
+}, 0);
 function fubao_catalog_page_link($url, $post_id) {
     return fubao_catalog_managed($post_id) ? (fubao_catalog_url($post_id) ?: $url) : $url;
 }
@@ -53,6 +132,7 @@ add_action('template_redirect', function () {
         echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         $posts = get_posts(array('post_type' => array('page', 'product'), 'post_status' => 'publish', 'numberposts' => -1, 'meta_key' => '_fubao_managed', 'meta_value' => 'yes', 'orderby' => 'ID', 'order' => 'ASC'));
         foreach ($posts as $post) {
+            if (!fubao_catalog_indexable_post($post->ID)) { continue; }
             $url = fubao_catalog_url($post->ID);
             if (!$url) { continue; }
             echo '<url><loc>' . htmlspecialchars($url, ENT_XML1 | ENT_COMPAT, 'UTF-8') . '</loc><lastmod>' . esc_html(get_post_modified_time('c', true, $post)) . '</lastmod></url>';
@@ -97,7 +177,7 @@ add_filter('pre_get_document_title', function ($title) {
     $id = get_queried_object_id();
     if (fubao_catalog_managed($id) && get_post_type($id) === 'product' && function_exists('wc_get_product')) {
         $product = wc_get_product($id);
-        if (fubao_catalog_research($product)) { return $product->get_name() . ' | FUBAO JEWELRY'; }
+        if (fubao_catalog_research($product) || fubao_catalog_sale_approved($product)) { return $product->get_name() . ' | FUBAO JEWELRY'; }
     }
     $custom = fubao_catalog_managed($id) ? get_post_meta($id, '_fubao_seo_title', true) : '';
     return $custom ?: $title;
@@ -108,19 +188,24 @@ add_action('wp_head', function () {
     $description = get_post_meta($id, '_fubao_description', true);
     if (get_post_type($id) === 'product' && function_exists('wc_get_product')) {
         $current_product = wc_get_product($id);
-        if (fubao_catalog_research($current_product)) { $description = wp_strip_all_tags($current_product->get_short_description() ?: $current_product->get_description()); }
+        if (fubao_catalog_research($current_product) || fubao_catalog_sale_approved($current_product)) { $description = wp_strip_all_tags($current_product->get_short_description() ?: $current_product->get_description()); }
     }
     if ($description) { echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n"; }
     echo '<link rel="canonical" href="' . esc_url(fubao_catalog_url($id)) . '">' . "\n";
     if (get_post_type($id) === 'product' && function_exists('wc_get_product')) {
         $product = wc_get_product($id);
-        if (!fubao_catalog_research($product)) { return; }
+        if (!fubao_catalog_research($product) && !fubao_catalog_sale_approved($product)) { return; }
         $schema = array('@context' => 'https://schema.org', '@type' => 'Product', 'name' => $product->get_name(), 'url' => fubao_catalog_url($id), 'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()), 'identifier' => array('@type' => 'PropertyValue', 'propertyID' => 'ASIN', 'value' => $product->get_meta('_fubao_asin')));
         $terms = get_the_terms($id, 'product_cat');
         if ($terms && !is_wp_error($terms)) { $schema['category'] = $terms[0]->name; }
         $image = wp_get_attachment_image_url($product->get_image_id(), 'full');
         if ($image) { $schema['image'] = $image; }
         if ($product->get_meta('_fubao_source_url')) { $schema['subjectOf'] = array('@type' => 'WebPage', 'url' => $product->get_meta('_fubao_source_url')); }
+        if (fubao_catalog_sale_approved($product) && !fubao_catalog_research($product) && $product->get_price() !== '' && is_numeric($product->get_price())) {
+            $schema['offers'] = array('@type' => 'Offer', 'url' => fubao_catalog_url($id), 'priceCurrency' => get_woocommerce_currency(), 'price' => wc_format_decimal($product->get_price(), wc_get_price_decimals()), 'seller' => array('@type' => 'Organization', 'name' => 'FUBAO JEWELRY', 'url' => home_url('/')));
+            // Inventory quantities and physical availability have not been verified;
+            // no availability claim is inferred from WooCommerce's default state.
+        }
     } else {
         $schema = get_post_meta($id, '_fubao_schema', true);
         if (is_string($schema)) { $schema = json_decode($schema, true); }
@@ -133,17 +218,21 @@ add_action('wp_head', function () {
             $schema = array('@context' => 'https://schema.org', '@graph' => array(
                 array('@type' => 'WebSite', '@id' => home_url('/#website'), 'url' => home_url('/'), 'name' => 'FUBAO JEWELRY', 'publisher' => array('@id' => home_url('/#organization'))),
                 array('@type' => 'Organization', '@id' => home_url('/#organization'), 'name' => 'FUBAO JEWELRY', 'url' => home_url('/')),
-                array('@type' => 'CollectionPage', 'name' => 'FUBAO JEWELRY research collection', 'url' => home_url('/'), 'description' => $description, 'mainEntity' => array('@type' => 'ItemList', 'numberOfItems' => count($items), 'itemListElement' => $items))
+                array('@type' => 'CollectionPage', 'name' => 'FUBAO JEWELRY source-linked collection', 'url' => home_url('/'), 'description' => $description, 'mainEntity' => array('@type' => 'ItemList', 'numberOfItems' => count($items), 'itemListElement' => $items))
             ));
         }
     }
     if (is_array($schema) && $schema) { echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) . '</script>' . "\n"; }
 }, 5);
-add_filter('woocommerce_structured_data_product', function ($schema, $product) { return fubao_catalog_research($product) ? array() : $schema; }, 20, 2);
-add_filter('woocommerce_is_purchasable', function ($purchasable, $product) { return fubao_catalog_research($product) ? false : $purchasable; }, 20, 2);
+add_filter('woocommerce_structured_data_product', function ($schema, $product) { return fubao_catalog_research($product) || fubao_catalog_sale_approved($product) ? array() : $schema; }, 20, 2);
+add_filter('woocommerce_is_purchasable', function ($purchasable, $product) {
+    if (fubao_catalog_research($product) || ($product && fubao_catalog_managed($product->get_id()) && !fubao_catalog_sale_approved($product))) { return false; }
+    return $purchasable;
+}, 20, 2);
 add_filter('woocommerce_variation_is_purchasable', function ($purchasable, $product) {
     $parent = $product && $product->get_parent_id() ? wc_get_product($product->get_parent_id()) : false;
-    return fubao_catalog_research($product) || fubao_catalog_research($parent) ? false : $purchasable;
+    if (fubao_catalog_research($product) || fubao_catalog_research($parent) || ($parent && fubao_catalog_managed($parent->get_id()) && !fubao_catalog_sale_approved($parent))) { return false; }
+    return $purchasable;
 }, 20, 2);
 add_filter('woocommerce_get_price_html', function ($html, $product) {
     if (!fubao_catalog_research($product)) { return $html; }

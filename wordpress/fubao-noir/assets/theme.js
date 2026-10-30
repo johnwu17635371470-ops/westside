@@ -4,8 +4,9 @@
   const byId = new Map(products.map(product => [product.id, product]));
   const money = value => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
-  const priceText = product => product.referencePrice === null ? 'Reference price unavailable' : `${money(product.referencePrice)} USD reference`;
-  const imageHTML = product => product.image ? `<img class="catalog-image" src="${esc(product.image)}" alt="${esc(product.name)}${product.research ? ' — AI-styled from linked source photo' : ''}" width="1024" height="1024">` : '<div class="catalog-image image-pending"><span>PRODUCT PHOTO<br>AWAITING VERIFICATION</span></div>';
+  const hasSellingPrice = product => typeof product.sellingPrice === 'number' && Number.isFinite(product.sellingPrice);
+  const priceText = product => hasSellingPrice(product) ? `${money(product.sellingPrice)} USD` : 'Not currently for sale';
+  const imageHTML = product => product.image ? `<img class="catalog-image" src="${esc(product.image)}" alt="${esc(product.imageAlt || product.name)}" width="1024" height="1024">` : '<div class="catalog-image image-pending"><span>PRODUCT PHOTO<br>AWAITING VERIFICATION</span></div>';
   const storageKey = 'fubao-reference-bag-v1';
   let bag = {};
   try {
@@ -33,10 +34,10 @@
   function addToBag(id) {
     const product = byId.get(id);
     if (!product) return;
-    if ((bag[id] || 0) >= 99) { announce('Maximum 99 of each reference.'); return; }
+    if ((bag[id] || 0) >= 99) { announce('Maximum 99 of each saved piece.'); return; }
     bag[id] = (bag[id] || 0) + 1;
     saveBag();
-    announce(`${product.name} saved to your reference list`);
+    announce(`${product.name} saved to your wishlist`);
   }
   function renderProducts(category = 'All') {
     let count = 0;
@@ -95,15 +96,16 @@
     const product = byId.get(trigger.dataset.detail);
     const content = document.querySelector('#detail-content');
     if (!product || !content) return;
-    const referenceNote = product.research ? `<p>Historical Amazon reference${product.sourceDate ? ` recorded ${esc(product.sourceDate)}` : ''}, converted at ¥150 = US$1. Not a live quote or FUBAO selling price. AI-styled images may differ in fine detail.</p>` : '';
-    content.innerHTML = `<div class="detail-grid">${imageHTML(product)}<div class="detail-copy"><p class="eyebrow orange-text">${esc(product.category.toUpperCase())}${product.research ? ' / RESEARCH SELECTION' : ''}</p><h2 id="detail-title">${esc(product.name)}</h2>${product.research ? `<p class="detail-price">${priceText(product)}</p>` : ''}<p>${esc(product.description)}</p>${referenceNote}<p><a class="text-link" href="${esc(product.url || product.permalink)}">Full details & source ↗</a></p><button class="button orange" data-add="${esc(product.id)}">SAVE REFERENCE <span>+</span></button></div></div>`;
+    const referenceNote = `<p>Source-linked details${product.sourceDate ? ` from ${esc(product.sourceDate)}` : ''}. AI-styled images may differ in fine detail. Historical source prices are listed separately on the product page.</p>`;
+    const purchase = product.isPurchasable && product.addToCartUrl ? `<a class="button orange" href="${esc(product.addToCartUrl)}">ADD TO CART <span>+</span></a>` : '<p class="catalog-unavailable">This piece is not available for purchase.</p>';
+    content.innerHTML = `<div class="detail-grid">${imageHTML(product)}<div class="detail-copy"><p class="eyebrow orange-text">${esc(product.category.toUpperCase())}${product.research ? ' / RESEARCH SELECTION' : ''}</p><h2 id="detail-title">${esc(product.name)}</h2><p class="detail-price">${priceText(product)}</p><p>${esc(product.description)}</p>${purchase}${referenceNote}<p><a class="text-link" href="${esc(product.url || product.permalink)}">Full details & source ↗</a></p><button class="button orange" data-add="${esc(product.id)}">SAVE TO WISHLIST <span>♡</span></button></div></div>`;
     openDialog(detail);
   });
   function renderBag() {
     if (!bagDialog) return;
     const chosen = products.filter(product => bag[product.id]);
-    document.querySelector('#bag-items').innerHTML = chosen.length ? chosen.map(product => `<div class="bag-row">${imageHTML(product)}<div><h3>${esc(product.name)}</h3><p>${priceText(product)} each</p><div class="quantity"><button data-quantity="${esc(product.id)}" data-change="-1" aria-label="Decrease ${esc(product.name)} quantity">−</button><span aria-label="Quantity">${bag[product.id]}</span><button data-quantity="${esc(product.id)}" data-change="1" aria-label="Increase ${esc(product.name)} quantity" ${bag[product.id] >= 99 ? 'disabled' : ''}>+</button><button class="remove" data-remove="${esc(product.id)}" aria-label="Remove ${esc(product.name)}">Remove</button></div></div></div>`).join('') : '<div class="empty">Your next signature is waiting.<br>Explore the collection to start your rotation.</div>';
-    document.querySelector('#bag-total').textContent = money(chosen.reduce((sum, product) => sum + (product.referencePrice || 0) * bag[product.id], 0)) + (chosen.some(product => product.referencePrice === null) ? ' + unpriced items' : '');
+    document.querySelector('#bag-items').innerHTML = chosen.length ? chosen.map(product => `<div class="bag-row">${imageHTML(product)}<div><h3>${esc(product.name)}</h3><p>${priceText(product)}${hasSellingPrice(product) ? ' each' : ''}</p>${product.isPurchasable && product.addToCartUrl ? `<p><a class="wishlist-cart-link" href="${esc(product.addToCartUrl)}">Add one to shopping cart ↗</a></p>` : ''}<div class="quantity"><button data-quantity="${esc(product.id)}" data-change="-1" aria-label="Decrease ${esc(product.name)} wishlist quantity">−</button><span aria-label="Wishlist quantity">${bag[product.id]}</span><button data-quantity="${esc(product.id)}" data-change="1" aria-label="Increase ${esc(product.name)} wishlist quantity" ${bag[product.id] >= 99 ? 'disabled' : ''}>+</button><button class="remove" data-remove="${esc(product.id)}" aria-label="Remove ${esc(product.name)}">Remove</button></div></div></div>`).join('') : '<div class="empty">Your next signature is waiting.<br>Explore the collection to start your rotation.</div>';
+    document.querySelector('#bag-total').textContent = money(chosen.reduce((sum, product) => sum + (hasSellingPrice(product) ? product.sellingPrice : 0) * bag[product.id], 0)) + (chosen.some(product => !hasSellingPrice(product)) ? ' + unpriced pieces' : '');
   }
   document.querySelector('#bag-open')?.addEventListener('click', () => { renderBag(); openDialog(bagDialog); });
   bagDialog?.addEventListener('click', event => {
@@ -131,5 +133,33 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && nav?.classList.contains('open')) { closeMenu(); menu?.focus(); }
   });
+
+  // Blocks update their own Cart Store without refreshing classic cart fragments.
+  function bindCartBadge() {
+    if (!document.querySelector('.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout')) return;
+    const data = window.wp?.data;
+    if (!data?.select || !data?.subscribe) return;
+    function syncCartBadge() {
+      let selectors;
+      try { selectors = data.select('wc/store/cart'); } catch (_) { return; }
+      // Read only resolved data: do not start a Store API request or replace the
+      // server-rendered count with the store's temporary empty initial state.
+      if (!selectors?.getCartData || !selectors.hasFinishedResolution?.('getCartData')) return;
+      const count = selectors.getCartData()?.itemsCount;
+      if (!Number.isInteger(count) || count < 0) return;
+      const link = document.querySelector('#fubao-cart-link');
+      const counter = link?.querySelector('span');
+      if (counter && counter.textContent !== String(count)) counter.textContent = String(count);
+      const label = `Shopping cart, ${count} items`;
+      if (link && link.getAttribute('aria-label') !== label) link.setAttribute('aria-label', label);
+    }
+    data.subscribe(syncCartBadge);
+    if (window.jQuery) {
+      window.jQuery(document.body).on('wc_fragments_loaded.fubaoCartBadge wc_fragments_refreshed.fubaoCartBadge', syncCartBadge);
+    }
+    syncCartBadge();
+  }
+  if (document.readyState === 'complete') bindCartBadge();
+  else window.addEventListener('load', bindCartBadge, {once: true});
   renderProducts(); saveBag();
 })();

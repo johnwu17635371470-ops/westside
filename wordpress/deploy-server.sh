@@ -9,8 +9,8 @@ test "$(realpath -e "$SITE")" = "$SITE"
 test ! -L "$SITE"
 test -f "$SITE/wp-config.php"
 test -x "$PHP"
-printf '%s  %s\n' a350a24fd0f3bb336f8dfe3431421b97d582922a8ee7494e55cfd26e13a4b558 "$PKG/fubao-noir.zip" | sha256sum -c -
-printf '%s  %s\n' fe32bbd06444e00d919e702075c179be3ae72d1db54ab5e9ed1d104c760eaf42 "$PKG/fubao-catalog.zip" | sha256sum -c -
+printf '%s  %s\n' 597897c83a452c6c807eb3d2245a62a7b2dbd85576d5b2e25dfe3f4019c77514 "$PKG/fubao-noir.zip" | sha256sum -c -
+printf '%s  %s\n' 1bcf198cf958ee0600269743d5ccba0049bfb498cadc04e325d10ea3b08b68bc "$PKG/fubao-catalog.zip" | sha256sum -c -
 if ! test -f "$CLI"; then
   curl --fail --silent --show-error --retry 2 --connect-timeout 10 --max-time 90 https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o "$CLI"
   chmod 0644 "$CLI"
@@ -21,6 +21,7 @@ test "$(wpnew config get DB_NAME)" = sql_fubaojewelry
 HOME_URL=$(wpnew option get home)
 case "$HOME_URL" in http://fubaojewelry.com|https://fubaojewelry.com) ;; *) echo 'Unexpected site origin; stopping.' >&2; exit 1;; esac
 test "$(wpnew plugin get woocommerce --field=version)" = 11.2.1
+wpnew eval 'if(function_exists("wc_get_products")){foreach(wc_get_products(["status"=>"publish","limit"=>-1]) as $p){if($p->get_price()!=="" || $p->get_meta("_fubao_sale_approved")==="yes"){WP_CLI::error("Historical research import helper cannot replace a commerce installation.");}}}'
 wpnew option update blog_public 0
 wpnew plugin activate woocommerce
 for pair in 'fubao-noir themes' 'fubao-catalog plugins'; do

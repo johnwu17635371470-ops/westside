@@ -14,6 +14,13 @@ coverage/
 !.env.sample
 *.pem
 *.key
+wp-config.php
+local-admin.json
+bacs-source-private.json
+fubao-bank-import-private.json
+*.sql
+*.sqlite
+*.sqlite3
 
 # Local tools and temporary files
 .vscode/

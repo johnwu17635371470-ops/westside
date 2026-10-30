@@ -22,6 +22,6 @@
             <a href="<?php echo esc_url(home_url('/#lookbook')); ?>">Lookbook</a>
         <?php } ?>
     </nav>
-    <div class="nav-actions"><button id="bag-open" class="bag-button">SAVED <span id="bag-count">0</span> ↗</button><button id="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Toggle navigation">☰</button></div>
+    <div class="nav-actions"><button id="bag-open" class="bag-button" aria-label="Open wishlist">WISHLIST <span id="bag-count">0</span></button><?php echo fubao_noir_cart_link(); ?><button id="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Toggle navigation">☰</button></div>
 </header>
 <div id="main-content" tabindex="-1"></div>

@@ -2,7 +2,19 @@
 
 This is an independent WordPress implementation for FUBAO JEWELRY. Do not install it into the existing Better Sport WordPress site. The current Sites publication and DNS stay in place until the new server installation passes staging checks.
 
-Deployment update, 2026-10-30: the separate RackNerd installation passed the server checks below, and the apex domain now serves its WordPress preview over HTTPS. Search indexing is still disabled. See `../PROGRESS.md` for actual deployment, rollback and pending launch tasks; the numbered steps below also document the reproducible installation process.
+Deployment update, 2026-10-30: the separate RackNerd installation now serves the formal HTTPS domain, with the 25-page acquisition sitemap and public indexing enabled. The owner subsequently approved seventeen historical amounts as current WooCommerce USD selling prices; one unpriced selection stays unavailable. Direct bank transfer and US/Canada shipping are configured. PayPal Payments 4.2.0 is active but not connected. See `../PROGRESS.md` for current verification and pending account/email tasks. Earlier research-only steps below document the initial installation, not the current sales state.
+
+## Approved commerce release
+
+The Noir theme and FUBAO Catalog are version 1.1.1. Real WooCommerce cart/checkout links are distinct from the browser-only wishlist. Product pages retain original source evidence, the historical reference amount and AI image notes alongside the current selling price. Approved products have one current-price USD Offer in their Product JSON-LD; the unpriced reference has no Offer. No ratings, material guarantees, numeric stock counts or inferred physical availability were added.
+
+`commerce-setup.php` configures only USD, US/CA country lists and one owned shipping zone. It requires the explicit `FUBAO_SHIPPING_QUANTITY_MODE=store-unit` flag. One purchased SKU/set counts as one unit, so the cost is `11 + [qty]`: $12/$13/$14 for one/two/three units. Rest of world has no shipping method, and class surcharges remain empty. Tax rates were not configured; shipping currently adds no tax surcharge.
+
+`commerce-publish.php` requires `FUBAO_APPROVE_REFERENCE_PRICES=1`, the exact independent database/origin and an administrator. It converts the seventeen amounts once, preserves the missing-price product and source history, and updates exact old no-sale statements. Per-product/page markers preserve later dashboard edits. `setup-bank-transfer.php` requires explicit approval and a mode-0600 temporary source outside the web root; it stores the existing owner's bank details only in WooCommerce and never logs them. Never add its source JSON, account fields or any PayPal credential to this repository.
+
+`deploy-commerce.sh` verifies versioned ZIP hashes, saves the prior code, installs code and runs the approved helpers. The server backup parent is private to root; only non-secret helper code is copied to a mode-0700 www-owned temporary directory for WP-CLI. It does not connect PayPal or submit an order. `validate-commerce.php` is the current acceptance helper: default checks data, real Woo shipping calculations, BACS completeness, PayPal connection state and Product schemas; optional `FUBAO_HTTP_VALIDATE=1` adds 25 served pages, canonicals, purchase forms, current-price Offers, sitemap and noindex checkout/cart checks. Keep a bounded timeout and serial requests on this small VPS.
+
+The older `launch-indexing.sh` and `validate-server.sh` describe the research-only stage and deliberately require no selling prices/Offers. Do not use them to validate or replace an approved commerce installation. Check Woo Coming Soon is disabled and validate anonymous cart/checkout, rather than treating HTTP 200 or schema alone as proof of a working store. Never submit a live/test order without specific authorization.
 
 ## Build and files
 
@@ -37,7 +49,7 @@ On production, route requests for missing physical files to WordPress (`try_file
 
 Only after the separate server site, HTTPS and 25 URLs pass should the domain be switched from Sites. Confirm the final production origin in WordPress, then submit the sitemap. Actual sales require separately confirmed own SKUs, selling prices, variants, inventory, shipping/returns, merchant details and payment configuration.
 
-`deploy-server.sh` is restricted to the verified RackNerd directory, database, versions and package hashes; review these values before any future reuse. `validate-server.sh` is a read-only, 55-second server-local HTTPS check for all 25 routes, canonical/description/JSON-LD output, eighteen non-purchasable research products and imported images. It requires PHP 8.3 cURL and DOM, keeps TLS validation enabled, writes temporary files outside the web root and leaves visibility settings unchanged.
+`deploy-server.sh` is restricted to the verified RackNerd directory, database, versions and package hashes; review these values before any future reuse. `validate-server.sh` is a read-only, 110-second server-local HTTPS check for the research-only stage: all 25 routes, canonical/description/JSON-LD output, eighteen non-purchasable research products and imported images. It requires PHP 8.3 cURL and DOM, keeps TLS validation enabled, writes temporary files outside the web root and leaves visibility settings unchanged. Use `validate-commerce.php` for the current sales release instead.
 
 ## Local test environment
 

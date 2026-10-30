@@ -1,6 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 get_header();
+if (function_exists('woocommerce_output_all_notices')) { echo '<div class="fubao-cart-notices">'; woocommerce_output_all_notices(); echo '</div>'; }
 if (have_posts()) {
     while (have_posts()) {
         the_post();
