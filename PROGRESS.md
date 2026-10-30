@@ -1,5 +1,15 @@
 # FUBAO JEWELRY progress
 
+## PayPal Live connection and notification-mail preparation — 2026-10-30
+
+The owner personally completed PayPal authorization. Followed the exact Return WooCommerce link exposed by the visible PayPal completion window; Settings → Connection status now explicitly shows Business | Live and a Disconnect action. Enable PayPal is checked. Real public cart/checkout pages render Pay with PayPal and the PayPal payment option. No payment button, Place Order action or transaction was submitted, and no order was created; the connection and visible controls are verified, not transaction success.
+
+Apple Pay had no completed domain configuration and Google Pay reported ELIGIBLE_PAYMENT_METHOD_ERROR. Both automatically enabled wallet methods were turned off and saved; the UI confirmed Settings saved successfully. A settings reload preserved both off states and PayPal enabled. Fresh cart and checkout pages retained PayPal controls, bank transfer and the correct shipping calculation, with no new browser errors. The current owner's cart contained five sets ($42 subtotal, $16 shipping, $58 total); its contents were not changed or cleared. Safe cart proof is the sibling fubao-paypal-live-cart.jpg, outside Git. Other payment switches were unchanged.
+
+Official WP Mail SMTP Lite 4.10.3 is installed and active. Woo new-order, cancelled-order and failed-order notifications are enabled, with From Name FUBAO JEWELRY. The owner chose the existing QQ mail service. Other SMTP settings were prepared manually with smtp.qq.com, SSL 465 and authentication enabled; the username was prepared without recording its value here. The password field is empty, the connection has not been saved and no test message was sent. Next requires the owner to enter the SMTP authorization code, save the connection and explicitly authorize a test email. Email delivery and order-notification delivery remain unverified.
+
+This section supersedes the earlier awaiting-PayPal-connection status below. The earlier release and diagnostic history is retained. No account addresses, merchant identifiers, authorization codes, secrets or session URLs are stored in these notes.
+
 ## Approved payments, sale prices and shipping — 2026-10-30
 
 The owner explicitly approved the seventeen existing numeric reference amounts as initial FUBAO USD selling prices, with the one missing-price selection unavailable. A purchased set counts as one cart unit. Shipping is limited to the United States and Canada: $12 for one unit, plus $1 for each additional unit. The original source/history fields remain separate from Woo selling prices; subsequent dashboard edits are preserved.
