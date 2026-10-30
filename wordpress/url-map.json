@@ -1,0 +1,127 @@
+[
+  {
+    "type": "page",
+    "slug": "home",
+    "path": "/"
+  },
+  {
+    "type": "page",
+    "slug": "sources",
+    "path": "/sources.html"
+  },
+  {
+    "type": "page",
+    "slug": "guides",
+    "path": "/guides.html"
+  },
+  {
+    "type": "page",
+    "slug": "ring-guide",
+    "path": "/ring-guide.html"
+  },
+  {
+    "type": "page",
+    "slug": "necklace-guide",
+    "path": "/necklace-guide.html"
+  },
+  {
+    "type": "page",
+    "slug": "bracelet-guide",
+    "path": "/bracelet-guide.html"
+  },
+  {
+    "type": "page",
+    "slug": "earring-guide",
+    "path": "/earring-guide.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0h694668r",
+    "path": "/products/b0h694668r.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0gbw7cbvm",
+    "path": "/products/b0gbw7cbvm.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0gglt29nf",
+    "path": "/products/b0gglt29nf.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0gv3rv7tb",
+    "path": "/products/b0gv3rv7tb.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0gtpydkrz",
+    "path": "/products/b0gtpydkrz.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0f5h4k46m",
+    "path": "/products/b0f5h4k46m.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0cng13qc3",
+    "path": "/products/b0cng13qc3.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0c23ybcl5",
+    "path": "/products/b0c23ybcl5.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0f9ymxl4b",
+    "path": "/products/b0f9ymxl4b.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0f6bz9ptz",
+    "path": "/products/b0f6bz9ptz.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0d9gwx6l6",
+    "path": "/products/b0d9gwx6l6.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0dhh3jtqs",
+    "path": "/products/b0dhh3jtqs.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0bw91bkr4",
+    "path": "/products/b0bw91bkr4.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0d172fc5v",
+    "path": "/products/b0d172fc5v.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0fvsf2mkj",
+    "path": "/products/b0fvsf2mkj.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0f2m4cnwh",
+    "path": "/products/b0f2m4cnwh.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0bd5563wd",
+    "path": "/products/b0bd5563wd.html"
+  },
+  {
+    "type": "product",
+    "slug": "b0bvzk4z1x",
+    "path": "/products/b0bvzk4z1x.html"
+  }
+]

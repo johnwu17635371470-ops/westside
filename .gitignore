@@ -38,6 +38,12 @@ test-results/
 *.tar.gz
 *.tgz
 
+# Reproducible WordPress migration bundle copies (source remains in dist/ and data/)
+wordpress/fubao-noir/assets/site/
+wordpress/fubao-noir/templates/home.html
+wordpress/fubao-catalog/data/
+wordpress/fubao-catalog/images/
+
 # Keep the Sites hosting manifest, ignore local runtime state
 .openai/*
 !.openai/hosting.json

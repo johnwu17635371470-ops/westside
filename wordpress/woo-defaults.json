@@ -1,0 +1,36 @@
+{
+  "woocommerce": "11.2.1",
+  "locale": "en_US",
+  "pages": [
+    {
+      "slug": "refund_returns",
+      "option": "woocommerce_refund_returns_page_id",
+      "status": "draft",
+      "sha256": "310e36ac14b32cb482dc4fdd092e5445223dbb8188d7f76fe176d75c8127acb5"
+    },
+    {
+      "slug": "cart",
+      "option": "woocommerce_cart_page_id",
+      "status": "publish",
+      "sha256": "2122f473ab3497680baf0341591a19f409bfa52713a7d49404c9bffe5149227e"
+    },
+    {
+      "slug": "checkout",
+      "option": "woocommerce_checkout_page_id",
+      "status": "publish",
+      "sha256": "5beaa3e7a0b206e553928e70dbb82b0d03aea5d0ef911d06e496a106eb4bcf62"
+    },
+    {
+      "slug": "my-account",
+      "option": "woocommerce_myaccount_page_id",
+      "status": "publish",
+      "sha256": "91793c7142ce612ecaf0f78a8f87474898a2cd22ca75bd44a7cf04a684f12200"
+    }
+  ],
+  "placeholder": {
+    "option": "woocommerce_placeholder_image",
+    "status": "inherit",
+    "basename": "woocommerce-placeholder.webp",
+    "sha256": "019e9beec61c9ee5b6009335c7846816452e1e3b420d2bb9e50327681dfade19"
+  }
+}

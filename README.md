@@ -1,5 +1,7 @@
 # FUBAO JEWELRY
 
+WordPress + WooCommerce migration source and installation instructions are in `wordpress/README.md`. The independent local version is verified; RackNerd deployment remains pending panel access and an isolated FUBAO site. The existing static Sites publication is still the current hosted site.
+
 Formal domain https://fubaojewelry.com is connected with active HTTPS as of October 30, 2026. `site.config.json` now uses it for canonical URLs, structured data and sitemap generation. Hosting remains owner-private; public crawling requires a separately authorized public launch. This supersedes the pending-domain wording below.
 
 `build_guide_hub.cjs` runs last to generate the earring guide and guide hub, then connects all 18 product pages to the relevant guide. `data/earring-evidence.json` records attributed listing facts and unresolved weight. `check_catalog.py` validates all 25 canonical pages and the guide links. GEO is primary and SEO is maintained alongside it.

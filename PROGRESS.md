@@ -1,5 +1,15 @@
 # FUBAO JEWELRY progress
 
+## WordPress / WooCommerce migration in progress — 2026-10-30
+
+The user chose WordPress + WooCommerce on the existing RackNerd US server. The supplied WordPress admin is the separate live Better Sport site and must not be used for this import. RackNerd VPS management is accessible, but the supplied website-panel session URL and its base origin both return Nginx 404. Do not store its session path or credentials. No remote installation, server reinstallation, DNS cutover or audience change has been performed.
+
+`wordpress/` contains a separate Noir classic theme, FUBAO Catalog import plugin, source-to-bundle generator and migration instructions. Generated image/content copies and ZIPs are excluded from Git. A loopback-only local WordPress Playground with WooCommerce runs from the sibling `fubao-wp-local/` directory; SQLite there is a testing aid, not the RackNerd production database.
+
+Local verification completed on WordPress 7.1.4 / WooCommerce 11.2.1 / PHP 8.3: seven Pages and eighteen Products imported with bundled media, all 25 original URLs return 200 with matching canonical/description and valid structured JSON, research selections have no purchase price or merchant Offer, and repeating the import preserves editor changes. Browser checks at 1440/768/390 show no horizontal overflow or broken loaded images. Category filter, quick view, Escape/focus return, reference totals, removal, refresh restoration, mobile navigation and guide links passed; error log empty. ZIPs were built in the sibling fubao-wordpress-packages directory. The runtime and credentials are outside this repository and are not part of the packages.
+
+Read-only RackNerd VNC access revealed an existing root session. Queried current memory, uptime and the panel's default entrance with credentials filtered from display. Current available memory was approximately 1.4 GB; historical kernel logs show repeated MySQL OOM termination. Retrieved and verified the complete aaPanel security entrance: it now displays the username/password login page. Do not record that private entrance or credentials in Git. Awaiting panel login and a site-specific deployment inspection; FUBAO has not been deployed to RackNerd yet.
+
 ## Formal domain connected — 2026-10-30
 
 Aliyun now contains the two Sites apex A records and two validation TXT records. Sites confirmed domain, provider and SSL statuses active. Canonical origin is now https://fubaojewelry.com; regenerated all 25 pages, structured data, sitemap and robots. Hosting remains owner-private, so public crawlability and public launch are still separate pending decisions. Previous pending-domain notes below are historical.

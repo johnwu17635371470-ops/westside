@@ -1,0 +1,23 @@
+/*
+Theme Name: FUBAO Noir
+Description: FUBAO JEWELRY's Noir Edition, with source-linked research products and editable WordPress pages.
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 7.4
+Text Domain: fubao-noir
+*/
+
+.header nav li, .footer-top nav li { list-style: none; }
+.fubao-page { min-height: 55vh; }
+.fubao-page .entry-title { font-family: Georgia, serif; font-size: clamp(2.5rem, 7vw, 5rem); }
+.fubao-product-body { margin-top: 3rem; line-height: 1.8; }
+.fubao-product-body h2, .fubao-product-body h3 { font-family: Georgia, serif; margin: 1.5em 0 .6em; }
+.fubao-product-body p { margin: 0 0 1em; }
+.fubao-page img { max-width: 100%; height: auto; }
+.fubao-product-image img { width: 100%; height: auto; object-fit: contain; }
+.fubao-empty { grid-column: 1 / -1; padding: 3rem 0; color: #bfb8ad; }
+.fubao-woocommerce { padding-top: 3rem; }
+.fubao-product-body a { text-decoration: underline; text-underline-offset: .2em; }
+.admin-bar .header { scroll-margin-top: 32px; }
+.screen-reader-text { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.screen-reader-text:focus { position: fixed; top: 1rem; left: 1rem; z-index: 999999; width: auto; height: auto; margin: 0; padding: 1rem; clip: auto; color: #101010; background: #eee9df; }
