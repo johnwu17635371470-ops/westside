@@ -1,5 +1,13 @@
 # FUBAO JEWELRY progress
 
+## SMTP test received and sending channel verified — 2026-10-30
+
+Saved the FUBAO QQ Other SMTP configuration with SSL 465 and authentication using the owner's supplied authorization. The UI confirmed Settings were successfully saved. No account address, authorization value or other credential is recorded here.
+
+The owner separately and explicitly approved one system test email to the existing administrator mailbox. Submitted exactly one through WP Mail SMTP → Tools → Email Test; the UI displayed “Test email sent successfully! Check your inbox to confirm delivery.” The owner then explicitly replied “已收到”, confirming QQ inbox receipt. The sending channel is verified. Safe proof is the sibling fubao-smtp-test-success.jpg, outside Git.
+
+The complete Woo order-notification flow has not been tested with an actual order. No order, charge or additional test email was created. PayPal remains verified Business | Live without a completed transaction test. This supersedes the earlier SMTP-preparation notes below. No further test email is authorized by the completed single-message approval.
+
 ## PayPal Live connection and notification-mail preparation — 2026-10-30
 
 The owner personally completed PayPal authorization. Followed the exact Return WooCommerce link exposed by the visible PayPal completion window; Settings → Connection status now explicitly shows Business | Live and a Disconnect action. Enable PayPal is checked. Real public cart/checkout pages render Pay with PayPal and the PayPal payment option. No payment button, Place Order action or transaction was submitted, and no order was created; the connection and visible controls are verified, not transaction success.

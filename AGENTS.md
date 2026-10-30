@@ -6,7 +6,7 @@
 
 - 正式域名现已指向 RackNerd 独立 WordPress 新站。`blog_public=1` 已开放正式25页抓取；辅助购物车/结账/账号/搜索等保持noindex，唯一站点地图为 `/sitemap.xml`。17款正式售价与银行转账、美加运费已部署；PayPal后台已验证 `Business | Live` 且启用，公开购物车/结账已显示PayPal按钮及选项，但未进行交易或创建订单。自动开启的Apple Pay、Google Pay已关闭并保存；重新加载的购物车/结账仍显示PayPal和正确运费，未出现新的浏览器错误。原 Sites 及其私有访问范围未变。实际验证、待办和回滚记录见 `PROGRESS.md` 最新节；开放抓取不代表已被收录或推荐。
 
-- WP Mail SMTP Lite 4.10.3已安装激活；Woo新订单、取消、失败通知已启用，From Name为FUBAO JEWELRY。按用户选择准备原QQ邮箱的Other SMTP连接（SSL 465、认证开启），连接尚未保存，密码为空。下一步由用户自行填写SMTP授权码、保存并明确授权发送测试邮件；目前不能宣称发信成功。仓库禁止记录邮箱地址、SMTP授权码、商户标识、密钥或会话链接。
+- WP Mail SMTP Lite 4.10.3已安装激活；Woo新订单、取消、失败通知已启用，From Name为FUBAO JEWELRY。QQ Other SMTP连接（SSL 465、认证开启）已按用户提供的授权完成保存。用户另行明确批准发送1封系统测试邮件，已恰好提交1封，界面显示发送成功；用户随后明确回复“已收到”，确认QQ收件箱收到本次邮件，发信通道已验证。订单通知全链路尚未用实际订单测试，没有创建订单或扣款。仓库禁止记录邮箱地址、SMTP授权码、商户标识、密钥或会话链接。
 
 - 用户已选择迁移到独立的 WordPress + WooCommerce，使用现有 RackNerd 美国服务器。`wordpress/` 是主题、导入插件及迁移工具；`wordpress/README.md` 是部署说明。Better Sport 的现有 WordPress 属于另一个站点，不可将 FUBAO 内容导入其中。当前 Sites 仍承载原静态站，PHP/Woo 迁移包不能作为 Sites 静态资源发布。
 - WordPress 构建会从保留的 `dist/` 原图生成原尺寸 WebP 衍生图，并输出主题/插件 ZIP。不要重新生成或改变商品构图；保留 ASIN、来源和历史参考价说明。生成副本、运行环境、数据库、密码及面板会话路径不可纳入 Git。
