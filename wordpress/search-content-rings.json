@@ -1,0 +1,280 @@
+{
+  "formatVersion": "fubao-search-content-v1",
+  "publicationScope": "Update only existing Rings products shortDescription and contentHtml through WordPress; preserve product titles, URLs, images, prices, inventory and policies.",
+  "internalFields": [
+    "primaryKeyword",
+    "supportingKeywords",
+    "evidenceRefs"
+  ],
+  "keywordResearch": {
+    "market": "US",
+    "source": "Semrush measurements supplied by the root task; not independently remeasured in this content task.",
+    "seeds": [
+      {
+        "keyword": "stacking rings",
+        "monthlyVolume": 12100,
+        "keywordDifficulty": 19
+      },
+      {
+        "keyword": "gothic jewelry",
+        "monthlyVolume": 4400,
+        "keywordDifficulty": 32
+      }
+    ],
+    "note": "Product-level long tails are editorial mappings to matching catalog styles; their individual volumes and difficulties were not measured. Gothic jewelry is not applied to every ring."
+  },
+  "items": [
+    {
+      "asin": "B0H694668R",
+      "primaryKeyword": "vintage silver tone ring set",
+      "supportingKeywords": [
+        "vintage inspired ring assortment",
+        "silver tone ring stack",
+        "layering ring set"
+      ],
+      "shortDescription": "Explore a vintage silver-tone ring set for a layered look, with source notes on the assortment, unresolved size distribution and alloy descriptions.",
+      "contentHtml": "<section id=\"ring-details-b0h694668r\" aria-labelledby=\"ring-details-b0h694668r-title\">\n<h2 id=\"ring-details-b0h694668r-title\">A vintage silver-tone ring assortment</h2>\n<p>This selection brings a vintage-inspired direction to a layered hand look. The reviewed source identifies the A-Silver variant and lists 40 pieces, while the matched photo shows a selection rather than a verified packing list. The exact assortment still needs confirmation; neither the picture nor the number alone establishes which rings are included.</p>\n<h3>Are all 40 rings confirmed in the pictured assortment?</h3>\n<p>No. The workbook title and retrieved specifications mention 40, but the exact included pieces have not been confirmed for the selected assortment.</p>\n<h3>Does the size field describe every ring?</h3>\n<p>The source lists 6–9.5. Its sizing system and the distribution of those sizes across the rings remain unresolved, so do not assume every ring has the same size.</p>\n<h3>Is silver-tone a sterling-silver claim?</h3>\n<p>No. Silver-tone describes appearance. The source fields say alloy and metal; they do not establish silver purity.</p>\n<p>Use the <a href=\"/ring-guide.html\">ring comparison guide</a> for fit questions and the <a href=\"/sources.html#source-evidence-index\">product source directory</a> to trace this selection.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0H694668R",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 5,
+          "selector": "items[asin=B0H694668R]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "A-Silver; source states 40 pieces, but catalog says the photo shows a selection and exact included pieces need confirmation.",
+            "Source size field 6–9.5; sizing system and distribution unresolved.",
+            "Source metal/material fields: alloy / metal; no silver-purity claim."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0GBW7CBVM",
+      "primaryKeyword": "gold tone stacking ring set",
+      "supportingKeywords": [
+        "gold tone ring stack",
+        "chunky and delicate rings",
+        "decorative stacking rings"
+      ],
+      "shortDescription": "Build a gold-tone ring stack with chunky and delicate shapes; compare the listed Gold CZ variant, unresolved ring sizes and conflicting stone descriptions.",
+      "contentHtml": "<section id=\"ring-details-b0gbw7cbvm\" aria-labelledby=\"ring-details-b0gbw7cbvm-title\">\n<h2 id=\"ring-details-b0gbw7cbvm-title\">Gold-tone stacking rings with mixed shapes</h2>\n<p>The catalog describes chunky and delicate ring shapes with decorative accents, offering a varied starting point for a gold-tone stack. The retrieved specifications identify a Gold CZ variant and state 21 pieces. That source count is separate from confirmation of the exact selected package, and the individual ring sizes remain unknown.</p>\n<h3>Does Gold CZ confirm the stone composition?</h3>\n<p>No. Gold CZ is the retrieved variant label. The title mentions crystal accents, but a gem field says no gemstone. This conflict leaves stone composition unresolved.</p>\n<h3>Can I choose a finger size from these notes?</h3>\n<p>Not reliably. Exact ring sizes were not confirmed in the reviewed specifications. Establish the size of each ring before planning where to wear it.</p>\n<h3>What do the material fields establish?</h3>\n<p>They describe alloy and metal. They do not independently verify the decorative stones, plating specification or precious-metal content.</p>\n<p>Compare the <a href=\"/ring-guide.html\">ring source facts and fit limits</a>, then consult the <a href=\"/sources.html#source-evidence-index\">product source directory</a> for the original listing.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0GBW7CBVM",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 6,
+          "selector": "items[asin=B0GBW7CBVM]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Gold CZ source variant; specifications state 21, exact selected package not confirmed by catalog.",
+            "Exact ring sizes unresolved.",
+            "Crystal-accent title conflicts with no-gemstone field; composition unresolved."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0GGLT29NF",
+      "primaryKeyword": "silver tone chunky ring set",
+      "supportingKeywords": [
+        "16 piece ring set",
+        "dome and open rings",
+        "sculptural silver tone rings"
+      ],
+      "shortDescription": "Explore a silver-tone chunky ring set with dome and open silhouettes; review the listed 16-piece assortment, adjustment limits and source material fields.",
+      "contentHtml": "<section id=\"ring-details-b0gglt29nf\" aria-labelledby=\"ring-details-b0gglt29nf-title\">\n<h2 id=\"ring-details-b0gglt29nf-title\">A chunky silver-tone ring set</h2>\n<p>Bold dome and open silhouettes distinguish this selection from the more delicate ring stacks in the catalog. The retrieved title and specifications both state 16 pieces for the Silver variant. The listing also uses an adjustable description, but the numerical adjustment range has not been confirmed.</p>\n<h3>Does adjustable mean the set fits every finger?</h3>\n<p>No confirmed range supports that conclusion. Check the dimensions and adjustment limits of the individual rings rather than assuming one fit applies to all 16 pieces.</p>\n<h3>Is the silver-tone description a metal-purity statement?</h3>\n<p>No. Source fields mention alloy and alloy steel, while the title uses a silver-plating description. These statements do not establish a solid-silver composition or silver purity.</p>\n<h3>What should I check about the assortment?</h3>\n<p>Confirm the selected Silver variant and which shapes are included. Generated imagery is not a substitute for the packaging list.</p>\n<p>Read the <a href=\"/ring-guide.html\">ring-set comparison</a> and follow this selection through the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0GGLT29NF",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 7,
+          "selector": "items[asin=B0GGLT29NF]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Silver source variant; title and specifications state 16.",
+            "Adjustable source label without a numerical adjustment range.",
+            "Alloy/alloy-steel fields and silver-plating title; no solid-silver/purity guarantee."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0GV3RV7TB",
+      "primaryKeyword": "turquoise color statement ring",
+      "supportingKeywords": [
+        "oval statement ring",
+        "gold tone statement ring",
+        "turquoise color ring"
+      ],
+      "shortDescription": "An oval turquoise-color statement ring with a flowing gold-tone rim; compare the selected color, acrylic/resin title description and unresolved fit range.",
+      "contentHtml": "<section id=\"ring-details-b0gv3rv7tb\" aria-labelledby=\"ring-details-b0gv3rv7tb-title\">\n<h2 id=\"ring-details-b0gv3rv7tb-title\">An oval turquoise-color statement ring</h2>\n<p>A large oval shape and flowing gold-tone rim give this selection a distinct focal point compared with a multi-ring stack. Turquoise is the selected color label in the reviewed source. The title describes acrylic/resin jewelry and gold plating, but composition has not been independently tested.</p>\n<h3>Does turquoise mean a natural turquoise stone?</h3>\n<p>No. The color label does not establish a gemstone identity or natural origin. Treat it as a color description.</p>\n<h3>Is the ring one size or adjustable?</h3>\n<p>The specifications say one size, while the title says adjustable. A numerical fit or adjustment range is not confirmed, so those two labels should not be treated as a verified sizing specification.</p>\n<h3>How many rings does the source describe?</h3>\n<p>The retrieved specifications state one. Confirm the selected variant and included item rather than inferring dimensions or composition from the styled image.</p>\n<p>See the <a href=\"/ring-guide.html\">ring fit and material comparison</a> and the <a href=\"/sources.html#source-evidence-index\">product source directory</a> for the evidence behind this selection.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0GV3RV7TB",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 8,
+          "selector": "items[asin=B0GV3RV7TB]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Turquoise is the selected color label; one listed in specifications.",
+            "One-size specification and adjustable title; numerical range unresolved.",
+            "Acrylic/resin and gold-plating title descriptions, not independently tested."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0GTPYDKRZ",
+      "primaryKeyword": "two tone stacking rings",
+      "supportingKeywords": [
+        "two tone band ring set",
+        "CZ accent ring design",
+        "mixed tone stacking rings"
+      ],
+      "shortDescription": "Compare two-tone stacking rings described with CZ accents in the source title, with the included count, selected sizes and base metal still unconfirmed.",
+      "contentHtml": "<section id=\"ring-details-b0gtpydkrz\" aria-labelledby=\"ring-details-b0gtpydkrz-title\">\n<h2 id=\"ring-details-b0gtpydkrz-title\">Two-tone stacking rings: contrast and source limits</h2>\n<p>The defining visual idea here is a two-tone band-style stack rather than a single-color assortment. The reviewed source title describes a CZ band set, and the catalog attributes its cubic-zirconia wording to that source. This review has title evidence only: the exact selected variant, included count and ring sizes are not confirmed.</p>\n<h3>How many rings are included?</h3>\n<p>The available title evidence does not establish an exact count for this selection. Confirm the selected package before treating the styled image as an included assortment.</p>\n<h3>Which metals create the two-tone look?</h3>\n<p>The base metal and plating specification remain unknown. Two-tone describes the appearance; it is not a statement that two precious metals are present.</p>\n<h3>Is the title's tarnish claim a FUBAO guarantee?</h3>\n<p>No. The source's marketing claim has not been adopted as a durability guarantee. The CZ description also remains an attributed source statement rather than independent testing.</p>\n<p>Check the <a href=\"/ring-guide.html\">ring evidence comparison</a> and <a href=\"/sources.html#source-evidence-index\">product source directory</a> before relying on an unconfirmed detail.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0GTPYDKRZ",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 9,
+          "selector": "items[asin=B0GTPYDKRZ]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Title-only evidence for a two-tone CZ band set.",
+            "Exact selected variant, count, size, base metal and plating specification unconfirmed.",
+            "Do not adopt source tarnish claim as a FUBAO guarantee."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0F5H4K46M",
+      "primaryKeyword": "delicate gold tone stacking rings",
+      "supportingKeywords": [
+        "slim stacking rings",
+        "delicate layered ring look",
+        "gold tone thin ring silhouettes"
+      ],
+      "shortDescription": "Explore delicate gold-tone stacking rings with slim silhouettes; check the selected size, package count and source claims about plating and CZ accents.",
+      "contentHtml": "<section id=\"ring-details-b0f5h4k46m\" aria-labelledby=\"ring-details-b0f5h4k46m-title\">\n<h2 id=\"ring-details-b0f5h4k46m-title\">Delicate gold-tone stacking rings with slim silhouettes</h2>\n<p>The catalog describes slim ring silhouettes for a lighter layered look, distinguishing this selection from the chunky dome styles. The source title mentions gold plating and CZ accents. Those are attributed descriptions, while the base metal, exact included count and selected variant have not been confirmed.</p>\n<h3>Does the title's 5–11 range tell me which size I receive?</h3>\n<p>No. The title mentions sizes 5 through 11, but the selected size and sizing system remain unresolved. Do not treat the range as the adjustment range of a single ring or as proof that every listed size is included.</p>\n<h3>How many rings are in the package?</h3>\n<p>The exact included count is not established in the reviewed title evidence. Confirm the chosen assortment separately from its slim appearance.</p>\n<h3>Are waterproof and tarnish claims verified?</h3>\n<p>No independent testing supports those title claims in this review. They are not published as FUBAO performance guarantees.</p>\n<p>Compare the <a href=\"/ring-guide.html\">ring sizes and evidence limits</a> and consult the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0F5H4K46M",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 10,
+          "selector": "items[asin=B0F5H4K46M]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Catalog describes slim, delicate silhouettes.",
+            "Title mentions sizes 5 through 11; selected size/system and exact count unconfirmed.",
+            "Gold-plating/CZ title descriptions; base metal and waterproof/tarnish claims unverified."
+          ]
+        }
+      ]
+    },
+    {
+      "asin": "B0DHH3JTQS",
+      "primaryKeyword": "gold tone open dome ring",
+      "supportingKeywords": [
+        "open ended dome ring",
+        "rounded gold tone ring",
+        "open ring silhouette"
+      ],
+      "shortDescription": "Explore the rounded ends of this gold-tone open dome ring and its source limitations. Fit, base metal and plating thickness remain unconfirmed; not for sale.",
+      "contentHtml": "<section id=\"ring-details-b0dhh3jtqs\" aria-labelledby=\"ring-details-b0dhh3jtqs-title\">\n<h2 id=\"ring-details-b0dhh3jtqs-title\">A gold-tone open dome ring: research selection</h2>\n<p>The matched source photo shows an open ring with two smooth, rounded ends. This selection remains unavailable for purchase. The source title describes gold plating and uses adjustable wording, but the exact selected variant, included count, base metal and plating thickness have not been confirmed.</p>\n<h3>Does the title's 3–15 range describe one ring's adjustment?</h3>\n<p>That has not been established. The title includes sizes 3–15 and half sizes, but their applicability to the pictured variant is unresolved. Do not use the whole range as a fit promise for one ring.</p>\n<h3>Does gold-tone mean solid gold?</h3>\n<p>No. Gold-tone describes appearance, and the source title refers to plating. Neither establishes solid-gold composition or a particular plating thickness.</p>\n<h3>Is one ring confirmed in the package?</h3>\n<p>One ring is pictured, but the exact included count is not confirmed. A styled image does not establish packaging contents.</p>\n<p>Use the <a href=\"/ring-guide.html\">ring comparison guide</a> and <a href=\"/sources.html#source-evidence-index\">product source directory</a> to review these limitations.</p>\n</section>",
+      "evidenceRefs": [
+        {
+          "path": "data/catalog.json",
+          "selector": "asin=B0DHH3JTQS",
+          "fields": [
+            "name",
+            "finish",
+            "quantityLabel",
+            "description"
+          ],
+          "note": "Existing public catalog appearance and selected-assortment limits; not independent product testing."
+        },
+        {
+          "path": "data/ring-evidence.json",
+          "line": 11,
+          "selector": "items[asin=B0DHH3JTQS]",
+          "reviewedOn": "2026-10-30",
+          "scope": "Amazon listing text retrieved through web search/open. Cached extracts may predate this review. Seller statements are not independent product testing; current variants require confirmation.",
+          "facts": [
+            "Catalog/source photo shows open rounded ends; exact selected variant/count not confirmed.",
+            "Title adjustable and 3–15/half-size wording is not confirmed as one ring adjustment range.",
+            "Gold-plating title; base metal/thickness unknown. Remains unpriced and unavailable."
+          ]
+        }
+      ]
+    }
+  ]
+}

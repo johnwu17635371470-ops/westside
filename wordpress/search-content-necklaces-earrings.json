@@ -1,0 +1,178 @@
+[
+  {
+    "asin": "B0F9YMXL4B",
+    "primaryKeyword": "black gothic choker necklace",
+    "supportingKeywords": [
+      "velvet lace choker",
+      "black fabric choker",
+      "gothic jewelry"
+    ],
+    "shortDescription": "Black gothic choker necklace with source-listed fabric, a 30 cm base and 10 cm extension. Check the selected width and package contents before choosing.",
+    "contentHtml": "<section id=\"fubao-search-b0f9ymxl4b\" aria-labelledby=\"fubao-search-b0f9ymxl4b-heading\"><h2 id=\"fubao-search-b0f9ymxl4b-heading\">Black gothic choker: length, fabric and details</h2><p>For a dark gothic jewelry look, this black necklace is documented as the Black 1 variant. The reviewed source describes fabric with velvet and lace details and lists a lobster clasp. These descriptions are attributed to the listing, not an independent fiber-composition test.</p><h3>What length does the listing give?</h3><p>It states a 30 cm base plus a 10 cm extension. Compare that base with your own measurement; the stated length does not establish collar width or guarantee fit.</p><h3>How many pieces are included?</h3><p>The exact package count is unconfirmed. A decorative or layered appearance is not evidence that several separate necklaces are supplied.</p><h3>Does the photograph establish the material?</h3><p>No. The AI-styled image shows the look but cannot verify fiber content or dimensions. Confirm the selected width and package contents before choosing.</p><p>Compare the <a href=\"/necklace-guide.html\">necklace lengths and layering guide</a> and trace this selection through the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "file": "data/catalog.json",
+        "record": "asin=B0F9YMXL4B",
+        "supports": "Published necklace identity, black finish, matched source image and source URL."
+      },
+      {
+        "file": "data/necklace-evidence.json",
+        "record": "items[asin=B0F9YMXL4B]",
+        "reviewedOn": "2026-10-30",
+        "supports": "Black 1; listed 30 cm base plus 10 cm extension; fabric/velvet/lace description; listed lobster clasp; width and package count unconfirmed."
+      },
+      {
+        "file": "dist/necklace-guide.html",
+        "record": "B0F9YMXL4B comparison row and questions",
+        "supports": "Separates the two black necklaces and warns that measurements do not guarantee fit. Historical no-sale copy is not reused."
+      },
+      {
+        "file": "wordpress/sources-evidence-index.html",
+        "record": "B0F9YMXL4B",
+        "supports": "Existing source-evidence-index anchor and original listing mapping."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0F9YMXL4B",
+        "supports": "Original historical source reference; statements above use the reviewed extract, not a new live specification check."
+      }
+    ]
+  },
+  {
+    "asin": "B0D9GWX6L6",
+    "primaryKeyword": "adjustable gothic necklace",
+    "supportingKeywords": [
+      "black fabric necklace",
+      "two layer goth necklace",
+      "30 cm necklace with 8 cm extender"
+    ],
+    "shortDescription": "Adjustable gothic necklace in black fabric, with a source-listed 30 cm base and 8 cm extension. Its two-layer design does not confirm two separate necklaces.",
+    "contentHtml": "<section id=\"fubao-search-b0d9gwx6l6\" aria-labelledby=\"fubao-search-b0d9gwx6l6-heading\"><h2 id=\"fubao-search-b0d9gwx6l6-heading\">Adjustable gothic necklace: the Black 1 fabric variant</h2><p>This black fabric necklace is the B0D9GWX6L6 selection. The site owner confirmed fabric for this necklace on October 30, 2026. The listing body also describes fabric, while a separate material field says leather. That clarification applies only to this necklace, not to other products.</p><h3>What is the listed adjustment range?</h3><p>The reviewed text gives a 30 cm base plus an 8 cm extension for Black 1. Collar width remains unconfirmed, and the measurements do not guarantee a particular fit.</p><h3>Does two-layer mean two separate necklaces?</h3><p>No separate-piece count is confirmed. The source describes a two-layer design; that does not establish two independently wearable necklaces in the package.</p><h3>Which components are metal?</h3><p>A metal field names copper and the clasp field says lobster. These fields do not establish the fabric's fiber composition or the material of every component.</p><p>See the <a href=\"/necklace-guide.html\">black-necklace comparison and material clarification</a>, then review the original listing link in the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "file": "data/catalog.json",
+        "record": "asin=B0D9GWX6L6",
+        "supports": "Published adjustable black necklace identity and source URL; variants named in the title do not establish the selected package."
+      },
+      {
+        "file": "data/necklace-evidence.json",
+        "record": "items[asin=B0D9GWX6L6]",
+        "reviewedOn": "2026-10-30",
+        "supports": "Black 1; 30 cm base plus 8 cm extension; two-layer design with separate-piece count unconfirmed; listed copper and lobster fields."
+      },
+      {
+        "file": "data/necklace-evidence.json",
+        "record": "items[asin=B0D9GWX6L6].ownerClarification",
+        "reviewedOn": "2026-10-30",
+        "supports": "Owner-confirmed fabric applies only to the B0D9GWX6L6 black necklace; retain conflicting leather field and unknown fiber composition."
+      },
+      {
+        "file": "dist/necklace-guide.html",
+        "record": "B0D9GWX6L6 comparison row and fabric/layering questions",
+        "supports": "Keeps the fabric clarification scoped to this product and distinguishes 8 cm from the other black necklace's 10 cm extension."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0D9GWX6L6",
+        "supports": "Original historical source reference; no new live variant or fiber-composition verification is implied."
+      }
+    ]
+  },
+  {
+    "asin": "B0BW91BKR4",
+    "primaryKeyword": "gold tone lariat necklace",
+    "supportingKeywords": [
+      "drop style necklace",
+      "lariat necklace with extender",
+      "16.5 inch lariat necklace"
+    ],
+    "shortDescription": "Gold-tone lariat necklace with a source-listed 16.5-inch length, 2-inch extension and lobster clasp. Separate drop length and exact package contents remain unconfirmed.",
+    "contentHtml": "<section id=\"fubao-search-b0bw91bkr4\" aria-labelledby=\"fubao-search-b0bw91bkr4-heading\"><h2 id=\"fubao-search-b0bw91bkr4-heading\">Gold-tone lariat necklace: neck length versus drop</h2><p>A lariat introduces a vertical drop to the necklace shape. For source identifier B0BW91BKR4, the reviewed text lists a 16.5-inch necklace plus a 2-inch extension and a lobster clasp. It separately lists brass in the metal field and describes 14K gold plating.</p><h3>Does the listed length establish the hanging drop?</h3><p>The source does not give a separate drop measurement. Do not add an assumed drop length to the neck portion or measure it from the styled photo.</p><h3>Is it solid gold?</h3><p>No solid-gold composition is verified. The source describes plating, which does not establish solid gold or guarantee the durability of the finish.</p><h3>Which variant and package does this cover?</h3><p>The exact lariat variant and package count still need confirmation. Treat the listed measurements as source references for selection, not a specification for every option.</p><p>Use the <a href=\"/necklace-guide.html\">necklace length and drop guide</a> for comparison and the <a href=\"/sources.html#source-evidence-index\">product source directory</a> to locate the original listing.</p></section>",
+    "evidenceRefs": [
+      {
+        "file": "data/catalog.json",
+        "record": "asin=B0BW91BKR4",
+        "supports": "Published gold-tone lariat identity, drop silhouette and source URL."
+      },
+      {
+        "file": "data/necklace-evidence.json",
+        "record": "items[asin=B0BW91BKR4]",
+        "reviewedOn": "2026-10-30",
+        "supports": "Listed 16.5-inch length plus 2-inch extension; drop length and package count unconfirmed; brass field, 14K gold-plating description and lobster clasp."
+      },
+      {
+        "file": "dist/necklace-guide.html",
+        "record": "B0BW91BKR4 row and lariat-drop question",
+        "supports": "Do not infer a separate drop measurement from the photo or treat plating as solid gold."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0BW91BKR4",
+        "supports": "Original historical source reference; selected variant remains unconfirmed in the reviewed extract."
+      }
+    ]
+  },
+  {
+    "asin": "B0F2M4CNWH",
+    "primaryKeyword": "layered chain necklace",
+    "supportingKeywords": [
+      "herringbone and Cuban chain layering",
+      "mixed link necklace layers",
+      "gold tone layered chain necklace"
+    ],
+    "shortDescription": "Layered chain necklace with four source-described link styles and distinct measurements. Confirm the selected combination; the listing does not establish a four-chain bundle.",
+    "contentHtml": "<section id=\"fubao-search-b0f2m4cnwh\" aria-labelledby=\"fubao-search-b0f2m4cnwh-heading\"><h2 id=\"fubao-search-b0f2m4cnwh-heading\">Layered chain necklace: check each link and combination</h2><p>This gold-tone layered chain necklace selection is documented under B0F2M4CNWH. The source names four link styles with different measurements: herringbone, 16.5 inches and 4 mm; Cuban, 15 inches and 3 mm; box, 15 inches and 1.2 mm; twisted, 18 inches and 3 mm.</p><h3>Are all four chains in the selected bundle?</h3><p>That is not confirmed. Four styles described in one listing do not establish that every chosen variant includes four separate necklaces.</p><h3>Are their materials the same?</h3><p>The source identifies gold-plated brass for the herringbone chain and lists a lobster clasp. It does not establish identical base metals for every style.</p><h3>Can all the chains be adjusted?</h3><p>An extension measurement for each chain is unconfirmed. Check the exact combination, included pieces and each extension before planning a layered look.</p><p>Compare the figures in the <a href=\"/necklace-guide.html\">necklace layering guide</a> and find the original listing through the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "file": "data/catalog.json",
+        "record": "asin=B0F2M4CNWH",
+        "supports": "Published gold-tone layered-chain identity and variant-dependent quantity."
+      },
+      {
+        "file": "data/necklace-evidence.json",
+        "record": "items[asin=B0F2M4CNWH]",
+        "reviewedOn": "2026-10-30",
+        "supports": "Herringbone 16.5 inches/4 mm, Cuban 15 inches/3 mm, box 15 inches/1.2 mm, twisted 18 inches/3 mm; herringbone gold-plated brass claim; listed lobster clasp."
+      },
+      {
+        "file": "dist/necklace-guide.html",
+        "record": "B0F2M4CNWH comparison row and four-chain question",
+        "supports": "Four named styles do not verify the selected bundle count, shared materials, separate wearability or extensions."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0F2M4CNWH",
+        "supports": "Original historical source reference; no claim that the selected combination includes all four chains."
+      }
+    ]
+  },
+  {
+    "asin": "B0D172FC5V",
+    "primaryKeyword": "hoop earring set",
+    "supportingKeywords": [
+      "three pair hoop earrings",
+      "small hinged hoop earrings",
+      "gold tone hoop set"
+    ],
+    "shortDescription": "Hoop earring set with three source-listed pairs, inner diameters of 0.31, 0.39 and 0.46 inches, and hinged closures. Component materials and weight need separate checks.",
+    "contentHtml": "<section id=\"fubao-search-b0d172fc5v\" aria-labelledby=\"fubao-search-b0d172fc5v-heading\"><h2 id=\"fubao-search-b0d172fc5v-heading\">Hoop earring set: three pairs, measured inside</h2><p>The source for this gold-tone hoop earring set describes three pairs in different sizes. Its stated inner diameters are 0.31, 0.39 and 0.46 inches, and the closure field identifies a hinged snap. These are listing statements for B0D172FC5V, not measurements taken by FUBAO.</p><h3>Are those outer diameters?</h3><p>No. The description identifies inner diameters; overall outer size, hoop thickness and post dimensions remain unconfirmed.</p><h3>Does a silver post mean a solid-silver hoop?</h3><p>The metal field lists copper, while the description separately claims a sterling-silver post and 14K gold plating. Those component claims do not establish a solid-silver or solid-gold body.</p><h3>Can I rely on the listed weight?</h3><p>Not yet. One field shows 20 g, while text says less than 0.1 oz without a clear per-earring, pair or set basis. Wearable weight remains unresolved; no sensitive-ear guarantee is made.</p><p>Read the <a href=\"/earring-guide.html\">hoop size and component-material guide</a> and locate this listing in the <a href=\"/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "file": "data/catalog.json",
+        "record": "asin=B0D172FC5V",
+        "supports": "Published three-pair gold-tone hoop identity, source title and source URL; source-title allergy/tarnish claims are not adopted as guarantees."
+      },
+      {
+        "file": "data/earring-evidence.json",
+        "record": "facts",
+        "reviewedOn": "2026-10-30",
+        "supports": "Three pairs; listed inner diameters 0.31/0.39/0.46 inches; hinged snap closure; copper field and separate sterling-silver-post/14K-plating claims; unresolved 20 g versus less-than-0.1 oz weight basis."
+      },
+      {
+        "file": "dist/earring-guide.html",
+        "record": "What the source lists and Questions before choosing",
+        "supports": "Keep inner/outer measurements and component materials separate; do not verify sensitive-ear suitability or wearable weight from listing claims."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0D172FC5V",
+        "supports": "Original historical source reference; no new material testing, live weight check or allergy-suitability verification is implied."
+      }
+    ]
+  }
+]

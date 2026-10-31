@@ -1,0 +1,799 @@
+{
+  "formatVersion": 1,
+  "retrievedOn": "2026-10-31",
+  "tool": "Semrush Keyword Overview / Bulk Analysis",
+  "database": "US",
+  "metricContext": {
+    "volumeUnit": "Estimated monthly searches in the selected US database",
+    "kdUnit": "Keyword Difficulty, percent",
+    "period": "Current bulk-analysis metrics as observed during this session",
+    "recencyDisplay": "Most rows displayed approximately one month. Exact per-row recency dates were not captured.",
+    "notSiteTraffic": true,
+    "notRankingOrCitationEvidence": true,
+    "canadaMetricsCollected": false,
+    "nullMeaning": "Unavailable or not measured, never an assumed zero. Read each record's status.",
+    "refreshRule": "The silver tone ring set and adjustable gothic necklace rows needed updates; refresh was not clicked."
+  },
+  "recordCounts": {
+    "totalObservedKeywords": 24,
+    "fubaoKeywords": 21,
+    "betterSportResearchOnlyKeywords": 3,
+    "acquisitionUrls": 26,
+    "productUrls": 18
+  },
+  "fubaoKeywords": [
+    {
+      "keyword": "lariat necklace",
+      "volume": 12100,
+      "kd": 12,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "stacking rings",
+      "volume": 12100,
+      "kd": 19,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "cuff bracelet",
+      "volume": 5400,
+      "kd": 26,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "gothic jewelry",
+      "volume": 4400,
+      "kd": 32,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "chunky rings",
+      "volume": 2900,
+      "kd": 17,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "ring size guide",
+      "volume": 2900,
+      "kd": 31,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "adjustable rings",
+      "volume": 2400,
+      "kd": 21,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "gold stacking rings",
+      "volume": 1900,
+      "kd": 22,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "gothic necklace",
+      "volume": 1600,
+      "kd": 9,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "silver stacking rings",
+      "volume": 1600,
+      "kd": 17,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "necklace length guide",
+      "volume": 1300,
+      "kd": 22,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "hoop earring sizes",
+      "volume": 720,
+      "kd": 10,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "leather wrap bracelet",
+      "volume": 590,
+      "kd": 12,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "layered chain necklace",
+      "volume": 480,
+      "kd": 17,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "hoop earring set",
+      "volume": 390,
+      "kd": 21,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "arm cuff bracelet",
+      "volume": 320,
+      "kd": 25,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "bracelet size guide",
+      "volume": 320,
+      "kd": 18,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "turquoise statement ring",
+      "volume": 170,
+      "kd": 6,
+      "status": "observed_current_bulk"
+    },
+    {
+      "keyword": "stacking ring sets",
+      "volume": 20,
+      "kd": null,
+      "status": "volume_observed_kd_unavailable",
+      "note": "Volume was visible; KD was unavailable. Null is not zero."
+    },
+    {
+      "keyword": "silver tone ring set",
+      "volume": null,
+      "kd": null,
+      "status": "needs_update_not_refreshed",
+      "note": "The row required an update. Refresh was not clicked; null is unavailable, not zero."
+    },
+    {
+      "keyword": "adjustable gothic necklace",
+      "volume": null,
+      "kd": null,
+      "status": "needs_update_not_refreshed",
+      "note": "The row required an update. Refresh was not clicked; null is unavailable, not zero."
+    }
+  ],
+  "betterSportResearchOnly": {
+    "database": "US",
+    "keywords": [
+      {
+        "keyword": "zip front sports bra",
+        "volume": 2400,
+        "kd": 28,
+        "status": "observed_current_bulk"
+      },
+      {
+        "keyword": "long sleeve workout tops for women",
+        "volume": 320,
+        "kd": 20,
+        "status": "observed_current_bulk"
+      },
+      {
+        "keyword": "scrunch workout shorts",
+        "volume": 110,
+        "kd": 17,
+        "status": "observed_current_bulk"
+      }
+    ],
+    "purpose": "Three comparison terms were measured for Better Sport only. They are not FUBAO target keywords.",
+    "pageChangesPerformed": false,
+    "crawlPerformed": false
+  },
+  "mappingRules": [
+    "Primary keyword metrics are attached only for an exact term observed in this US batch. Never inherit seed volume or KD for an unmeasured tone, color or style long tail.",
+    "A researchedSeed explains research context, not a replacement product name, a material claim or an instruction to target the same broad word on every product.",
+    "Gold, silver, turquoise and leather search wording does not verify solid precious metal, genuine stones, genuine leather or a selected variant's composition.",
+    "Product pages address specific selection intent; the four guides address measurement and comparison intent. Brand, source and policy pages need not inherit broad category keywords.",
+    "This research file changes no title, URL, price, stock, image, policy, schema or live page. The separate product content packs define the approved text fields.",
+    "Related phrases may overlap. Exact primary uniqueness does not prove absence of search-intent overlap; evaluate query-to-page data before making further changes."
+  ],
+  "keywordMap": [
+    {
+      "url": "https://fubaojewelry.com/",
+      "path": "/",
+      "pageType": "page",
+      "role": "homepage",
+      "intent": "brand_and_navigation",
+      "primaryKeyword": "FUBAO JEWELRY",
+      "researchedSeed": null,
+      "relatedResearchedSeeds": [
+        "gothic jewelry"
+      ],
+      "intentNote": "Keep the homepage focused on the FUBAO brand and the existing collection. The broad aesthetic term is research context, not a required replacement title or a measured brand metric.",
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/sources.html",
+      "path": "/sources.html",
+      "pageType": "page",
+      "role": "source_transparency",
+      "intent": "brand_and_source_navigation",
+      "primaryKeyword": "FUBAO JEWELRY sources and image notes",
+      "researchedSeed": null,
+      "relatedResearchedSeeds": [],
+      "intentNote": "Keep historical evidence, source links and generated-image limits findable. No high-volume generic term is forced onto this transparency page.",
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/guides.html",
+      "path": "/guides.html",
+      "pageType": "page",
+      "role": "guide_hub",
+      "intent": "informational_navigation",
+      "primaryKeyword": "jewelry selection guides",
+      "researchedSeed": null,
+      "relatedResearchedSeeds": [
+        "ring size guide",
+        "necklace length guide",
+        "bracelet size guide",
+        "hoop earring sizes"
+      ],
+      "intentNote": "Route measurement and selection questions to the four existing guides; do not force one broad product keyword onto the hub.",
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/ring-guide.html",
+      "path": "/ring-guide.html",
+      "pageType": "page",
+      "role": "selection_guide",
+      "intent": "informational_fit",
+      "primaryKeyword": "ring size guide",
+      "researchedSeed": "ring size guide",
+      "relatedResearchedSeeds": [
+        "adjustable rings",
+        "stacking rings",
+        "stacking ring sets",
+        "silver stacking rings"
+      ],
+      "intentNote": "The existing guide compares source-listed fit and adjustment for seven selections. It is not a universal ring-size conversion chart; retain that scope.",
+      "primaryMetrics": {
+        "volume": 2900,
+        "kd": 31,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "ring size guide"
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/necklace-guide.html",
+      "path": "/necklace-guide.html",
+      "pageType": "page",
+      "role": "selection_guide",
+      "intent": "informational_length_and_layering",
+      "primaryKeyword": "necklace length guide",
+      "researchedSeed": "necklace length guide",
+      "relatedResearchedSeeds": [
+        "layered chain necklace",
+        "lariat necklace"
+      ],
+      "intentNote": "Explain selected lengths, extensions and layering distinctions without treating source options as a universal fit chart.",
+      "primaryMetrics": {
+        "volume": 1300,
+        "kd": 22,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "necklace length guide"
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/bracelet-guide.html",
+      "path": "/bracelet-guide.html",
+      "pageType": "page",
+      "role": "selection_guide",
+      "intent": "informational_fit_and_measurement",
+      "primaryKeyword": "bracelet size guide",
+      "researchedSeed": "bracelet size guide",
+      "relatedResearchedSeeds": [
+        "cuff bracelet",
+        "arm cuff bracelet",
+        "leather wrap bracelet"
+      ],
+      "intentNote": "Separate diameter, product length and recommended body circumference, and distinguish one layered piece from a set. No universal fit or material guarantee.",
+      "primaryMetrics": {
+        "volume": 320,
+        "kd": 18,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "bracelet size guide"
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/earring-guide.html",
+      "path": "/earring-guide.html",
+      "pageType": "page",
+      "role": "selection_guide",
+      "intent": "informational_hoop_sizing",
+      "primaryKeyword": "hoop earring sizes",
+      "researchedSeed": "hoop earring sizes",
+      "relatedResearchedSeeds": [
+        "hoop earring set"
+      ],
+      "intentNote": "The current guide reviews one three-pair selection and its source-listed inner diameters; do not turn it into an unsupported multi-product ranking.",
+      "primaryMetrics": {
+        "volume": 720,
+        "kd": 10,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "hoop earring sizes"
+      }
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0h694668r.html",
+      "path": "/products/b0h694668r.html",
+      "pageType": "product",
+      "asin": "B0H694668R",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "vintage silver tone ring set",
+      "supportingKeywords": [
+        "vintage inspired ring assortment",
+        "silver tone ring stack",
+        "layering ring set"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "silver tone ring set",
+      "seedRelationship": "Nearest researched wording remains unrefreshed; the vintage long-tail primary itself was not measured.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0gbw7cbvm.html",
+      "path": "/products/b0gbw7cbvm.html",
+      "pageType": "product",
+      "asin": "B0GBW7CBVM",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "gold tone stacking ring set",
+      "supportingKeywords": [
+        "gold tone ring stack",
+        "chunky and delicate rings",
+        "decorative stacking rings"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "gold stacking rings",
+      "seedRelationship": "Broader styling query; its volume and KD do not apply to the gold-tone product primary or verify gold composition.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0gglt29nf.html",
+      "path": "/products/b0gglt29nf.html",
+      "pageType": "product",
+      "asin": "B0GGLT29NF",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "silver tone chunky ring set",
+      "supportingKeywords": [
+        "16 piece ring set",
+        "dome and open rings",
+        "sculptural silver tone rings"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "chunky rings",
+      "seedRelationship": "Broader style query; not an exact measurement of the silver-tone ring-set primary.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0gv3rv7tb.html",
+      "path": "/products/b0gv3rv7tb.html",
+      "pageType": "product",
+      "asin": "B0GV3RV7TB",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "turquoise color statement ring",
+      "supportingKeywords": [
+        "oval statement ring",
+        "gold tone statement ring",
+        "turquoise color ring"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "turquoise statement ring",
+      "seedRelationship": "Broader query omits the color qualifier. It does not establish genuine turquoise or transfer metrics to the primary.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0gtpydkrz.html",
+      "path": "/products/b0gtpydkrz.html",
+      "pageType": "product",
+      "asin": "B0GTPYDKRZ",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "two tone stacking rings",
+      "supportingKeywords": [
+        "two tone band ring set",
+        "CZ accent ring design",
+        "mixed tone stacking rings"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "stacking rings",
+      "seedRelationship": "Broad stacking intent; the two-tone product primary was not measured.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0f5h4k46m.html",
+      "path": "/products/b0f5h4k46m.html",
+      "pageType": "product",
+      "asin": "B0F5H4K46M",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "delicate gold tone stacking rings",
+      "supportingKeywords": [
+        "slim stacking rings",
+        "delicate layered ring look",
+        "gold tone thin ring silhouettes"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "gold stacking rings",
+      "seedRelationship": "Broader styling query; the delicate gold-tone long tail was not measured and the query does not prove material.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0cng13qc3.html",
+      "path": "/products/b0cng13qc3.html",
+      "pageType": "product",
+      "asin": "B0CNG13QC3",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "chunky cuff bracelet set",
+      "supportingKeywords": [
+        "gold tone open cuff bracelets",
+        "two piece cuff set",
+        "open cuff bracelet sizing"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "cuff bracelet",
+      "seedRelationship": "Broader commercial type query; the chunky two-piece long tail was not measured.",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0c23ybcl5.html",
+      "path": "/products/b0c23ybcl5.html",
+      "pageType": "product",
+      "asin": "B0C23YBCL5",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "silver tone cuff bracelet set",
+      "supportingKeywords": [
+        "wide open cuff bracelets",
+        "two piece wide cuff set",
+        "adjustable cuff inner diameter"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "cuff bracelet",
+      "seedRelationship": "Broader commercial type query; the silver-tone set long tail was not measured and does not establish silver composition.",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0f9ymxl4b.html",
+      "path": "/products/b0f9ymxl4b.html",
+      "pageType": "product",
+      "asin": "B0F9YMXL4B",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "black gothic choker necklace",
+      "supportingKeywords": [
+        "velvet lace choker",
+        "black fabric choker",
+        "gothic jewelry"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "gothic necklace",
+      "seedRelationship": "Broader commercial style query; the black choker long tail was not measured.",
+      "contentPack": "wordpress/search-content-necklaces-earrings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0f6bz9ptz.html",
+      "path": "/products/b0f6bz9ptz.html",
+      "pageType": "product",
+      "asin": "B0F6BZ9PTZ",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "arm cuff bracelet",
+      "supportingKeywords": [
+        "three piece arm cuff set",
+        "adjustable arm cuffs",
+        "arm cuff fit measurements"
+      ],
+      "primaryMetrics": {
+        "volume": 320,
+        "kd": 25,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "arm cuff bracelet"
+      },
+      "researchedSeed": "arm cuff bracelet",
+      "seedRelationship": "Exact primary measured in this batch.",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0d9gwx6l6.html",
+      "path": "/products/b0d9gwx6l6.html",
+      "pageType": "product",
+      "asin": "B0D9GWX6L6",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "adjustable gothic necklace",
+      "supportingKeywords": [
+        "black fabric necklace",
+        "two layer goth necklace",
+        "30 cm necklace with 8 cm extender"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "needs_update_not_refreshed",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "adjustable gothic necklace"
+      },
+      "researchedSeed": "adjustable gothic necklace",
+      "seedRelationship": "Exact primary appears only as an unrefreshed row with unavailable metrics. Do not substitute the broader gothic-necklace volume.",
+      "contentPack": "wordpress/search-content-necklaces-earrings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0dhh3jtqs.html",
+      "path": "/products/b0dhh3jtqs.html",
+      "pageType": "product",
+      "asin": "B0DHH3JTQS",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "gold tone open dome ring",
+      "supportingKeywords": [
+        "open ended dome ring",
+        "rounded gold tone ring",
+        "open ring silhouette"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "adjustable rings",
+      "seedRelationship": "Research context only: the source title mentions adjustment, but applicability to the selected dome-ring variant is unresolved. Do not infer a verified adjustment range.",
+      "contentPack": "wordpress/search-content-rings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0bw91bkr4.html",
+      "path": "/products/b0bw91bkr4.html",
+      "pageType": "product",
+      "asin": "B0BW91BKR4",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "gold tone lariat necklace",
+      "supportingKeywords": [
+        "drop style necklace",
+        "lariat necklace with extender",
+        "16.5 inch lariat necklace"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "lariat necklace",
+      "seedRelationship": "Broader commercial style query; the gold-tone long tail was not measured and does not establish gold composition.",
+      "contentPack": "wordpress/search-content-necklaces-earrings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0d172fc5v.html",
+      "path": "/products/b0d172fc5v.html",
+      "pageType": "product",
+      "asin": "B0D172FC5V",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "hoop earring set",
+      "supportingKeywords": [
+        "three pair hoop earrings",
+        "small hinged hoop earrings",
+        "gold tone hoop set"
+      ],
+      "primaryMetrics": {
+        "volume": 390,
+        "kd": 21,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "hoop earring set"
+      },
+      "researchedSeed": "hoop earring set",
+      "seedRelationship": "Exact product-selection primary; informational size intent belongs to the earring guide.",
+      "contentPack": "wordpress/search-content-necklaces-earrings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0fvsf2mkj.html",
+      "path": "/products/b0fvsf2mkj.html",
+      "pageType": "product",
+      "asin": "B0FVSF2MKJ",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "bracelet stack set",
+      "supportingKeywords": [
+        "five piece bracelet stack",
+        "paperclip chain bracelets",
+        "snake link bracelet stack"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "bracelet size guide",
+      "seedRelationship": "Informational fit-support context only. This batch has no matching commercial bracelet-stack seed; do not call this chain stack a cuff or make the guide query its product primary.",
+      "seedUse": "informational_support_only_no_matching_commercial_seed",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0f2m4cnwh.html",
+      "path": "/products/b0f2m4cnwh.html",
+      "pageType": "product",
+      "asin": "B0F2M4CNWH",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "layered chain necklace",
+      "supportingKeywords": [
+        "herringbone and Cuban chain layering",
+        "mixed link necklace layers",
+        "gold tone layered chain necklace"
+      ],
+      "primaryMetrics": {
+        "volume": 480,
+        "kd": 17,
+        "status": "observed_current_bulk",
+        "match": "exact_primary_keyword",
+        "sourceKeyword": "layered chain necklace"
+      },
+      "researchedSeed": "layered chain necklace",
+      "seedRelationship": "Exact primary measured in this batch.",
+      "contentPack": "wordpress/search-content-necklaces-earrings.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0bd5563wd.html",
+      "path": "/products/b0bd5563wd.html",
+      "pageType": "product",
+      "asin": "B0BD5563WD",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "boho wrap bracelet",
+      "supportingKeywords": [
+        "leather style wrap bracelet",
+        "single piece layered bracelet",
+        "19.5 cm wrap bracelet"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "leather wrap bracelet",
+      "seedRelationship": "Related commercial construction query; the boho long tail was not measured. Search wording does not verify genuine leather, leather type or composition.",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/products/b0bvzk4z1x.html",
+      "path": "/products/b0bvzk4z1x.html",
+      "pageType": "product",
+      "asin": "B0BVZK4Z1X",
+      "intent": "commercial_product_selection",
+      "primaryKeyword": "stacked wrap bracelet",
+      "supportingKeywords": [
+        "black boho wrap bracelet",
+        "single piece stacked cuff",
+        "wrap bracelet clasp details"
+      ],
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "researchedSeed": "leather wrap bracelet",
+      "seedRelationship": "Related commercial construction query; the stacked-wrap long tail was not measured. Search wording does not verify genuine leather, leather type or composition.",
+      "contentPack": "wordpress/search-content-bracelets.json",
+      "materialInterpretation": "Retain the product's qualified source wording. Keyword strings do not verify composition, stone authenticity, sizing or adjustment."
+    },
+    {
+      "url": "https://fubaojewelry.com/shipping-returns.html",
+      "path": "/shipping-returns.html",
+      "pageType": "page",
+      "role": "merchant_policy",
+      "intent": "brand_and_policy_navigation",
+      "primaryKeyword": "FUBAO JEWELRY shipping and returns",
+      "researchedSeed": null,
+      "relatedResearchedSeeds": [],
+      "intentNote": "Keep the approved policy clear and accessible. This keyword map does not change delivery estimates, shipping charges or statutory-rights wording.",
+      "primaryMetrics": {
+        "volume": null,
+        "kd": null,
+        "status": "exact_primary_not_measured",
+        "match": "none",
+        "sourceKeyword": null
+      },
+      "requires": "commerce-policy"
+    }
+  ],
+  "siteAudit": {
+    "tool": "Semrush Site Audit",
+    "status": "not_run_project_capacity_reached",
+    "projectCreationResult": "Create project returned a project-capacity limit.",
+    "projectCreated": false,
+    "crawlExecuted": false,
+    "auditResults": null,
+    "limitation": "No Site Audit crawl or health report was produced. Keyword research does not establish current site availability, crawlability, indexing, a RAM upgrade or AI recommendations."
+  }
+}

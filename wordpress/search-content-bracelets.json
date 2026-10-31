@@ -1,0 +1,266 @@
+[
+  {
+    "asin": "B0CNG13QC3",
+    "primaryKeyword": "chunky cuff bracelet set",
+    "supportingKeywords": [
+      "gold tone open cuff bracelets",
+      "two piece cuff set",
+      "open cuff bracelet sizing"
+    ],
+    "shortDescription": "Chunky cuff bracelet set with two gold-tone open cuffs described in the source. Check the listed 6.5 cm opening diameter, wearing position and adjustment limits.",
+    "contentHtml": "<section id=\"search-notes-b0cng13qc3\" aria-labelledby=\"search-heading-b0cng13qc3\"><h2 id=\"search-heading-b0cng13qc3\">Choosing this chunky cuff bracelet set</h2><p>The reviewed source describes two open cuffs in zinc alloy. The catalog presents a broad, gold-tone look. Treat the metal description as an attributed listing statement, not an independently tested composition or a solid-gold claim. Generated images cannot establish fit.</p><h3>Does 6.5 cm describe wrist circumference?</h3><p>No. The source calls it an opening diameter, but the measurement definition and suitable body circumference remain unclear. Do not relabel it as a wrist-size range.</p><h3>Are these wrist cuffs or upper-arm cuffs?</h3><p>The listing mixes both terms. Confirm the intended wearing position, opening gap and inner dimensions rather than assuming the same cuff fits either location.</p><h3>How much can the cuffs adjust?</h3><p>The description mentions slight adjustment, without a verified adjustment range. No separate fastening is confirmed; check those details for the chosen style before relying on fit.</p><p>Compare measurements in the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">bracelet and arm-cuff guide</a>. Find the original listing in our <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0CNG13QC3",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/0",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0CNG13QC3",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  },
+  {
+    "asin": "B0C23YBCL5",
+    "primaryKeyword": "silver tone cuff bracelet set",
+    "supportingKeywords": [
+      "wide open cuff bracelets",
+      "two piece wide cuff set",
+      "adjustable cuff inner diameter"
+    ],
+    "shortDescription": "Silver-tone cuff bracelet set with two wide open cuffs. The source gives a 5–6.5 cm inner diameter; confirm the selected finish and adjustment limits.",
+    "contentHtml": "<section id=\"search-notes-b0c23ybcl5\" aria-labelledby=\"search-heading-b0c23ybcl5\"><h2 id=\"search-heading-b0c23ybcl5\">A wide silver-tone cuff bracelet set</h2><p>This selection is presented as two broad, silver-tone open cuffs. The reviewed description states metal with plated finishes, but the exact base alloy is not confirmed. Silver tone describes the catalog appearance; it does not establish sterling-silver composition.</p><h3>What does the 5–6.5 cm measurement mean?</h3><p>The source identifies an inner diameter. That is different from wrist circumference, so the figures should not be used as a matching wrist-size range.</p><h3>Can the cuffs be adjusted freely?</h3><p>The listing describes an open, adjustable design but also notes that the cuffs are not very soft. Confirm the adjustment limits for the selected finish and shape.</p><h3>Is a clasp included in the design?</h3><p>The evidence describes an open cuff. It does not establish a separate clasp mechanism, and generated imagery is not reliable proof of one.</p><p>For diameter and fit terminology, read the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">bracelet and arm-cuff comparison</a>. Review this selection through the <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">source directory</a> before relying on variant details.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0C23YBCL5",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/1",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0C23YBCL5",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  },
+  {
+    "asin": "B0F6BZ9PTZ",
+    "primaryKeyword": "arm cuff bracelet",
+    "supportingKeywords": [
+      "three piece arm cuff set",
+      "adjustable arm cuffs",
+      "arm cuff fit measurements"
+    ],
+    "shortDescription": "Arm cuff bracelet set with three pieces described in the source. Review the adjustable design and confirm arm measurements; a numerical fit range is not verified.",
+    "contentHtml": "<section id=\"search-notes-b0f6bz9ptz\" aria-labelledby=\"search-heading-b0f6bz9ptz\"><h2 id=\"search-heading-b0f6bz9ptz\">Choosing an arm cuff bracelet set</h2><p>The source describes a set of three arm cuffs in alloy steel, while the catalog presents a gold-tone appearance. These are attributed source descriptions, not independent material testing. This selection is intended for styling above the wrist, so check measurements at the position where you plan to wear it.</p><h3>Does adjustable mean it fits every arm?</h3><p>No. The reviewed description calls the cuffs flexible and adjustable, but it does not establish a numerical arm-size range or universal fit.</p><h3>Which measurement should I confirm?</h3><p>Measure arm circumference at the intended wearing position, then confirm the cuff dimensions and adjustment limits for the selected variant. Do not substitute a wrist measurement for that check.</p><h3>How do the three cuffs fasten?</h3><p>The exact fastening mechanism is not confirmed in the reviewed evidence. Check that detail for the chosen variant; the generated image cannot establish how it closes.</p><p>Use the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">arm-cuff fit guide</a> for measurement distinctions and the <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">source directory</a> to identify the original listing.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0F6BZ9PTZ",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/2",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0F6BZ9PTZ",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  },
+  {
+    "asin": "B0FVSF2MKJ",
+    "primaryKeyword": "bracelet stack set",
+    "supportingKeywords": [
+      "five piece bracelet stack",
+      "paperclip chain bracelets",
+      "snake link bracelet stack"
+    ],
+    "shortDescription": "Gold-tone bracelet stack set with five bracelets described in the source. Review the 6-inch length, 1.5-inch extension and selected chain combination before choosing.",
+    "contentHtml": "<section id=\"search-notes-b0fvsf2mkj\" aria-labelledby=\"search-heading-b0fvsf2mkj\"><h2 id=\"search-heading-b0fvsf2mkj\">Understanding this bracelet stack set</h2><p>The reviewed description states five bracelets, with charm, paperclip and snake-link styling associated with this selection. It describes copper with 14K gold plating, not solid gold. Treat that composition as a seller statement rather than an independently tested material specification.</p><h3>Are the same five designs included in every option?</h3><p>The evidence describes a five-piece combination. Confirm the exact selected combination rather than assuming every pictured chain or charm belongs to the same option.</p><h3>Does each bracelet have the same length?</h3><p>The source gives 6 inches plus a 1.5-inch adjustable extension. Its applicability to each bracelet needs confirmation; the exact clasp type is also unconfirmed in this review.</p><h3>Are waterproof and allergy claims verified?</h3><p>No independent testing establishes waterproof, tarnish-resistance or allergy-suitability claims here. Do not use the appearance or plating description as proof of those properties.</p><p>Compare chain and fit details in the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">bracelet guide</a>, then locate the attributed listing in the <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">product source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0FVSF2MKJ",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/3",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0FVSF2MKJ",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  },
+  {
+    "asin": "B0BD5563WD",
+    "primaryKeyword": "boho wrap bracelet",
+    "supportingKeywords": [
+      "leather style wrap bracelet",
+      "single piece layered bracelet",
+      "19.5 cm wrap bracelet"
+    ],
+    "shortDescription": "Boho wrap bracelet with a single layered-look design. The source lists a 19.5 cm product for 14–16.5 cm wrists; confirm the variant, clasp and leather type.",
+    "contentHtml": "<section id=\"search-notes-b0bd5563wd\" aria-labelledby=\"search-heading-b0bd5563wd\"><h2 id=\"search-heading-b0bd5563wd\">Choosing this boho wrap bracelet</h2><p>The catalog presents brown, tan and pastel details in a layered wrap-style design. The reviewed source describes leather straps with bead details, but does not confirm the leather type. Those descriptions are source statements; generated images do not independently establish composition or measurements.</p><h3>Is this a set of separate bracelets?</h3><p>The source describes one piece with a layered appearance. Decorative strands should not be counted as separate included bracelets.</p><h3>Does 19.5 cm mean a 19.5 cm wrist fit?</h3><p>No. The source describes a 19.5 cm product and separately suggests wrists of 14–16.5 cm. Confirm the selected variant and measurement method rather than treating product length as wrist circumference.</p><h3>What should I know about the clasp and care?</h3><p>The exact clasp type is not confirmed in this review. The source advises keeping this piece away from water and perfume; no waterproof claim is established here.</p><p>Read the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">wrap-bracelet fit comparison</a> and consult the <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">product source directory</a> for the original listing.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0BD5563WD",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/4",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0BD5563WD",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  },
+  {
+    "asin": "B0BVZK4Z1X",
+    "primaryKeyword": "stacked wrap bracelet",
+    "supportingKeywords": [
+      "black boho wrap bracelet",
+      "single piece stacked cuff",
+      "wrap bracelet clasp details"
+    ],
+    "shortDescription": "Stacked wrap bracelet with black and gold-tone styling. The source describes one 19.5 cm piece for 14–16.5 cm wrists; confirm the design and clasp mechanism.",
+    "contentHtml": "<section id=\"search-notes-b0bvzk4z1x\" aria-labelledby=\"search-heading-b0bvzk4z1x\"><h2 id=\"search-heading-b0bvzk4z1x\">A stacked wrap bracelet in black and gold tones</h2><p>This catalog selection has a black and gold-tone stacked cuff appearance. The source describes a leather wrap construction and one layered-look piece, not multiple separate bracelets. Decorative materials vary by option, so descriptions from other pictured designs should not be combined into a claim about this variant.</p><h3>Which size figures belong to the bracelet and wrist?</h3><p>The reviewed description gives a 19.5 cm product length and a suggested wrist range of 14–16.5 cm. Keep those measurements separate and confirm the selected design.</p><h3>What kind of clasp does it use?</h3><p>The source mentions a clasp, but its mechanism is not confirmed in this review. Check the fastening details for the selected design rather than inferring them from the generated image.</p><h3>How does the source describe care?</h3><p>It advises avoiding prolonged contact with water, perfume and lotion. This is source care guidance; waterproofing and durability have not been independently verified.</p><p>Compare the two wrap selections in the <a href=\"https://fubaojewelry.com/bracelet-guide.html\">bracelet guide</a> and trace the listing through the <a href=\"https://fubaojewelry.com/sources.html#source-evidence-index\">source directory</a>.</p></section>",
+    "evidenceRefs": [
+      {
+        "path": "data/catalog.json",
+        "asin": "B0BVZK4Z1X",
+        "fields": [
+          "name",
+          "finish",
+          "description",
+          "sourceUrl"
+        ]
+      },
+      {
+        "path": "data/bracelet-evidence.json",
+        "jsonPointer": "/items/5",
+        "reviewedOn": "2026-10-30",
+        "fields": [
+          "count",
+          "fit",
+          "closure",
+          "material",
+          "limits"
+        ],
+        "scope": "Attributed listing descriptions; cached extracts may predate the review; no independent physical testing."
+      },
+      {
+        "url": "https://www.amazon.com/dp/B0BVZK4Z1X",
+        "role": "Original source recorded in local evidence; not newly retrieved for this content pack."
+      },
+      {
+        "path": "dist/bracelet-guide.html",
+        "role": "Cross-check measurement definitions and unresolved variant limits; retained static research guide is not current sales data."
+      }
+    ]
+  }
+]
