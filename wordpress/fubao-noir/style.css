@@ -63,6 +63,12 @@ Text Domain: fubao-noir
 .fubao-commerce .woocommerce table.shop_table :is(td,th) { border-color: #c8c0b2; }
 .fubao-commerce .woocommerce :is(.cart-collaterals,.woocommerce-checkout-review-order) h2 { font-size: 30px; }
 .fubao-commerce :is(button,a,input,select,textarea):focus-visible { outline: 2px solid #6c4c32; outline-offset: 3px; }
+@media(min-width:601px) and (max-width:800px) {
+    .header { position: relative; }
+    .header nav { display: none; position: absolute; left: 0; right: 0; top: 100%; padding: 26px; background: #151515; z-index: 5; border-bottom: 1px solid #444; }
+    .header nav.open { display: flex; flex-direction: column; gap: 24px; }
+    #menu-toggle { display: block; font-size: 22px; }
+}
 @media(max-width:700px) {
     .nav-actions { gap: 9px; }
     .nav-actions .bag-button { font-size: 7px; letter-spacing: .3px; white-space: nowrap; padding: 0; }

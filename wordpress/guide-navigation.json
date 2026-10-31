@@ -1,0 +1,91 @@
+{
+  "formatVersion": "fubao-guide-navigation-v1",
+  "scope": "Offline navigation and ID additions only. Preserve the supplied current HTML, sales wording, metadata, schema and URLs. Do not publish historical dist HTML over WordPress.",
+  "keywordMapSource": "data/search-keywords-2026-10-31.json",
+  "productTargetNote": "Seventeen existing comparison tbody rows plus the earring guide's existing single-product dl.facts; no new table, specification or FAQ is created.",
+  "guides": {
+    "ring": {
+      "path": "/ring-guide.html",
+      "primaryKeyword": "ring size guide",
+      "h1Text": "Compare the details. Choose with clarity.",
+      "navigationId": "ring-on-this-page",
+      "comparison": {"text": "What the listings say", "id": "ring-comparison", "navLabel": "Compare selections"},
+      "questions": {"text": "Questions before choosing", "id": "ring-questions", "navLabel": "All questions"},
+      "navigationFaqIds": ["ring-faq-adjustable-fit", "ring-faq-included-count"],
+      "faqs": [
+        {"summary": "Does “silver-tone” mean sterling silver?", "id": "ring-faq-silver-tone"},
+        {"summary": "Does “adjustable” mean any finger size?", "id": "ring-faq-adjustable-fit"},
+        {"summary": "Can I use the photos to count the included rings?", "id": "ring-faq-included-count"},
+        {"summary": "Are the prices current offers?", "id": "ring-faq-current-prices"},
+        {"summary": "Which ring is hypoallergenic or waterproof?", "id": "ring-faq-material-claims"}
+      ]
+    },
+    "necklace": {
+      "path": "/necklace-guide.html",
+      "primaryKeyword": "necklace length guide",
+      "h1Text": "Know the length. Understand the layers.",
+      "navigationId": "necklace-on-this-page",
+      "comparison": {"text": "Lengths, layers & material notes", "id": "necklace-comparison", "navLabel": "Compare lengths and layers"},
+      "questions": {"text": "Questions before layering", "id": "necklace-questions", "navLabel": "All questions"},
+      "navigationFaqIds": ["necklace-faq-black-necklace-lengths", "necklace-faq-lariat-drop"],
+      "faqs": [
+        {"summary": "Are the two black necklaces the same length?", "id": "necklace-faq-black-necklace-lengths"},
+        {"summary": "Is the Fesciory black necklace leather or fabric?", "id": "necklace-faq-fabric-clarification"},
+        {"summary": "Are all four Tewiky chain styles included?", "id": "necklace-faq-chain-combination"},
+        {"summary": "Does the lariat length include the drop?", "id": "necklace-faq-lariat-drop"},
+        {"summary": "Are the material claims tested by FUBAO?", "id": "necklace-faq-material-claims"}
+      ]
+    },
+    "bracelet": {
+      "path": "/bracelet-guide.html",
+      "primaryKeyword": "bracelet size guide",
+      "h1Text": "Understand the fit. Count the pieces.",
+      "navigationId": "bracelet-on-this-page",
+      "comparison": {"text": "Fit, fastening & source limits", "id": "bracelet-comparison", "navLabel": "Compare fit and fastening"},
+      "questions": {"text": "Questions before choosing", "id": "bracelet-questions", "navLabel": "All questions"},
+      "navigationFaqIds": ["bracelet-faq-diameter-circumference", "bracelet-faq-product-wrist-length"],
+      "faqs": [
+        {"summary": "Is a 6.5 cm diameter a 6.5 cm wrist size?", "id": "bracelet-faq-diameter-circumference"},
+        {"summary": "Does 19.5 cm mean the bracelet fits a 19.5 cm wrist?", "id": "bracelet-faq-product-wrist-length"},
+        {"summary": "Are the wrap bracelets several separate bracelets?", "id": "bracelet-faq-one-layered-piece"},
+        {"summary": "Can the arm cuffs fit any arm?", "id": "bracelet-faq-arm-cuff-fit"},
+        {"summary": "Are these waterproof or suitable for sensitive skin?", "id": "bracelet-faq-material-claims"}
+      ]
+    },
+    "earring": {
+      "path": "/earring-guide.html",
+      "primaryKeyword": "hoop earring sizes",
+      "h1Text": "Small hoops. Specific details.",
+      "navigationId": "earring-on-this-page",
+      "comparison": {"text": "What the source lists", "id": "earring-source-facts", "navLabel": "Source facts"},
+      "questions": {"text": "Questions before choosing", "id": "earring-questions", "navLabel": "All questions"},
+      "navigationFaqIds": ["earring-faq-inner-outer-diameter", "earring-faq-weight-basis"],
+      "faqs": [
+        {"summary": "Are the listed sizes inner or outer diameters?", "id": "earring-faq-inner-outer-diameter"},
+        {"summary": "Does a silver post mean an all-silver earring?", "id": "earring-faq-component-materials"},
+        {"summary": "Can the weight be confirmed?", "id": "earring-faq-weight-basis"},
+        {"summary": "Is the sensitive-ear claim verified?", "id": "earring-faq-sensitive-ear-claim"}
+      ]
+    }
+  },
+  "productDeepLinks": [
+    {"asin": "B0H694668R", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0h694668r", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0h694668r"},
+    {"asin": "B0GBW7CBVM", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0gbw7cbvm", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0gbw7cbvm"},
+    {"asin": "B0GGLT29NF", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0gglt29nf", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0gglt29nf"},
+    {"asin": "B0GV3RV7TB", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0gv3rv7tb", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0gv3rv7tb"},
+    {"asin": "B0GTPYDKRZ", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0gtpydkrz", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0gtpydkrz"},
+    {"asin": "B0F5H4K46M", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0f5h4k46m", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0f5h4k46m"},
+    {"asin": "B0DHH3JTQS", "guide": "ring", "targetElement": "tr", "anchorId": "ring-product-b0dhh3jtqs", "guidePath": "/ring-guide.html", "deepLink": "https://fubaojewelry.com/ring-guide.html#ring-product-b0dhh3jtqs"},
+    {"asin": "B0F9YMXL4B", "guide": "necklace", "targetElement": "tr", "anchorId": "necklace-product-b0f9ymxl4b", "guidePath": "/necklace-guide.html", "deepLink": "https://fubaojewelry.com/necklace-guide.html#necklace-product-b0f9ymxl4b"},
+    {"asin": "B0D9GWX6L6", "guide": "necklace", "targetElement": "tr", "anchorId": "necklace-product-b0d9gwx6l6", "guidePath": "/necklace-guide.html", "deepLink": "https://fubaojewelry.com/necklace-guide.html#necklace-product-b0d9gwx6l6"},
+    {"asin": "B0BW91BKR4", "guide": "necklace", "targetElement": "tr", "anchorId": "necklace-product-b0bw91bkr4", "guidePath": "/necklace-guide.html", "deepLink": "https://fubaojewelry.com/necklace-guide.html#necklace-product-b0bw91bkr4"},
+    {"asin": "B0F2M4CNWH", "guide": "necklace", "targetElement": "tr", "anchorId": "necklace-product-b0f2m4cnwh", "guidePath": "/necklace-guide.html", "deepLink": "https://fubaojewelry.com/necklace-guide.html#necklace-product-b0f2m4cnwh"},
+    {"asin": "B0CNG13QC3", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0cng13qc3", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0cng13qc3"},
+    {"asin": "B0C23YBCL5", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0c23ybcl5", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0c23ybcl5"},
+    {"asin": "B0F6BZ9PTZ", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0f6bz9ptz", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0f6bz9ptz"},
+    {"asin": "B0FVSF2MKJ", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0fvsf2mkj", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0fvsf2mkj"},
+    {"asin": "B0BD5563WD", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0bd5563wd", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0bd5563wd"},
+    {"asin": "B0BVZK4Z1X", "guide": "bracelet", "targetElement": "tr", "anchorId": "bracelet-product-b0bvzk4z1x", "guidePath": "/bracelet-guide.html", "deepLink": "https://fubaojewelry.com/bracelet-guide.html#bracelet-product-b0bvzk4z1x"},
+    {"asin": "B0D172FC5V", "guide": "earring", "targetElement": "dl", "anchorId": "earring-product-b0d172fc5v", "guidePath": "/earring-guide.html", "deepLink": "https://fubaojewelry.com/earring-guide.html#earring-product-b0d172fc5v"}
+  ]
+}

@@ -18,6 +18,7 @@
             wp_nav_menu(array('theme_location' => 'primary', 'container' => false, 'items_wrap' => '%3$s', 'depth' => 1));
         } else { ?>
             <a href="<?php echo esc_url(home_url('/#collection')); ?>">Collection</a>
+            <a href="<?php echo esc_url(fubao_noir_page_url('guides')); ?>">Guides</a>
             <a href="<?php echo esc_url(home_url('/#story')); ?>">Our story</a>
             <a href="<?php echo esc_url(home_url('/#lookbook')); ?>">Lookbook</a>
         <?php } ?>
