@@ -8,7 +8,7 @@
 
 - **本轮18款实际保存与已完成验收：**通过正常WP经典商品编辑器串行保存全部18款，仅更新`post_content`和Woo短描述，稿源为3份`wordpress/search-content-*.json`；各款原正文事先在Git外备份，非空原文按追加规则保留。每款3组问答，共54组及36个guide/source内链；18款均见Product updated及当时公开核验，meta description和Product.description精确等于新短描，原title、canonical、image及完整Offer对象不变，17可售+1缺价不可售保留。其中17款保存后编辑器回读正文/短描与公开页均通过；首款prototype已见保存成功、新meta、3QA与完整Offer不变，但随后fresh编辑器原文精确复核被再次DB故障阻断，不能说18款fresh编辑器复核全完成。表单初始化短暂出现的空affiliate/新tag控件不代表配置变更；1页首次Update未提交，经公开页确认旧内容后才重提并验过，不盲目连点。外部审计`fubao-product-search-audit-20261031.json`与18份原文备份不入Git。
 
-- 本轮未改主题/插件1.1.2、图片、URL、售价、库存、支付、SMTP、运费、订单、账号或服务器，没有发邮件或下单。18次普通编辑及18个公开GET成功只证明当时可用，随后已再次发生DB错误，不证明长期稳定或RAM已升级；`UM66364`的Edge缓存曾显示Open/Medium，但刷新工单与账单均跳到RackNerd Login，客户中心会话过期，最新回复/未付账单无法确认，未付款。收录只保留此前1个代表商品已确认的结论，不能把18页新内容上线说成18页已收录。上轮measure/source两页patch保持不变。Better Sport本轮3词仅研究、站点未改，原小样本下不大改的判断继续适用。
+- 本轮未改主题/插件1.1.2、图片、URL、售价、库存、支付、SMTP、运费、订单、账号或服务器，没有发邮件或下单。18次普通编辑及18个公开GET成功只证明当时可用，随后已再次发生DB错误，不证明长期稳定或RAM已升级；客户中心现已重新登录，`UM66364`客服确认附加30USD/年及付款后需VPS重启，已仅回复请求开票供审阅，现Customer-Reply/Medium，未付款或重启。收录只保留此前1个代表商品已确认的结论，不能把18页新内容上线说成18页已收录。上轮measure/source两页patch保持不变。Better Sport本轮3词仅研究、站点未改，原小样本下不大改的判断继续适用。
 
 - **上轮两页内容更新（保持不变）：**用户明确继续优化时已解除此前RAM-only内容冻结。该轮FUBAO的`/guides.html`和`/sources.html`打开正常，仅证明该时间点可访问，不证明持续稳定或RAM已升级。仅通过正常WP管理员编辑器保存这2篇现有页，均显示Page updated及2个revisions：指南在唯一“How to read the guides”前插入`wordpress/guides-measurements.html`，来源页在唯一`</main>`前追加`wordpress/sources-evidence-index.html`；移除插入块后原文逐字一致，原正文备份和证据在Git外。两个HTML文件为已发布内容patch源码。
 
@@ -18,7 +18,7 @@
 
 - **事故历史与当前限制：**此前数据库连接错误及刷新超时，内核只读检查确认多次`CONSTRAINT_NONE/global_oom`终止mysqld并自动反复拉起；`MemoryHigh/MemoryMax/MemorySwapMax`均为infinity。此前实例快照约1967MB RAM、1GB swap（已用581MB）、磁盘空闲约23GB；MySQL buffer pool 256MB、max_connections 100、临时表上限64MB。普通编辑和公开页可访问不能替代持续健康或全26页复测；故障前26页政策验收保留其历史范围，未重启或修改服务器配置。
 
-- RAM升级是独立待办。本轮Edge缓存曾见`UM66364` Open/Medium，但刷新ticket及invoice均进入RackNerd Login，会话已过期，不能确认最新客服回复或未付账单；已通过异步问题请用户在Edge重新登录。既有授权仅为原实例2→4GB、附加30USD/年及联系信息提交，持续有效、不重复询问，付款仍未授权或执行。上次购买客户中心核验了唯一原2GB服务（原年费35.99USD、当时未付账单0）；认证Sales (Upgrades)工单`UM66364`引用匿名`FP87353`，上次状态Open/Medium、待客服。请求保留IP/OS/35GB磁盘/CPU/带宽/站点与数据库，先确认重启/停机/首期按比例费用/续费并出账单供审阅，不自动扣款、先不实施；这些仍是请求条件，未核实升级完成。实际联系值、账号、私有链接或访问码不记录。
+- RAM升级是独立待办。用户已在现有浏览器客户中心恢复登录，旧Edge登录页不再构成当前阻挡。`UM66364`真实客服回复时为Answered/Medium，确认仅增加2GB、附加30USD/年（15USD/GB），可开invoice，付款后须VPS重启生效。沿既有授权仅回复1次请求开票供审阅，现Customer-Reply/Medium；要求列明首期按比例费用/以后续费，确认保留IP/OS/35GB磁盘/2CPU/带宽/网站与数据库、不重装迁移，并预告停机、协调重启。本轮回复开票后立即新开已认证官方账单列表，仍0未付、仅原35.99USD已付账单，等待客服实际生成；这是即时结果，不代表之后持续为0。最终账单、保留保证和停机时长仍未核验；不授权自动扣款或应用服务器变更，未付款、未重启。原2→4GB/附加30USD年费申请及联系提交授权持续有效，不重复询问。实际账号、邮箱、账单ID、私有链接或访问码不记录。
 
 - 此前用户打开的4GB KVM VPS Special购物车是新购服务器（59.99USD/年、60GB磁盘），不是原机内存升级；当时仅只读核对，未点击Continue或修改/移除/购买。此前QQ工单通知未收到，发送提示不代表送达；不得保存匿名工单的访问链接/码。该阶段的内容暂停已被本轮明确继续优化的授权取代，RAM申请与内容优化分别跟踪。
 
