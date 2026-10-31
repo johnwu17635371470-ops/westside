@@ -2,17 +2,23 @@
 
 ## 用户最新要求（2026-10-31，优先于下方历史说明）
 
-- **当前故障与暂停范围：**正式站及`/guides.html`最后观察到数据库连接错误，尚未复核恢复。只读VNC检查确认内核多次因`CONSTRAINT_NONE/global_oom`终止mysqld，服务自动启动并反复拉起；`MemoryHigh/MemoryMax/MemorySwapMax`均为infinity，不是已发现的单服务内存上限。实例约1967MB RAM、1GB swap（一次快照已用581MB），磁盘约23GB空闲；MySQL buffer pool为256MB、max_connections为100、临时表上限64MB。以下26页政策验收是**故障前结果**，不能据此声称当前站点正常。本轮未重启服务或实例，未修改配置、网站内容或数据库。
+- **最新内容授权与结果：**用户已明确继续优化FUBAO及查看Better Sport数据，解除此前RAM-only内容冻结。本轮FUBAO的`/guides.html`和`/sources.html`实际打开正常，仅证明该时间点可访问，不证明持续稳定或RAM已升级。仅通过正常WP管理员编辑器保存这2篇现有页，均显示Page updated及2个revisions：指南在唯一“How to read the guides”前插入`wordpress/guides-measurements.html`，来源页在唯一`</main>`前追加`wordpress/sources-evidence-index.html`；移除插入块后原文逐字一致，原正文备份和证据在Git外。两个HTML文件现为已发布内容patch源码，不再是冻结草稿。
 
-- 用户已明确授权仅提交现有实例增加2GB RAM（2→4GB）、附加30USD/年（15USD/GB/年）的升级请求，另已授权联系姓名和既有QQ邮箱提交；实际联系值不记录。既有授权持续有效，不重复询价授权，付款仍未授权或执行。已通过已登录的购买客户中心确认唯一原2GB KVM服务及原实例匹配；原年费35.99USD，核验时仅原账单已付、未付账单为0。按匿名工单`FP87353`的认证要求，现已通过Sales (Upgrades)成功新建认证工单`UM66364`，关联正确原服务、角色为业主，状态Open/Medium，尚无新客服回复或升级账单。工单引用原工单，要求仅RAM 2→4GB、附加30USD/年，保留IP/OS/35GB磁盘/CPU/带宽/网站与数据库；先确认重启、停机、首期按比例费用和续费并出账单供审阅，明确不自动扣款、先不实施。客户登录与认证提交均已完成，现待客服；保留条件尚非供应商保证，内存尚未升级。
+- 两篇保存后均重新加载编辑器，新增正文精确保留且去除新增块后与原文一致；两页title、description、canonical及全部JSON-LD前后完全一致，站点地图仍26项。指南新增4行/5个链接，来源索引18条，含18个本站商品绝对链接及18个匹配的原Amazon链接；两页浏览器error日志均0。两页1440/768/390宽度检查无页面横向溢出；手机指南表格只在可聚焦的内部区域滚动，临时viewport已reset。主题/插件仍1.1.2；未新建页面/schema/插件、构建部署包或跑导入，未改服务器、支付、SMTP、运费、订单或购物车。不得用全量sales迁移覆盖这些编辑；completed import保留现有编辑，新安装需要这些块时采用受控单页追加。
 
-- 用户打开的4GB KVM VPS Special购物车为**新购服务器**，59.99USD/年、60GB磁盘及OS选择，不是原机2→4GB内存升级。仅只读核对，未点击Continue、修改、移除或购买用户购物车。QQ工单通知此前未收到，发送提示不代表送达；匿名工单访问链接含访问码，严禁记录链接/码/会话信息。未付款、未升级，未改服务、配置或内容；本轮未复测网站恢复。GEO发布继续暂停，`wordpress/guides-measurements.html`保持离线未跟踪冻结，不编辑、不提交或发布。
+- Better Sport本轮只读核对：完整周10/22–10/28对10/15–10/21，Web曝光9对0、点击0对0、CTR 0、当前平均位置22；前期位置0是无数据。Google专门AI报告为1对0链接曝光，唯一PINSPARK长袖页，不能称ChatGPT引用、转化或持续推荐。3个曝光页公开可访问、self-canonical且无noindex；样本极小，不大改或批量重写，保留有效内容并比较后续相同完整周期。本轮未修改Better Sport、提交索引或操作订单，未查其他AI平台。
 
-- 用户确认17款售卖商品现货；美国/加拿大预计时效一致，为备货3个工作日加运输15个工作日，合计约18个工作日，不是到货保证。无自愿退货，保留适用法律下的法定权利。RackNerd终端访问已恢复，Noir/Catalog 1.1.2已通过修正后的r1五文件流程部署，`/shipping-returns.html`政策页与26页站点地图已上线。原脚本在unused manifest包检查时先行停止、未改生产；r1首次HTTP阶段单页curl28超时，随后同一只读validator重试全26页通过，独立postflight确认支付/SMTP/银行/运费指纹未变，`wp-config.php`仍640/www。须保留原失败日志，不能说r1单次运行全部PASS。本轮未重做实际支付、订单或邮件测试，用户购物车仍5件且未改数量。
+- **事故历史与当前限制：**此前数据库连接错误及刷新超时，内核只读检查确认多次`CONSTRAINT_NONE/global_oom`终止mysqld并自动反复拉起；`MemoryHigh/MemoryMax/MemorySwapMax`均为infinity。此前实例快照约1967MB RAM、1GB swap（已用581MB）、磁盘空闲约23GB；MySQL buffer pool 256MB、max_connections 100、临时表上限64MB。本轮两页可访问不能替代持续健康或全26页复测；故障前26页政策验收保留其历史范围，未重启或修改服务器配置。
+
+- RAM升级是独立待办，本轮未查询新进展。既有授权仅为原实例2→4GB、附加30USD/年及联系信息提交，持续有效，付款仍未授权或执行。上次购买客户中心核验了唯一原2GB服务（原年费35.99USD、当时未付账单0）；认证Sales (Upgrades)工单`UM66364`引用匿名`FP87353`，上次状态Open/Medium、待客服。请求保留IP/OS/35GB磁盘/CPU/带宽/站点与数据库，先确认重启/停机/首期按比例费用/续费并出账单供审阅，不自动扣款、先不实施；这些仍是请求条件，未核实升级完成。实际联系值、账号、私有链接或访问码不记录。
+
+- 此前用户打开的4GB KVM VPS Special购物车是新购服务器（59.99USD/年、60GB磁盘），不是原机内存升级；当时仅只读核对，未点击Continue或修改/移除/购买。此前QQ工单通知未收到，发送提示不代表送达；不得保存匿名工单的访问链接/码。该阶段的内容暂停已被本轮明确继续优化的授权取代，RAM申请与内容优化分别跟踪。
+
+- 用户确认17款售卖商品现货；美国/加拿大预计时效一致，为备货3个工作日加运输15个工作日，合计约18个工作日，不是到货保证。无自愿退货，保留适用法律下的法定权利。RackNerd终端访问已恢复，Noir/Catalog 1.1.2已通过修正后的r1五文件流程部署，`/shipping-returns.html`政策页与26页站点地图已上线。原脚本在unused manifest包检查时先行停止、未改生产；r1首次HTTP阶段单页curl28超时，随后同一只读validator重试全26页通过，独立postflight确认支付/SMTP/银行/运费指纹未变，`wp-config.php`仍640/www。须保留原失败日志，不能说r1单次运行全部PASS。该次政策验收未重做实际支付、订单或邮件测试，当时用户购物车为5件且未改数量。
 
 - 用户已明确批准将现有有金额的17款历史参考金额作为本站正式USD售价，缺价1款暂不售卖。保留原来源与历史参考价字段，不能继续把17款统一说成不销售，也不能给缺价款编售价。银行转账参考现有BetterSport账户（仅只读来源，严禁改BetterSport或复制PayPal密钥）；PayPal授权已由用户本人完成，后续新增授权仍需用户本人处理。配送仅美国/加拿大，按购买单位计数量，套装算1件；首件12USD，每多一件加1USD。
 
-- 正式域名现已指向 RackNerd 独立 WordPress 新站。`blog_public=1` 已开放正式26页抓取；辅助购物车/结账/账号/搜索等保持noindex，唯一站点地图为 `/sitemap.xml`。17款正式售价、真实Woo库存状态availability与已批准returnPolicy通过验收，缺价1款无Offer且不可购买；美加1/2/3套运费仍12/13/14USD。PayPal后台已验证 `Business | Live`，本轮只读检测仍connected；先前前台控件验收不代表实际交易验证。Apple Pay、Google Pay维持关闭。原 Sites 及其私有访问范围未变。备份与分阶段验收日志见 `PROGRESS.md` 最新节；不自动恢复整库，以免覆盖后来订单。
+- 正式域名现已指向 RackNerd 独立 WordPress 新站。`blog_public=1` 已开放正式26页抓取；辅助购物车/结账/账号/搜索等保持noindex，唯一站点地图为 `/sitemap.xml`。17款正式售价、真实Woo库存状态availability与已批准returnPolicy通过验收，缺价1款无Offer且不可购买；美加1/2/3套运费仍12/13/14USD。PayPal后台已验证 `Business | Live`，政策发布验收时只读检测为connected；先前前台控件验收不代表实际交易验证。Apple Pay、Google Pay维持关闭。原 Sites 及其私有访问范围未变。备份与分阶段验收日志见 `PROGRESS.md` 最新节；不自动恢复整库，以免覆盖后来订单。
 
 - WP Mail SMTP Lite 4.10.3已安装激活；Woo新订单、取消、失败通知已启用，From Name为FUBAO JEWELRY。QQ Other SMTP连接（SSL 465、认证开启）已按用户提供的授权完成保存。用户另行明确批准发送1封系统测试邮件，已恰好提交1封，界面显示发送成功；用户随后明确回复“已收到”，确认QQ收件箱收到本次邮件，发信通道已验证。订单通知全链路尚未用实际订单测试，没有创建订单或扣款。仓库禁止记录邮箱地址、SMTP授权码、商户标识、密钥或会话链接。
 
